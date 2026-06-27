@@ -1,0 +1,53 @@
+# ============================================================
+# Netlify Configuration — KULEATHER Frontend
+# ============================================================
+
+[build]
+  # No build step needed — pure static HTML/CSS/JS
+  publish = "."
+
+# ============================================================
+# Redirects & Rewrites
+# ============================================================
+
+# Root → default to Light theme
+[[redirects]]
+  from = "/"
+  to = "/Kuleather-Light/index.html"
+  status = 200
+
+# /light shortcut
+[[redirects]]
+  from = "/light"
+  to = "/Kuleather-Light/index.html"
+  status = 200
+
+# /dark shortcut
+[[redirects]]
+  from = "/dark"
+  to = "/Kuleather-Dark/index.html"
+  status = 200
+
+# ============================================================
+# Headers — Cache static assets
+# ============================================================
+
+[[headers]]
+  for = "/Kuleather-Light/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/Kuleather-Dark/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/Kuleather-Light/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/Kuleather-Dark/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
