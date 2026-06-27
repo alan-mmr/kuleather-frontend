@@ -238,10 +238,54 @@
     width: 100%;
   }
 
-  /* Footer stack */
+  /* Footer mobile — improved layout */
   .footer-top {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl) var(--space-lg);
+  }
+
+  /* Brand section takes full width on mobile */
+  .footer-brand {
+    grid-column: 1 / -1;
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(212, 194, 158, 0.1);
+  }
+
+  .footer-brand-desc {
+    max-width: 320px;
+  }
+
+  /* Footer column titles bigger on touch */
+  .footer-column-title {
+    font-size: 10px;
+    margin-bottom: var(--space-md);
+  }
+
+  /* Footer links touch-friendly */
+  .footer-link,
+  .footer-contact-item {
+    font-size: 14px;
+    padding: 2px 0;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Contact column full width */
+  .footer-column:last-of-type {
+    grid-column: 1 / -1;
+    padding-top: var(--space-sm);
+    border-top: 1px solid rgba(212, 194, 158, 0.08);
+  }
+
+  .footer-contact-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm) var(--space-md);
+  }
+
+  .footer-contact-item:first-child {
+    grid-column: 1 / -1;
   }
 
   /* Inline form stack */
