@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Checkout Kuleather — Selesaikan pemesanan Anda dengan aman melalui langkah-langkah pengisian alamat, pemilihan metode pembayaran, dan konfirmasi.">
-  <title>Checkout Pemesanan — KULEATHER</title>
+  <meta name="description" content="Checkout Kuleather â€” Selesaikan pemesanan Anda dengan aman melalui langkah-langkah pengisian alamat, pemilihan metode pembayaran, dan konfirmasi.">
+  <title>Checkout Pemesanan â€” KULEATHER</title>
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/typography.css">
@@ -114,7 +114,7 @@
 
   <!-- MAIN CHECKOUT CONTENT -->
   <main class="section container" style="padding-top: var(--space-sm);">
-    <div class="checkout-layout" id="checkout-layout-wrapper" style="display:grid; grid-template-columns: 1.65fr 1fr; gap:var(--space-2xl); align-items:start;">
+    <div class="checkout-layout" id="checkout-layout-wrapper">
       <!-- LEFT PANEL: Multi-step panels -->
       <section style="background-color:var(--surface); border:1px solid var(--muted-light); padding:var(--space-lg);">
         
@@ -362,7 +362,7 @@
     </div>
     <div class="footer-bottom container">
       <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
-      <span>MADE WITH ♡ IN MAGETAN</span>
+      <span>MADE WITH â™¡ IN MAGETAN</span>
     </div>
   </footer>
 
@@ -552,7 +552,7 @@
           cart.forEach(item => {
             itemsHtml += `
               <div style="display:flex; justify-content:space-between; font-size:13px; padding:6px 0; border-bottom:1px solid var(--muted-light);">
-                <span class="text-secondary">${item.name} (${item.variant}) <strong style="color:var(--text-primary);">×${item.qty}</strong></span>
+                <span class="text-secondary">${item.name} (${item.variant}) <strong style="color:var(--text-primary);">Ã—${item.qty}</strong></span>
                 <span style="font-weight:500;">${idr(item.price * item.qty)}</span>
               </div>
             `;
@@ -719,3 +719,4 @@
   </script>
 </body>
 </html>
+

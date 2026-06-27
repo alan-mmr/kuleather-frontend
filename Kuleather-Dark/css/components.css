@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    1. NAVBAR COMPONENT
    ========================================================================== */
 .navbar {
@@ -1790,7 +1790,7 @@ textarea:disabled {
 }
 
 /* ==========================================================================
-   RESPONSIVE OVERHAUL — Public Pages (Mobile Polish)
+   RESPONSIVE OVERHAUL â€” Public Pages (Mobile Polish)
    ========================================================================== */
 
 /* --- Navbar: touch-action fix, theme toggle on tablet --- */
@@ -1961,4 +1961,22 @@ textarea:disabled {
   .storefront-tabs-section .filter-pills::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* ==========================================================================
+   CART & CHECKOUT LAYOUT — Desktop Base Styles
+   (Mobile overrides are handled in responsive.css)
+   ========================================================================== */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
 }
