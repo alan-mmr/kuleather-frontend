@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baca Artikel Kuleather — Pengetahuan mendalam seputar dunia industri kerajinan kulit, tips, tren mode, dan wawancara pengrajin.">
+  <title>Detail Artikel — KULEATHER</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Article specific layouts */
+    .reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background-color: var(--accent);
+      z-index: 1000;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+    .article-header-nav {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 253, 248, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--muted-light);
+      padding: var(--space-sm) 0;
+      z-index: 85;
+    }
+    .article-rich-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+    .article-rich-content h2 {
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
+    }
+    .article-rich-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: var(--space-lg);
+      margin: var(--space-lg) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--text-primary);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .article-rich-content blockquote cite {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-style: normal;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+    .article-rich-content ul, .article-rich-content ol {
+      margin-bottom: var(--space-lg);
+      padding-left: var(--space-lg);
+    }
+    .article-rich-content ul li {
+      list-style-type: disc;
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+    }
+    .article-rich-content ol li {
+      list-style-type: decimal;
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+    }
+    .share-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--muted);
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-secondary);
+      transition: all var(--transition-base);
+    }
+    .share-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background-color: var(--bg-alt);
+    }
+  </style>
+</head>
+<body>
+  <!-- READING PROGRESS BAR -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Beranda</a>
+        <a class="nav-link" href="produk.html">Produk</a>
+        <a class="nav-link" href="services.html">Jasa</a>
+        <a class="nav-link active" href="journal.html">Journal</a>
+        <a class="nav-link" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html" aria-label="Cari Produk">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a class="nav-cart btn-icon" href="cart.html" aria-label="Keranjang Belanja">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ARTICLE STICKY HEADER NAV -->
+  <div class="article-header-nav" style="margin-top:var(--navbar-height);">
+    <div class="container flex-between">
+      <div style="display:flex; align-items:center; gap:var(--space-md);">
+        <a href="journal.html" class="btn-text caption" style="letter-spacing:0.1em; display:flex; align-items:center; gap:4px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg> KEMBALI
+        </a>
+        <span class="caption text-muted">|</span>
+        <span class="caption text-secondary" id="sticky-header-category">TEKNIK</span>
+      </div>
+      
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button class="share-btn" id="share-link-btn" aria-label="Salin Link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></button>
+        <button class="share-btn" aria-label="Bagikan ke Twitter"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE HERO COVER -->
+  <div style="height: 60vh; width: 100%; position: relative; overflow: hidden; background-color: var(--bg-alt);">
+    <img id="article-cover" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1600&h=800&fit=crop&auto=format" alt="Cover" style="width: 100%; height: 100%; object-fit: cover;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(44, 31, 18, 0.4), transparent);"></div>
+  </div>
+
+  <!-- ARTICLE BODY LAYOUT -->
+  <main class="section container" style="max-width: 900px; padding-top: var(--space-2xl);">
+    <!-- Article Header Info -->
+    <header style="margin-bottom: var(--space-2xl); border-bottom: 1px solid var(--muted-light); padding-bottom: var(--space-lg);">
+      <span class="badge badge-premium" id="article-category-badge" style="margin-bottom:var(--space-sm);">TEKNIK</span>
+      <h1 class="display-lg mb-md" id="article-title" style="font-size: 38px; line-height: 1.15;">Seni Penyamakan Vegetable: Tradisi yang Bertahan Satu Abad</h1>
+      
+      <!-- Meta details -->
+      <div style="display:flex; align-items:center; gap:var(--space-md); flex-wrap:wrap;" class="caption text-secondary">
+        <span id="article-date">22 Mei 2026</span>
+        <span>·</span>
+        <span id="article-readtime">8 menit membaca</span>
+        <span>·</span>
+        <span id="article-views">4.2K Views</span>
+      </div>
+    </header>
+
+    <!-- Rich Text Content Pane -->
+    <section class="article-rich-content" id="article-body-content">
+      <!-- Injected dynamically via script -->
+    </section>
+
+    <!-- AUTHOR CARD PANEL -->
+    <section style="background-color: var(--surface); border:1px solid var(--muted-light); padding:var(--space-xl); margin-top:var(--space-3xl); margin-bottom:var(--space-4xl);" class="reveal">
+      <div style="display:flex; gap:var(--space-lg); align-items:flex-start;">
+        <img id="author-photo" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format" alt="Author" style="width: 64px; height: 64px; border-radius:50%; object-fit:cover; border:1px solid var(--muted);">
+        <div>
+          <span class="eyebrow text-accent mb-xs" style="display:block;">PENULIS ARTIKEL</span>
+          <h4 class="heading-3 mb-xs" id="author-name" style="font-size:18px;">Ahmad Rifai</h4>
+          <p class="caption text-muted mb-sm" id="author-role">Editor Senior, Leather Journal</p>
+          <p class="body-sm text-secondary" id="author-bio">Ahmad Rifai telah meliput industri kulit Indonesia selama lebih dari satu dekade. Lahir di Mojokerto dan besar di antara bengkel-bengkel kulit Magetan, ia membawa pemahaman mendalam tentang tradisi dan inovasi industri ini.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED ARTICLES -->
+    <section style="border-top: 1px solid var(--muted-light); padding-top: var(--space-2xl);">
+      <h2 class="heading-2 mb-xl">Artikel Terkait</h2>
+      <div class="grid-3" id="related-articles-grid">
+        <!-- Loaded dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <!-- Shared Footer -->
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">
+          <div class="footer-logo-mark">KL</div>
+          <span>KULEATHER</span>
+        </a>
+        <p class="footer-brand-desc">Marketplace kulit premium pertama yang menghubungkan langsung pengrajin lokal dengan pasar nasional dan global.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Navigasi</h4>
+        <div class="footer-menu">
+          <a href="index.html" class="breadcrumb-link">Beranda</a>
+          <a href="produk.html" class="breadcrumb-link">Produk</a>
+          <a href="journal.html" class="footer-link">Journal</a>
+          <a href="faq.html" class="footer-link">FAQ / Bantuan</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Informasi</h4>
+        <div class="footer-menu">
+          <a href="about.html" class="footer-link">Tentang Kami</a>
+          <a href="contact.html" class="footer-link">Hubungi Kami</a>
+          <a href="terms.html" class="footer-link">Syarat & Ketentuan</a>
+          <a href="size-guide.html" class="footer-link">Panduan Ukuran</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Hubungi Kami</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Magetan, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>halo@kuleather.id</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+62 (351) 123-4567</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/journal.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Reading Progress Controller
+      const readingProgress = document.getElementById('reading-progress');
+      window.addEventListener('scroll', () => {
+        const docElem = document.documentElement;
+        const total = docElem.scrollHeight - docElem.clientHeight;
+        const pct = total > 0 ? (docElem.scrollTop / total) * 100 : 0;
+        if (readingProgress) readingProgress.style.width = `${pct}%`;
+      });
+
+      // 2. Read parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      let articleId = urlParams.get('id') || 'vegetable-tanning';
+
+      let article = ARTICLES.find(a => a.id === articleId);
+      if (!article) {
+        article = ARTICLES[0];
+        articleId = article.id;
+      }
+
+      // Populate Headings & Meta
+      document.title = `${article.title} — Leather Journal`;
+      document.getElementById('sticky-header-category').textContent = article.cat.toUpperCase();
+      document.getElementById('article-category-badge').textContent = article.cat;
+      document.getElementById('article-title').textContent = article.title;
+      document.getElementById('article-date').textContent = article.date;
+      document.getElementById('article-readtime').textContent = `${article.readTime} membaca`;
+      document.getElementById('article-views').textContent = `${article.views} Views`;
+      document.getElementById('article-cover').src = `https://images.unsplash.com/${article.photo}?w=1600&h=800&fit=crop&auto=format`;
+
+      // Author Info
+      document.getElementById('author-name').textContent = article.author.name;
+      document.getElementById('author-role').textContent = article.author.role;
+      document.getElementById('author-bio').textContent = article.author.bio;
+      document.getElementById('author-photo').src = `https://images.unsplash.com/${article.author.photo}?w=100&h=100&fit=crop&auto=format`;
+
+      // 3. Render Article Body Blocks
+      // Define the blocks dataset for articles
+      const articleBlocks = {
+        'vegetable-tanning': [
+          { t: "p", text: "Di sudut yang tenang di kota Magetan, Jawa Timur, aroma tanin dan kayu mengisi udara sebuah bengkel tua yang telah berdiri sejak 1923. Di sinilah Pak Suwito, pengrajin ketiga dalam keluarganya, masih menggunakan metode penyamakan vegetable — sebuah tradisi yang kini hanya dipraktikkan segelintir pengrajin di seluruh dunia." },
+          { t: "p", text: "Sementara pabrik-pabrik modern telah beralih ke chrome tanning yang menyelesaikan proses dalam hitungan jam, Pak Suwito tetap setia pada tradisi yang membutuhkan kesabaran hingga dua bulan. 'Ini bukan hanya tentang kulit,' katanya sambil membalik lembaran kulit yang sedang direndam. 'Ini tentang menghormati material, menghormati proses, dan menghormati mereka yang akan memakai produk kita.'" },
+          { t: "h2", text: "Sejarah Penyamakan di Bumi Magetan" },
+          { t: "p", text: "Industri kulit Magetan memiliki akar yang dalam. Menurut catatan Dinas Perindustrian Kabupaten Magetan, kegiatan penyamakan kulit di daerah ini sudah berlangsung sejak akhir abad ke-19, dibawa oleh pedagang-pedagang yang mengadaptasi teknik Eropa dengan bahan-bahan lokal yang berlimpah." },
+          { t: "quote", text: "Kulit yang disamak dengan tanin tumbuhan tidak sekadar bertahan — ia bertumbuh. Setiap goresan waktu menambahkan kedalaman dan karakter yang tidak bisa ditiru oleh mesin manapun.", by: "Pak Suwito, Pengrajin Generasi Ketiga, Magetan" },
+          { t: "h2", text: "Anatomi Proses: Mengapa 60 Hari?" },
+          { t: "p", text: "Tidak seperti chrome tanning yang bisa diselesaikan dalam 24 jam menggunakan garam krom dan drum berputar, proses vegetable tanning adalah perjalanan panjang yang tidak bisa dipersingkat tanpa mengorbankan kualitas." },
+          { t: "ol", items: [
+            "Pembersihan (Beaming): Kulit mentah dibersihkan selama 2–3 hari menggunakan larutan kapur untuk membuka serat.",
+            "Perendaman (Soaking): Kulit direndam dalam air bersih selama 12–24 jam untuk menyeimbangkan pH alami.",
+            "Pencelupan Bertahap (Progressive Tanning): Kulit dicelupkan ke bak tanin konsentrasi bertahap selama 4–6 minggu.",
+            "Stuffing: Minyak alami diaplikasikan untuk menjaga fleksibilitas dan kelembapan serat.",
+            "Finishing: Kulit dikeringkan alami di bawah tempat teduh dan dipoles."
+          ]},
+          { t: "img", photo: "photo-1464699908537-0954e50791ee", caption: "Bak-bak perendaman tanin di bengkel vegetable tanning tradisional Magetan. Foto: KULEATHER / 2026" },
+          { t: "h2", text: "Mengapa Pasar Premium Mencintai Vegetable Tanning" },
+          { t: "p", text: "Dalam dekade terakhir, terjadi pergeseran menarik dalam industri aksesori mewah global. Pembeli retail menyukai patina warna kulit yang berubah seiring penggunaan, bahan baku biodegradable yang aman bagi lingkungan, serta daya tahan tinggi hingga puluhan tahun." }
+        ],
+        'default': [
+          { t: "p", text: "Proses pembuatan produk kulit premium membutuhkan ketelitian dan dedikasi luar biasa. Mulai dari pemilihan bahan baku kulit sapi full grain terbaik dari Magetan, pemotongan presisi mengikuti pola, penjahitan kokoh dengan teknik jahit tangan, hingga pengerjaan polesan tepi akhir yang halus." },
+          { t: "h2", text: "Kualitas yang Berbicara Sendiri" },
+          { t: "p", text: "Membeli produk kulit asli adalah sebuah investasi jangka panjang. Nilai guna yang awet, karakter estetika patina yang semakin mengkilap, serta kepuasan batin tersendiri menggunakan karya buatan pengrajin lokal tanah air." },
+          { t: "quote", text: "Sebuah kerajinan kulit buatan tangan memiliki jiwa di dalamnya — karena ada pikiran, tenaga, dan waktu seorang manusia yang didedikasikan untuk membuatnya.", by: "Mitra Pengrajin Kuleather" }
+        ]
+      };
+
+      const blocks = articleBlocks[articleId] || articleBlocks['default'];
+      const bodyContainer = document.getElementById('article-body-content');
+      let bodyHtml = '';
+
+      blocks.forEach(b => {
+        if (b.t === 'p') {
+          bodyHtml += `<p class="body">${b.text}</p>`;
+        } else if (b.t === 'h2') {
+          bodyHtml += `<h2 class="heading-2">${b.text}</h2>`;
+        } else if (b.t === 'quote') {
+          bodyHtml += `<blockquote>"${b.text}"${b.by ? `<cite>${b.by}</cite>` : ''}</blockquote>`;
+        } else if (b.t === 'ol') {
+          bodyHtml += `<ol>${b.items.map(item => `<li>${item}</li>`).join('')}</ol>`;
+        } else if (b.t === 'ul') {
+          bodyHtml += `<ul>${b.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+        } else if (b.t === 'img') {
+          const imgUrl = `https://images.unsplash.com/${b.photo}?w=800&h=450&fit=crop&auto=format`;
+          bodyHtml += `
+            <div style="margin:var(--space-lg) 0;">
+              <img src="${imgUrl}" alt="${b.caption}" style="width:100%; border:1px solid var(--muted-light);">
+              <span class="caption text-muted" style="font-size:9px; display:block; margin-top:6px; text-align:center;">${b.caption}</span>
+            </div>
+          `;
+        }
+      });
+
+      if (bodyContainer) bodyContainer.innerHTML = bodyHtml;
+
+      // 4. Salin Link Share handler
+      const shareBtn = document.getElementById('share-link-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href);
+          window.showToast('Link artikel berhasil disalin ke clipboard!', 'success');
+        });
+      }
+
+      // 5. Related Articles Grid
+      const relatedGrid = document.getElementById('related-articles-grid');
+      const relatedArts = ARTICLES.filter(a => a.id !== articleId).slice(0, 3);
+      let relatedHtml = '';
+
+      relatedArts.forEach(a => {
+        const artImgUrl = `https://images.unsplash.com/${a.photo}?w=400&h=280&fit=crop&auto=format`;
+        relatedHtml += `
+          <article class="article-card">
+            <div class="article-card-img-wrapper">
+              <a href="article.html?id=${a.id}">
+                <img src="${artImgUrl}" alt="${a.title}" class="article-card-img">
+              </a>
+              <span class="badge badge-premium article-card-badge">${a.cat}</span>
+            </div>
+            <div class="article-card-body" style="padding:var(--space-md);">
+              <span class="article-card-date">${a.date}</span>
+              <h3 class="article-card-title mb-sm mt-xs" style="font-size:15px; line-height:1.4;">
+                <a href="article.html?id=${a.id}">${a.title}</a>
+              </h3>
+              <div style="display:flex; align-items:center; gap:8px;" class="caption text-muted mt-xs">
+                <span>${a.readTime}</span>
+              </div>
+            </div>
+          </article>
+        `;
+      });
+
+      if (relatedGrid) relatedGrid.innerHTML = relatedHtml;
+    });
+  </script>
+</body>
+</html>

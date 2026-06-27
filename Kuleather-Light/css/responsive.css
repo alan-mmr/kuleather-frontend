@@ -1,0 +1,599 @@
+/* ==========================================================================
+   1. LAPTOP & SMALL DESKTOP (max-width: 1024px)
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+  .grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .produk-layout {
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-lg);
+  }
+
+  .journal-layout {
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-lg);
+  }
+
+  .product-detail-grid {
+    gap: var(--space-xl);
+  }
+}
+
+/* ==========================================================================
+   2. TABLET (max-width: 768px)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* Layout adjustments */
+  .section {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  /* Grid adaptations */
+  .grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  /* Navigation Collapsing */
+  .nav-links {
+    display: none; /* Collapsed into drawer */
+  }
+
+  .nav-toggle {
+    display: flex !important;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-actions {
+    gap: var(--space-sm);
+  }
+  
+  .nav-actions .btn {
+    display: none !important; /* Hide login button on small screens, inside drawer instead */
+  }
+
+  .nav-actions .profile-avatar-circle {
+    display: none !important; /* Hide profile avatar on mobile navbar, accessible in drawer instead */
+  }
+
+  .nav-theme-toggle {
+    margin-right: 0 !important;
+  }
+
+  /* Filter pills: horizontal scroll */
+  .filter-pills {
+    width: 100% !important;
+    display: flex !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-pill {
+    flex-shrink: 0 !important;
+  }
+
+  /* Section Header responsive */
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Services panel stack */
+  .services-split {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  /* Footer adaptations */
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+
+  /* Catalog & Journal Page Responsive */
+  .produk-layout,
+  .journal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-article-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured-article-card .article-card-img-wrapper {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .produk-sidebar {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  /* Product Detail Responsive */
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  /* Checkout page layout stack */
+  .checkout-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  /* Cart Layout Responsive */
+  .cart-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-xl) !important;
+  }
+
+  /* Auth split-screen collapse */
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .split-sidebar {
+    display: none; /* Hide editorial visual panel on mobile */
+  }
+
+  .split-content {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  /* Profile Layout Responsive */
+  .profile-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+/* ==========================================================================
+   3. MOBILE (max-width: 480px)
+   ========================================================================== */
+@media screen and (max-width: 480px) {
+  :root {
+    --navbar-height: var(--navbar-height-mobile);
+  }
+
+  /* Section spacing */
+  .section {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  /* Grids to single column */
+  .grid-5, .grid-4, .grid-3, .grid-2, .grid-auto {
+    grid-template-columns: 1fr;
+  }
+
+  /* Headings size reduction */
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  /* Hero adjustments */
+  .hero-content {
+    text-align: center;
+    padding: var(--space-md) 0;
+  }
+
+  .hero-title {
+    font-size: 32px !important;
+  }
+
+  .hero-tagline {
+    font-size: 15px !important;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-sm);
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+  }
+
+  /* Footer stack */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Inline form stack */
+  .form-inline {
+    flex-direction: column;
+    gap: var(--space-sm);
+    width: 100%;
+  }
+
+  .form-inline button {
+    width: 100%;
+  }
+
+  /* Product details thumbnail size scaling */
+  .product-gallery-thumbs {
+    gap: 4px;
+  }
+
+  /* Toast notification resizing */
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .toast {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   4. PROFILE & USER PAGES — Mobile Responsive
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* Profile: sidebar becomes top card, content below */
+  .profile-layout {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-lg);
+  }
+
+  .profile-sidebar {
+    position: static !important;
+    top: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Profile nav: 2-column grid on mobile */
+  .profile-nav {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .profile-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .profile-nav-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 10px 8px !important;
+    font-size: 10px !important;
+    border: 1px solid var(--muted-light) !important;
+    background-color: var(--surface) !important;
+    border-radius: var(--radius-sm) !important;
+    width: 100% !important;
+    flex-shrink: 0;
+    min-height: 42px !important;
+    font-weight: 500;
+  }
+
+  .profile-nav-item:hover,
+  .profile-nav-item.active {
+    color: var(--accent) !important;
+    background-color: var(--bg-alt) !important;
+    border-color: var(--accent) !important;
+  }
+
+  #btn-logout {
+    grid-column: span 2 !important;
+    margin-top: 4px !important;
+    color: var(--error) !important;
+    border: 1px solid rgba(196, 98, 58, 0.2) !important;
+    background-color: rgba(196, 98, 58, 0.02) !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 10px 8px !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Cart layout: stack vertically */
+  .cart-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-lg) !important;
+  }
+
+  .cart-items-col {
+    width: 100% !important;
+  }
+
+  .cart-summary-col {
+    width: 100% !important;
+    position: static !important;
+    top: auto;
+  }
+
+  /* Cart item card: stack image and info vertically on small screens */
+  .cart-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-md) !important;
+    padding: var(--space-md) 0 !important;
+  }
+
+  .cart-item > div:first-child {
+    width: 100% !important;
+  }
+
+  .cart-item > div:last-child {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: var(--space-md) !important;
+  }
+
+  .cart-item > div:last-child > div:last-child {
+    width: auto !important;
+    text-align: right !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Stack cart item image and details vertically on phone screens to prevent narrow text wrapping */
+  .cart-item > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-sm) !important;
+  }
+
+  /* Profile avatar card: stack avatar + text */
+  .profile-avatar-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  .profile-avatar-card > div {
+    text-align: center !important;
+  }
+
+}
+
+/* ==========================================================================
+   5. CHECKOUT PAGE — Mobile Responsive
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* Checkout page internal inline style fix */
+  /* Checkout layout - already handled in checkout.html inline style */
+  /* Payment card grid: 2 columns on tablet */
+  .payment-card-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Checkout stepper: smaller font */
+  .checkout-step-label {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Payment card grid: single column on phone */
+  .payment-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Checkout step bar: hide label text, show only numbers */
+  .checkout-step-label {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   6. SELLER PAGES — Mobile Responsive
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* Seller sidebar: becomes overlay drawer (same as admin) */
+  .admin-sidebar {
+    transform: translateX(-100%);
+  }
+
+  /* Finance summary: stack 2-col layouts */
+  .finance-summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Store settings: avatar + banner section stacks */
+  .store-settings-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Seller order tabs: horizontal scroll */
+  .seller-tab-nav,
+  .orders-tab-bar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    scrollbar-width: none;
+    flex-wrap: nowrap !important;
+  }
+
+  .seller-tab-nav::-webkit-scrollbar,
+  .orders-tab-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .seller-tab-btn,
+  .tab-btn {
+    flex-shrink: 0;
+  }
+}
+
+/* ==========================================================================
+   7. SERVICES & PRODUK CATALOG — Mobile Responsive
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* Produk/catalog: filter sidebar becomes toggleable (hidden by default) */
+  .produk-sidebar {
+    display: none;
+  }
+
+  .produk-sidebar.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: var(--surface);
+    z-index: 200;
+    overflow-y: auto;
+    padding: var(--space-2xl) var(--space-lg);
+    box-shadow: var(--shadow-xl);
+    transition: transform 0.3s ease;
+  }
+
+  /* Show filter toggle button */
+  .filter-toggle-btn {
+    display: flex !important;
+  }
+
+  /* Services: grid from 3-col to 2-col */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Services: grid to single column */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Journal: featured article stacks */
+  .article-card.featured {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================================
+   8. ORDERS HISTORY — Mobile Responsive
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* Orders tab bar: horizontal scroll */
+  .orders-filter-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    scrollbar-width: none;
+    flex-wrap: nowrap !important;
+    padding-bottom: 4px;
+  }
+
+  .orders-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .orders-filter-tabs .filter-pill {
+    flex-shrink: 0;
+  }
+
+  /* Order card: reduce padding */
+  .order-card {
+    padding: var(--space-md) !important;
+  }
+
+  /* Order items: single column */
+  .order-items-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================================
+   9. FILTER PILLS & FILTER OVERLAY — Global
+   ========================================================================== */
+/* Filter overlay backdrop (for mobile catalog/produk filter) */
+.filter-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.45);
+  z-index: 199;
+}
+
+.filter-overlay.active {
+  display: block;
+}
+
+/* Filter toggle button (only shown on mobile) */
+.filter-toggle-btn {
+  display: none;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border: 1px solid var(--muted);
+  background-color: var(--surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.filter-toggle-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-toggle-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}

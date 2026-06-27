@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard Profil Kuleather — Kelola alamat pengiriman, pantau riwayat pesanan aktif, dan lihat loyalitas poin Bronze Artisan Anda.">
+  <title>Profil Dashboard — KULEATHER</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Profile specific styles */
+    .membership-tier-card {
+      background-color: var(--surface);
+      border: 1px solid var(--muted);
+      border-left: 4px solid var(--accent);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+    .profile-order-card {
+      background-color: var(--surface);
+      border: 1px solid var(--muted-light);
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .profile-tab-pane.hidden {
+      display: none !important;
+    }
+    .address-card {
+      background-color: var(--surface);
+      border: 1px solid var(--muted-light);
+      padding: var(--space-md);
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color var(--transition-base);
+    }
+    .address-card.default {
+      border-color: var(--accent);
+      background-color: rgba(193, 127, 59, 0.02);
+    }
+    .profile-wishlist-item {
+      background-color: var(--surface);
+      border: 1px solid var(--muted-light);
+      padding: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .activity-log-item {
+      padding: var(--space-xs) 0;
+      border-bottom: 1px dashed var(--muted-light);
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">KULEATHER</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Beranda</a>
+        <a class="nav-link" href="produk.html">Produk</a>
+        <a class="nav-link" href="services.html">Jasa</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a>
+        <a class="nav-cart btn-icon" href="cart.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span></a>
+        <a class="profile-avatar-circle" href="profile.html" style="width:32px; height:32px; font-size:12px;">BS</a>
+      </div>
+      <button class="nav-toggle btn-icon" id="nav-toggle" aria-label="Menu Mobile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <button class="nav-drawer-close btn-icon" id="nav-drawer-close" aria-label="Tutup Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="nav-drawer-links" style="margin-top: 40px;">
+      <a class="nav-drawer-link" href="index.html">Beranda</a>
+      <a class="nav-drawer-link" href="produk.html">Produk</a>
+      <a class="nav-drawer-link" href="services.html">Jasa</a>
+      <a class="nav-drawer-link" href="journal.html">Journal</a>
+      <a class="nav-drawer-link" href="faq.html">Bantuan</a>
+      <a class="nav-drawer-link" href="auth.html" style="margin-top: 20px; color: var(--accent);">Masuk / Daftar</a>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB HEADER -->
+  <header style="background-color: var(--bg-alt); padding: var(--space-xl) 0 var(--space-md) 0; margin-top: var(--navbar-height); border-bottom: 1px solid var(--muted-light);">
+    <div class="container">
+      <nav class="caption text-secondary mb-xs" style="display:flex; align-items:center; gap:8px;">
+        <a href="index.html" class="breadcrumb-link">BERANDA</a>
+        <span>/</span>
+        <span class="text-accent">PROFIL AKUN</span>
+      </nav>
+      <h1 class="heading-2">Dashboard Profil</h1>
+    </div>
+  </header>
+
+  <!-- PROFILE DASHBOARD GRID -->
+  <main class="section container">
+    <div class="profile-layout">
+      <!-- 1. Sidebar Nav -->
+      <aside class="profile-sidebar">
+        <!-- Avatar info card -->
+        <div class="profile-avatar-card">
+          <div class="profile-avatar-circle">BS</div>
+          <div>
+            <h4 class="body" style="font-weight:600; line-height:1.2;">Budi Santoso</h4>
+            <span class="caption text-muted" style="font-size:8px; display:block; margin-top:2px;">Mitra sejak Mei 2026</span>
+          </div>
+        </div>
+
+        <nav class="profile-nav">
+          <button class="profile-nav-item active" data-tab="panel-orders">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+            <span>Pesanan Saya</span>
+          </button>
+          <button class="profile-nav-item" data-tab="panel-custom-services">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            <span>Jasa</span>
+          </button>
+          <button class="profile-nav-item" data-tab="panel-wishlist">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Wishlist Saya</span>
+          </button>
+          <button class="profile-nav-item" data-tab="panel-addresses">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Alamat Kirim</span>
+          </button>
+          <button class="profile-nav-item" data-tab="panel-activity">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+            <span>Log Aktivitas</span>
+          </button>
+          <button class="profile-nav-item" data-tab="panel-settings">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span>Pengaturan</span>
+          </button>
+          <button class="profile-nav-item" id="btn-logout" style="margin-top:20px; border-top:1px solid var(--muted-light); padding-top:14px; color:var(--error); width:100%; text-align:left; background:none; border-right:none; border-bottom:none; border-left:none; cursor:pointer;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Keluar Akun</span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- 2. Content Panels -->
+      <section style="display:flex; flex-direction:column; gap:var(--space-md); flex-grow:1;">
+        
+        <!-- Bronze Tier Card -->
+        <div class="membership-tier-card">
+          <div class="flex-between mb-sm">
+            <div>
+              <span class="eyebrow text-accent">PROGRAM LOYALITAS</span>
+              <h3 class="heading-3" id="profile-tier-title" style="font-weight:700;">Bronze Artisan Tier</h3>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:16px; font-weight:700; color:var(--accent);" id="profile-points-display">750 Poin</div>
+          </div>
+          <p class="body-sm text-secondary mb-md" id="profile-tier-desc">Kumpulkan 250 poin transaksi lagi untuk naik peringkat ke <strong>Silver Artisan</strong> dan nikmati gratis ongkir seumur hidup.</p>
+          
+          <!-- Progress bar -->
+          <div style="width:100%; height:8px; background-color:var(--bg-alt); position:relative;">
+            <div style="position:absolute; top:0; left:0; bottom:0; width:75%; background-color:var(--accent);" id="profile-points-progress"></div>
+          </div>
+        </div>
+
+        <!-- Orders Panel -->
+        <div id="panel-orders" class="profile-tab-pane active">
+          <h3 class="label text-accent mb-lg" style="font-size:12px; border-bottom:1px solid var(--muted-light); padding-bottom:8px;">DAFTAR PESANAN SAYA</h3>
+          <div id="profile-orders-list">
+            <!-- Injected via script -->
+          </div>
+        </div>
+
+        <!-- Custom Services Panel -->
+        <div id="panel-custom-services" class="profile-tab-pane hidden">
+          <h3 class="label text-accent mb-lg" style="font-size:12px; border-bottom:1px solid var(--muted-light); padding-bottom:8px;">REQUEST JASA SAYA</h3>
+          <div id="profile-custom-services-list" class="flex-y gap-md">
+            <!-- Injected via script -->
+          </div>
+        </div>
+
+        <!-- Wishlist Panel -->
+        <div id="panel-wishlist" class="profile-tab-pane hidden">
+          <h3 class="label text-accent mb-lg" style="font-size:12px; border-bottom:1px solid var(--muted-light); padding-bottom:8px;">WISHLIST SAYA</h3>
+          <div id="profile-wishlist-list" class="grid-2" style="gap: var(--space-md);">
+            <!-- Injected via script -->
+          </div>
+        </div>
+
+        <!-- Address Panel -->
+        <div id="panel-addresses" class="profile-tab-pane hidden">
+          <div class="flex-between mb-lg" style="border-bottom:1px solid var(--muted-light); padding-bottom:8px; align-items:center;">
+            <h3 class="label text-accent" style="font-size:12px; margin-bottom:0;">ALAMAT PENGIRIMAN SAYA</h3>
+            <button class="btn btn-primary btn-sm" id="btn-add-address" style="padding:6px 12px; font-size:10px;">+ TAMBAH ALAMAT</button>
+          </div>
+          <div id="profile-addresses-list" class="flex-y gap-md">
+            <!-- Injected via script -->
+          </div>
+          
+          <!-- Modal CRUD Alamat -->
+          <div id="address-modal-overlay" class="modal-overlay hidden" style="position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); z-index:1000; display:flex; justify-content:center; align-items:center; backdrop-filter:blur(4px);">
+            <div style="background:var(--surface); border:1px solid var(--muted-light); padding:var(--space-xl); width:90%; max-width:500px; position:relative;">
+              <h4 class="heading-3 mb-md" id="address-modal-title">Tambah Alamat Baru</h4>
+              <form id="address-crud-form" class="flex-y gap-sm">
+                <input type="hidden" id="address-id-field">
+                <div class="form-group">
+                  <label class="form-label" for="addr-name">Nama Penerima</label>
+                  <input type="text" id="addr-name" required style="width:100%;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="addr-phone">Nomor Telepon</label>
+                  <input type="tel" id="addr-phone" required style="width:100%;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="addr-details">Alamat Lengkap</label>
+                  <textarea id="addr-details" rows="3" required style="width:100%; resize:vertical;"></textarea>
+                </div>
+                <div class="grid-2">
+                  <div class="form-group">
+                    <label class="form-label" for="addr-city">Kota / Kabupaten</label>
+                    <input type="text" id="addr-city" required style="width:100%;">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="addr-zip">Kode Pos</label>
+                    <input type="text" id="addr-zip" required style="width:100%;">
+                  </div>
+                </div>
+                <label class="checkbox-label mt-xs mb-sm" style="display:flex; align-items:center; gap:8px;">
+                  <input type="checkbox" id="addr-default">
+                  <span>Jadikan alamat utama</span>
+                </label>
+                <div class="flex-x gap-md">
+                  <button type="button" class="btn btn-ghost" id="btn-cancel-address" style="width:50%;">BATAL</button>
+                  <button type="submit" class="btn btn-primary" style="width:50%;">SIMPAN</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Panel -->
+        <div id="panel-activity" class="profile-tab-pane hidden">
+          <h3 class="label text-accent mb-lg" style="font-size:12px; border-bottom:1px solid var(--muted-light); padding-bottom:8px;">LOG AKTIVITAS SAYA</h3>
+          <div id="profile-activity-list" class="flex-y gap-xs" style="font-family:var(--font-mono); font-size:11px;">
+            <!-- Injected via script -->
+          </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div id="panel-settings" class="profile-tab-pane hidden">
+          <h3 class="label text-accent mb-lg" style="font-size:12px; border-bottom:1px solid var(--muted-light); padding-bottom:8px;">PENGATURAN AKUN</h3>
+          <form id="profile-settings-form" class="flex-y gap-md" style="max-width:500px;">
+            <div class="form-group">
+              <label class="form-label">Nama Lengkap</label>
+              <input type="text" id="settings-name" required style="width:100%;">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nomor Telepon</label>
+              <input type="tel" id="settings-phone" required style="width:100%;">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Ubah Password (kosongkan jika tidak ingin diubah)</label>
+              <input type="password" id="settings-new-password" placeholder="Password baru..." style="width:100%;">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password Saat Ini (wajib diisi untuk menyimpan perubahan)</label>
+              <input type="password" id="settings-current-password" placeholder="Ketik password saat ini..." required style="width:100%;">
+            </div>
+            <button type="submit" class="btn btn-primary btn-full mt-sm">SIMPAN PERUBAHAN</button>
+          </form>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">
+          <div class="footer-logo-mark">KL</div>
+          <span>KULEATHER</span>
+        </a>
+        <p class="footer-brand-desc">Marketplace kulit premium pertama yang menghubungkan langsung pengrajin lokal dengan pasar nasional dan global.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Navigasi</h4>
+        <div class="footer-menu">
+          <a href="index.html" class="breadcrumb-link">Beranda</a>
+          <a href="produk.html" class="breadcrumb-link">Produk</a>
+          <a href="journal.html" class="footer-link">Journal</a>
+          <a href="faq.html" class="footer-link">FAQ / Bantuan</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Informasi</h4>
+        <div class="footer-menu">
+          <a href="about.html" class="footer-link">Tentang Kami</a>
+          <a href="contact.html" class="footer-link">Hubungi Kami</a>
+          <a href="terms.html" class="footer-link">Syarat & Ketentuan</a>
+          <a href="size-guide.html" class="footer-link">Panduan Ukuran</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Hubungi Kami</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Magetan, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>halo@kuleather.id</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+62 (351) 123-4567</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Clean up old stored orders with broken photo ID to trigger re-seed
+      const storedOrders = localStorage.getItem('kuleather_profile_orders');
+      if (storedOrders && storedOrders.includes('photo-1627123424574-724758594785')) {
+        localStorage.removeItem('kuleather_profile_orders');
+      }
+
+      // 1. Session verification & dynamic header populate
+      const user = getActiveUser();
+      if (!user) {
+        window.location.href = 'auth.html';
+        return;
+      }
+
+      // Seed 1 example data for Budi Santoso (Jasa, Wishlist, Alamat) if empty
+      // 1. Example Address
+      let addresses = JSON.parse(localStorage.getItem('kuleather_addresses')) || [];
+      const userAddresses = addresses.filter(a => a.userId === user.id);
+      if (userAddresses.length === 0) {
+        addresses.push({
+          id: "addr-default-budi",
+          userId: user.id,
+          name: "Budi Santoso",
+          phone: "081234567890",
+          address: "Jl. Sawo No. 12, Kel. Selosari, Kec. Magetan",
+          city: "Magetan",
+          zip: "63311",
+          isDefault: true
+        });
+        localStorage.setItem('kuleather_addresses', JSON.stringify(addresses));
+      }
+
+      // 2. Example Wishlist
+      let wishlist = JSON.parse(localStorage.getItem('kuleather_wishlist')) || [];
+      const userWishlist = wishlist.filter(w => w.userId === user.id);
+      if (userWishlist.length === 0) {
+        wishlist.push({
+          userId: user.id,
+          productId: "sabuk-pullup",
+          name: "Sabuk Pull-Up Leather Artisan",
+          price: 275000,
+          photo: "photo-1553062407-98eeb64c6a62"
+        });
+        localStorage.setItem('kuleather_wishlist', JSON.stringify(wishlist));
+      }
+
+      // 3. Example Jasa / Custom Service Order
+      let serviceOrders = JSON.parse(localStorage.getItem('kuleather_service_orders')) || [];
+      let needsProfileOrdersSave = false;
+
+      let svo101 = serviceOrders.find(o => o.id === 'SVO-101');
+      if (!svo101) {
+        svo101 = {
+          id: "SVO-101",
+          serviceId: "SVC-004",
+          serviceName: "Jasa Penyamakan Kulit Sapi",
+          buyerId: user.id,
+          buyerName: user.name,
+          sellerId: "u02",
+          sellerName: "Toko Pak Slamet",
+          status: "DIKERJAKAN",
+          date: "15 Jun 2026",
+          time: "10:00",
+          photo: "../assets/ims/wet_blue_leather.png",
+          request: {
+            description: "Penyamakan kulit sapi mentah 5 lembar menjadi warna tan smooth finishing.",
+            referenceImages: ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80"],
+            specifications: "Tebal kulit 1.8mm - 2.0mm, warna cokelat tan alami.",
+            budget: 1500000,
+            notes: "Tolong dikerjakan sehalus mungkin."
+          },
+          offer: {
+            finalPrice: 1500000,
+            completionDays: 14,
+            estimatedDays: "14 Hari Kerja",
+            freeRevisions: 3
+          },
+          negotiation: [
+            {
+              from: "buyer",
+              message: "Mengajukan Request Jasa dengan budget awal Rp 1.500.000.",
+              date: "15/06/2026",
+              time: "10:00"
+            },
+            {
+              from: "seller",
+              message: "mengirimkan penawaran harga Rp 1.500.000 dengan estimasi 14 hari pengerjaan dan 3x kuota revisi gratis.",
+              date: "15/06/2026",
+              time: "10:05"
+            },
+            {
+              from: "buyer",
+              message: "menerima penawaran dan menyetujui ketentuan pengerjaan.",
+              date: "15/06/2026",
+              time: "10:10"
+            }
+          ],
+          progress: [
+            {
+              id: "PROG-001",
+              date: "16 Jun 2026",
+              time: "10:30",
+              description: "Paket kulit mentah dari Budi Santoso telah diterima di workshop Toko Pak Slamet, Selosari, Magetan. Kondisi kulit sapi mentah dalam keadaan baik dan siap masuk proses beamhouse."
+            },
+            {
+              id: "PROG-002",
+              date: "18 Jun 2026",
+              time: "11:30",
+              description: "Tahap Fleshing, Liming, dan Deliming selesai. Bulu dan lapisan lemak pada kulit sapi telah bersih sepenuhnya. Kulit siap masuk ke dalam drum penyamakan utama.",
+              images: ["../assets/ims/wet_blue_leather.png"]
+            },
+            {
+              id: "PROG-003",
+              date: "22 Jun 2026",
+              time: "09:00",
+              description: "Proses Tanning dan Stuffing sedang berjalan. Kami menambahkan minyak pelembap serat alami (fatliquor) agar kulit berstruktur lembut dan lentur untuk kenyamanan sepatu loafer."
+            }
+          ],
+          results: [],
+          revisions: {
+            used: 0,
+            max: 3,
+            extraCost: 150000,
+            history: []
+          },
+          escrow: {
+            status: "DITAHAN",
+            amount: 1500000,
+            platformFee: 75000,
+            sellerReceives: 1425000
+          },
+          timeline: [
+            { status: "REQUEST_SENT", date: "15/06/2026 10:00", text: "Request jangkauan pengerjaan dikirim." },
+            { status: "DEAL", date: "15/06/2026 10:30", text: "Kesepakatan harga & waktu tercapai." },
+            { status: "DIBAYAR_ESCROW", date: "15/06/2026 11:00", text: "Dana escrow sebesar Rp 1.500.000 telah didepositkan." },
+            { status: "DIKERJAKAN", date: "15/06/2026 11:15", text: "Proses pengerjaan kustom dimulai." }
+          ],
+          negotiationCount: 1,
+          messages: [
+            {
+              from: "buyer",
+              senderName: "Budi Santoso",
+              text: "Halo Pak Slamet, mohon info apakah kulitnya bisa dibuat agak lemas/supple? Rencananya mau saya pakai untuk bahan membuat sepatu loafer.",
+              date: "15/06/2026",
+              time: "10:30"
+            },
+            {
+              from: "seller",
+              senderName: "Toko Pak Slamet",
+              text: "Halo Mas Budi, bisa sekali. Kami akan sesuaikan campuran fatliquor (minyak pelembap serat) saat proses fatstuffing agar hasil akhir lembut dan lemas sesuai spesifikasi sepatu loafer.",
+              date: "15/06/2026",
+              time: "11:15"
+            },
+            {
+              from: "buyer",
+              senderName: "Budi Santoso",
+              text: "Baik Pak, terima kasih banyak atas responnya yang cepat.",
+              date: "15/06/2026",
+              time: "11:20"
+            },
+            {
+              from: "seller",
+              senderName: "Toko Pak Slamet",
+              text: "Sama-sama Mas Budi. Update progres pengerjaan berkala akan kami kirimkan ke chatroom ini ya.",
+              date: "15/06/2026",
+              time: "11:30"
+            },
+            {
+              from: "buyer",
+              senderName: "Budi Santoso",
+              text: "Mantap Pak, ditunggu update-nya.",
+              date: "18/06/2026",
+              time: "12:00"
+            }
+          ]
+        };
+        serviceOrders.push(svo101);
+        needsProfileOrdersSave = true;
+      }
+
+      let svo102 = serviceOrders.find(o => o.id === 'SVO-102');
+      if (!svo102) {
+        svo102 = {
+          id: "SVO-102",
+          serviceId: "SVC-002",
+          serviceName: "Sol & Reparasi Sepatu Boots Kulit",
+          buyerId: user.id,
+          buyerName: user.name,
+          sellerId: "u02",
+          sellerName: "Toko Pak Slamet",
+          status: "REQUEST_SENT",
+          date: "25 Jun 2026",
+          time: "07:41",
+          photo: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
+          request: {
+            description: "Reparasi sol bawah sepatu boots kulit saya yang jebol dan semir ulang agar kinclong kembali.",
+            referenceImages: [
+              "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80",
+              "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=500&q=80"
+            ],
+            specifications: "Sepatu boots size 42, merek lokal, sol Goodyear welted jebol di bagian tumit kanan.",
+            budget: 250000,
+            notes: "Tolong dikerjakan secepatnya, mau dipakai untuk acara wisuda."
+          },
+          offer: null,
+          negotiation: [
+            {
+              from: "buyer",
+              message: "Mengajukan Request Jasa dengan budget awal Rp 250.000.",
+              date: "25/06/2026",
+              time: "07:41"
+            }
+          ],
+          progress: [],
+          results: [],
+          revisions: {
+            used: 0,
+            max: 2,
+            extraCost: 50000,
+            history: []
+          },
+          escrow: {
+            status: "BELUM_DIBAYAR",
+            amount: 250000,
+            platformFee: 12500,
+            sellerReceives: 237500
+          },
+          timeline: [
+            { status: "REQUEST_SENT", date: "25/06/2026 07:41", text: "Request jangkauan pengerjaan dikirim." }
+          ],
+          negotiationCount: 0,
+          messages: []
+        };
+        serviceOrders.push(svo102);
+        needsProfileOrdersSave = true;
+      }
+
+      if (needsProfileOrdersSave) {
+        localStorage.setItem('kuleather_service_orders', JSON.stringify(serviceOrders));
+      }
+
+      // Populate user info elements in profile page
+      const avatarCircles = document.querySelectorAll('.profile-avatar-circle');
+      avatarCircles.forEach(circ => {
+        circ.textContent = user.initials || 'US';
+      });
+
+      const nameHeaders = document.querySelectorAll('.profile-avatar-card h4');
+      nameHeaders.forEach(el => {
+        el.textContent = user.name;
+      });
+
+      const joinedSpan = document.querySelector('.profile-avatar-card span');
+      if (joinedSpan) {
+        joinedSpan.textContent = `Mitra sejak ${user.joined || 'Mei 2026'}`;
+      }
+
+      // Membership calculations
+      const userPoints = user.points || 750;
+      const pointsDisplay = document.getElementById('profile-points-display');
+      const progressIndicator = document.getElementById('profile-points-progress');
+      const tierTitle = document.getElementById('profile-tier-title');
+      const tierDesc = document.getElementById('profile-tier-desc');
+
+      if (pointsDisplay) pointsDisplay.textContent = `${userPoints} Poin`;
+      if (progressIndicator) {
+        let percent = (userPoints / 1000) * 100;
+        if (percent > 100) percent = 100;
+        progressIndicator.style.width = `${percent}%`;
+      }
+      if (tierTitle && tierDesc) {
+        if (userPoints >= 1000) {
+          tierTitle.textContent = 'Silver Artisan Tier';
+          tierDesc.textContent = 'Selamat! Anda berhak mendapatkan gratis ongkir seumur hidup untuk seluruh produk.';
+        } else {
+          tierTitle.textContent = 'Bronze Artisan Tier';
+          tierDesc.textContent = `Kumpulkan ${1000 - userPoints} poin transaksi lagi untuk naik peringkat ke Silver Artisan dan nikmati gratis ongkir seumur hidup.`;
+        }
+      }
+
+      // Logout trigger
+      const logoutBtn = document.getElementById('btn-logout');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('kuleather_active_user');
+          if (typeof window.showToast === 'function') {
+            window.showToast('Anda berhasil keluar dari akun.', 'success');
+          }
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 1000);
+        });
+      }
+
+      // 2. Tab Navigation Trigger
+      const navItems = document.querySelectorAll('.profile-nav-item[data-tab]');
+      const tabPanes = document.querySelectorAll('.profile-tab-pane');
+
+      navItems.forEach(item => {
+        item.addEventListener('click', () => {
+          navItems.forEach(n => n.classList.remove('active'));
+          tabPanes.forEach(p => p.classList.add('hidden'));
+
+          item.classList.add('active');
+          const targetPane = document.getElementById(item.getAttribute('data-tab'));
+          if (targetPane) {
+            targetPane.classList.remove('hidden');
+          }
+
+          // Trigger re-render of target content
+          const tabId = item.getAttribute('data-tab');
+          if (tabId === 'panel-orders') renderUserOrders();
+          if (tabId === 'panel-custom-services') renderUserCustomServices();
+          if (tabId === 'panel-wishlist') renderUserWishlist();
+          if (tabId === 'panel-addresses') renderUserAddresses();
+          if (tabId === 'panel-activity') renderUserActivity();
+          if (tabId === 'panel-settings') populateSettingsForm();
+        });
+      });
+
+      // 3. Render Orders tab (user-scoped)
+      function renderUserOrders() {
+        const container = document.getElementById('profile-orders-list');
+        if (!container) return;
+
+        let orders = JSON.parse(localStorage.getItem('kuleather_profile_orders')) || [];
+        // Filter orders by active user ID
+        orders = orders.filter(o => o.userId === user.id);
+
+        if (orders.length === 0) {
+          // If no orders, seed default orders with userId for premium feel on first load
+          const defaultOrders = [
+            {
+              id: "ORD-92817382",
+              userId: user.id,
+              date: "04 Jun 2026",
+              total: 1268000,
+              status: "Selesai",
+              items: [
+                { name: "Tas Tote Kulit Full Grain Magetan", variant: "Cokelat Tua (M)", qty: 1, price: 1250000, photo: "photo-1548036328-c9fa89d128fa" }
+              ]
+            },
+            {
+              id: "ORD-18279823",
+              userId: user.id,
+              date: "28 Mei 2026",
+              total: 643000,
+              status: "Diproses",
+              items: [
+                { name: "Dompet Bifold Kulit Sapi Premium", variant: "Cognac (Default)", qty: 1, price: 350000, photo: "photo-1614252369475-531eba835eb1" },
+                { name: "Sabuk Pull-Up Leather Artisan", variant: "Tan Natural (Default)", qty: 1, price: 275000, photo: "photo-1553062407-98eeb64c6a62" }
+              ]
+            }
+          ];
+          orders = defaultOrders;
+          
+          // Save seeded orders
+          let allOrders = JSON.parse(localStorage.getItem('kuleather_profile_orders')) || [];
+          allOrders = [...allOrders, ...defaultOrders];
+          localStorage.setItem('kuleather_profile_orders', JSON.stringify(allOrders));
+        }
+
+        let html = '';
+        orders.forEach(o => {
+          let statusColor = 'var(--text-secondary)';
+          if (o.status === 'Selesai') statusColor = 'var(--success)';
+          if (o.status === 'Diproses' || o.status === 'Dikirim') statusColor = 'var(--info)';
+          if (o.status.includes('Menunggu') || o.status.includes('Verifikasi')) statusColor = 'var(--warning)';
+
+          let itemsHtml = '';
+          o.items.forEach(item => {
+            const imgUrl = (item.photo.startsWith('http') || item.photo.includes('/')) ? item.photo : (item.photo.startsWith('photo-') ? `https://images.unsplash.com/${item.photo}?w=100&h=100&fit=crop&auto=format` : `https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=100&h=100&fit=crop&auto=format`);
+            itemsHtml += `
+              <div style="display:flex; align-items:center; gap:var(--space-md); padding:8px 0; border-bottom:1px solid var(--muted-light);">
+                <img src="${imgUrl}" alt="${item.name}" style="width:40px; height:40px; object-fit:cover; border:1px solid var(--muted-light);">
+                <div>
+                  <h5 class="body-sm" style="font-weight:500;">${item.name}</h5>
+                  <span class="caption text-muted" style="font-size:8px;">Varian: ${item.variant} · Jumlah: ${item.qty}</span>
+                </div>
+                <span style="margin-left:auto;" class="price-sm">${idr(item.price * item.qty)}</span>
+              </div>
+            `;
+          });
+
+          html += `
+            <div class="profile-order-card">
+              <div class="flex-between" style="border-bottom:1px solid var(--muted-light); padding-bottom:8px;">
+                <div>
+                  <span class="body-sm" style="font-weight:700; font-family:var(--font-mono); color:var(--accent);">${o.id}</span>
+                  <span class="caption text-muted" style="margin-left:8px;">Tgl: ${o.date}</span>
+                </div>
+                <span class="status-pill" style="--pill-color: ${statusColor}; border-color:${statusColor}33;">
+                  <span class="status-dot" style="background-color: ${statusColor};"></span>
+                  <span class="caption" style="color:${statusColor}; font-weight:700; font-size:8px;">${o.status.toUpperCase()}</span>
+                </span>
+              </div>
+              
+              <div class="flex-y gap-xs" style="margin: 8px 0;">
+                ${itemsHtml}
+              </div>
+
+              <div class="flex-between" style="padding-top:4px;">
+                <div>
+                  <span class="caption text-secondary">Total Bayar:</span>
+                  <strong style="margin-left:4px;" class="price-sm">${idr(o.total)}</strong>
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <a href="orders.html?id=${o.id}" class="btn btn-ghost btn-sm" style="padding:6px 12px;">LACAK PESANAN</a>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+      }
+
+      // 3.5 Render Custom Services tab (user-scoped)
+      function renderUserCustomServices() {
+        const container = document.getElementById('profile-custom-services-list');
+        if (!container) return;
+
+        let svcOrders = JSON.parse(localStorage.getItem('kuleather_service_orders')) || [];
+        svcOrders = svcOrders.filter(o => o.buyerId === user.id);
+
+        if (svcOrders.length === 0) {
+          container.innerHTML = `
+            <div style="text-align:center; padding:var(--space-2xl) 0;">
+              <p class="text-secondary body-sm">Anda belum mengajukan request jasa kerajinan kulit.</p>
+              <a href="services.html" class="btn btn-primary btn-sm mt-md" style="display:inline-block;">Jelajahi Jasa</a>
+            </div>
+          `;
+          return;
+        }
+
+        let html = '';
+        svcOrders.forEach(o => {
+          let statusText = o.status;
+          let statusColor = 'var(--text-secondary)';
+          
+          if (o.status === 'SELESAI') statusColor = 'var(--success)';
+          if (o.status === 'DIKERJAKAN' || o.status === 'HASIL_DIKIRIM') statusColor = 'var(--info)';
+          if (o.status === 'REQUEST_SENT' || o.status === 'PENAWARAN_DIKIRIM') statusColor = 'var(--warning)';
+          if (o.status === 'DIBAYAR_ESCROW') statusColor = 'var(--success)';
+          if (o.status === 'DIBATALKAN') statusColor = 'var(--error)';
+
+          // Translate status
+          if (o.status === 'REQUEST_SENT') statusText = 'Request Diajukan';
+          else if (o.status === 'PENAWARAN_DIKIRIM') statusText = 'Review Penawaran';
+          else if (o.status === 'DEAL') statusText = 'Deal (Belum Bayar)';
+          else if (o.status === 'DIBAYAR_ESCROW') statusText = 'Escrow Terbayar';
+          else if (o.status === 'DIKERJAKAN') statusText = 'Dalam Pengerjaan';
+          else if (o.status === 'HASIL_DIKIRIM') statusText = 'Hasil Dikirim';
+          else if (o.status === 'SELESAI') statusText = 'Selesai';
+          else if (o.status === 'DIBATALKAN') statusText = 'Dibatalkan';
+          else if (o.status === 'DISPUTE') statusText = 'Komplain Mediasi';
+
+          const priceVal = o.offer ? o.offer.finalPrice : o.request.budget;
+          const imgUrl = o.photo || '../assets/ims/wet_blue_leather.png';
+
+          html += `
+            <div class="profile-order-card">
+              <div class="flex-between" style="border-bottom:1px solid var(--muted-light); padding-bottom:8px;">
+                <div>
+                  <span class="body-sm" style="font-weight:700; font-family:var(--font-mono); color:var(--accent);">${o.id}</span>
+                  <span class="caption text-muted" style="margin-left:8px;">Tgl: ${o.date}</span>
+                </div>
+                <span class="status-pill" style="--pill-color: ${statusColor}; border-color:${statusColor}33;">
+                  <span class="status-dot" style="background-color: ${statusColor};"></span>
+                  <span class="caption" style="color:${statusColor}; font-weight:700; font-size:8px;">${statusText.toUpperCase()}</span>
+                </span>
+              </div>
+              
+              <div style="margin: 12px 0; display:flex; gap:16px; align-items:center;">
+                <img src="${imgUrl}" alt="${o.serviceName}" style="width:48px; height:48px; object-fit:cover; border-radius:var(--radius-sm); border:1px solid var(--muted-light);">
+                <div>
+                  <h5 class="body-sm" style="font-weight:600; line-height:1.2; font-family:var(--font-body);">${o.serviceName}</h5>
+                  <span class="caption text-muted" style="font-size:10px; display:block; margin-top:2px;">Mitra Pengrajin: <strong class="text-accent">${o.sellerName}</strong></span>
+                </div>
+                <div style="margin-left:auto; text-align:right;">
+                  <span class="caption text-secondary" style="display:block; font-size:9px;">Harga Deal:</span>
+                  <strong class="price-sm" style="font-family:var(--font-mono); color:var(--accent);">${idr(priceVal)}</strong>
+                </div>
+              </div>
+
+              <div class="flex-between" style="border-top:1px dashed var(--muted-light); padding-top:8px;">
+                <span class="caption text-muted" style="font-size:10px;">Revisi digunakan: <strong>${o.revisions.used}</strong> dari <strong>${o.revisions.max}</strong> kali</span>
+                <a href="service-request.html?orderId=${o.id}" class="btn btn-primary btn-sm" style="padding:6px 14px; font-size:9px;">BUKA WORKSPACE</a>
+              </div>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+      }
+
+      // 4. Render Wishlist tab (user-scoped)
+      function renderUserWishlist() {
+        const container = document.getElementById('profile-wishlist-list');
+        if (!container) return;
+
+        let wishlist = JSON.parse(localStorage.getItem('kuleather_wishlist')) || [];
+        wishlist = wishlist.filter(item => item.userId === user.id);
+
+        if (wishlist.length === 0) {
+          container.innerHTML = `
+            <div style="grid-column:1/-1; text-align:center; padding:var(--space-2xl) 0;">
+              <p class="text-secondary body-sm">Wishlist Anda masih kosong.</p>
+              <a href="produk.html" class="btn btn-primary btn-sm mt-md" style="display:inline-block;">Jelajahi Produk</a>
+            </div>
+          `;
+          return;
+        }
+
+        let html = '';
+        wishlist.forEach(item => {
+          const imgUrl = (item.photo.startsWith('http') || item.photo.includes('/')) ? item.photo : (item.photo.startsWith('photo-') ? `https://images.unsplash.com/${item.photo}?w=100&h=100&fit=crop&auto=format` : `https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=100&h=100&fit=crop&auto=format`);
+          html += `
+            <div class="profile-wishlist-item" data-id="${item.productId}">
+              <img src="${imgUrl}" alt="${item.name}" style="width:60px; height:60px; object-fit:cover; border:1px solid var(--muted-light);">
+              <div style="flex-grow:1;">
+                <h5 class="body-sm" style="font-weight:600; margin-bottom:4px;">${item.name}</h5>
+                <span class="price-sm">${idr(item.price)}</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:4px; align-items:stretch; min-width:90px;">
+                <a href="product.html?id=${item.productId}" class="btn btn-primary btn-sm" style="padding:4px 8px; font-size:10px; text-decoration:none; text-align:center; display:block;">DETAIL</a>
+                <button class="btn btn-ghost btn-sm btn-wishlist-remove text-error" data-id="${item.productId}" style="padding:4px 8px; font-size:10px; text-align:center; width:100%;">HAPUS</button>
+              </div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+
+        // Attach events
+        container.querySelectorAll('.btn-wishlist-remove').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const pid = e.target.getAttribute('data-id');
+            removeFromWishlistData(pid);
+          });
+        });
+      }
+
+      function removeFromWishlistData(pid) {
+        let wishlist = JSON.parse(localStorage.getItem('kuleather_wishlist')) || [];
+        wishlist = wishlist.filter(item => !(item.userId === user.id && item.productId === pid));
+        localStorage.setItem('kuleather_wishlist', JSON.stringify(wishlist));
+        window.showToast('Produk dihapus dari wishlist.', 'info');
+        renderUserWishlist();
+      }
+
+      // 5. Render Address tab & CRUD (user-scoped)
+      const addressOverlay = document.getElementById('address-modal-overlay');
+      const addressForm = document.getElementById('address-crud-form');
+      const addressTitle = document.getElementById('address-modal-title');
+      const addressId = document.getElementById('address-id-field');
+
+      if (document.getElementById('btn-add-address')) {
+        document.getElementById('btn-add-address').addEventListener('click', () => {
+          addressTitle.textContent = 'Tambah Alamat Baru';
+          addressForm.reset();
+          addressId.value = '';
+          addressOverlay.classList.remove('hidden');
+        });
+      }
+
+      if (document.getElementById('btn-cancel-address')) {
+        document.getElementById('btn-cancel-address').addEventListener('click', () => {
+          addressOverlay.classList.add('hidden');
+        });
+      }
+
+      if (addressForm) {
+        addressForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const id = addressId.value;
+          const name = document.getElementById('addr-name').value.trim();
+          const phone = document.getElementById('addr-phone').value.trim();
+          const details = document.getElementById('addr-details').value.trim();
+          const city = document.getElementById('addr-city').value.trim();
+          const zip = document.getElementById('addr-zip').value.trim();
+          const isDefault = document.getElementById('addr-default').checked;
+
+          let addresses = JSON.parse(localStorage.getItem('kuleather_addresses')) || [];
+
+          // If default is checked, uncheck all other addresses of this user
+          if (isDefault) {
+            addresses = addresses.map(addr => {
+              if (addr.userId === user.id) {
+                return { ...addr, isDefault: false };
+              }
+              return addr;
+            });
+          }
+
+          const addressData = {
+            id: id || 'addr-' + Math.floor(Math.random() * 900000 + 100000),
+            userId: user.id,
+            name,
+            phone,
+            address: details,
+            city,
+            zip,
+            isDefault
+          };
+
+          if (id) {
+            // Edit mode
+            const idx = addresses.findIndex(a => a.id === id);
+            if (idx !== -1) {
+              addresses[idx] = addressData;
+            }
+          } else {
+            // Add mode
+            // If this is the only address, make it default automatically
+            const userAddrsCount = addresses.filter(a => a.userId === user.id).length;
+            if (userAddrsCount === 0) {
+              addressData.isDefault = true;
+            }
+            addresses.push(addressData);
+          }
+
+          localStorage.setItem('kuleather_addresses', JSON.stringify(addresses));
+          addressOverlay.classList.add('hidden');
+          window.showToast('Alamat berhasil disimpan.', 'success');
+          logUserActivity('Menyimpan alamat pengiriman baru');
+          renderUserAddresses();
+        });
+      }
+
+      function renderUserAddresses() {
+        const container = document.getElementById('profile-addresses-list');
+        if (!container) return;
+
+        let addresses = JSON.parse(localStorage.getItem('kuleather_addresses')) || [];
+        addresses = addresses.filter(a => a.userId === user.id);
+
+        if (addresses.length === 0) {
+          container.innerHTML = `<p class="text-secondary body-sm text-center" style="padding:var(--space-md) 0;">Anda belum mendaftarkan alamat kirim.</p>`;
+          return;
+        }
+
+        // Sort default address to top
+        addresses.sort((a, b) => (b.isDefault ? 1 : 0) - (a.isDefault ? 1 : 0));
+
+        let html = '';
+        addresses.forEach(addr => {
+          html += `
+            <div class="address-card ${addr.isDefault ? 'default' : ''}">
+              <div>
+                <strong class="body-sm" style="display:block; margin-bottom:4px;">${addr.name} ${addr.isDefault ? '<span class="badge badge-premium" style="font-size:8px; padding:2px 6px; margin-left:8px; border-color:var(--accent); color:var(--accent);">UTAMA</span>' : ''}</strong>
+                <span class="caption text-secondary" style="display:block; margin-bottom:2px;">Telp: ${addr.phone}</span>
+                <p class="body-sm text-secondary" style="font-size:12px; line-height:1.4;">${addr.address}, ${addr.city}, ${addr.zip}</p>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-end;">
+                <button class="btn btn-ghost btn-sm btn-edit-addr" data-id="${addr.id}" style="padding:4px 8px; font-size:10px;">EDIT</button>
+                <button class="btn btn-ghost btn-sm btn-delete-addr text-error" data-id="${addr.id}" style="padding:4px 8px; font-size:10px;">HAPUS</button>
+                ${!addr.isDefault ? `<button class="btn btn-ghost btn-sm btn-default-addr text-accent" data-id="${addr.id}" style="padding:4px 8px; font-size:10px; font-weight:700;">SET UTAMA</button>` : ''}
+              </div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+
+        // Attach events
+        container.querySelectorAll('.btn-edit-addr').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const id = e.target.getAttribute('data-id');
+            const addr = addresses.find(a => a.id === id);
+            if (addr) {
+              addressTitle.textContent = 'Edit Alamat';
+              addressId.value = addr.id;
+              document.getElementById('addr-name').value = addr.name;
+              document.getElementById('addr-phone').value = addr.phone;
+              document.getElementById('addr-details').value = addr.address;
+              document.getElementById('addr-city').value = addr.city;
+              document.getElementById('addr-zip').value = addr.zip;
+              document.getElementById('addr-default').checked = addr.isDefault;
+              addressOverlay.classList.remove('hidden');
+            }
+          });
+        });
+
+        container.querySelectorAll('.btn-delete-addr').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const id = e.target.getAttribute('data-id');
+            if (confirm('Apakah Anda yakin ingin menghapus alamat ini?')) {
+              let allAddrs = JSON.parse(localStorage.getItem('kuleather_addresses')) || [];
+              allAddrs = allAddrs.filter(a => a.id !== id);
+              localStorage.setItem('kuleather_addresses', JSON.stringify(allAddrs));
+              window.showToast('Alamat berhasil dihapus.', 'success');
+              logUserActivity('Menghapus alamat pengiriman');
+              renderUserAddresses();
+            }
+          });
+        });
+
+        container.querySelectorAll('.btn-default-addr').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const id = e.target.getAttribute('data-id');
+            let allAddrs = JSON.parse(localStorage.getItem('kuleather_addresses')) || [];
+            allAddrs = allAddrs.map(a => {
+              if (a.userId === user.id) {
+                return { ...a, isDefault: a.id === id };
+              }
+              return a;
+            });
+            localStorage.setItem('kuleather_addresses', JSON.stringify(allAddrs));
+            window.showToast('Alamat utama berhasil diubah.', 'success');
+            logUserActivity('Mengubah alamat utama pengiriman');
+            renderUserAddresses();
+          });
+        });
+      }
+
+      // 6. Render Activity Log tab (user-scoped)
+      function renderUserActivity() {
+        const container = document.getElementById('profile-activity-list');
+        if (!container) return;
+
+        let activity = JSON.parse(localStorage.getItem('kuleather_activity')) || [];
+        activity = activity.filter(act => act.userId === user.id);
+
+        if (activity.length === 0) {
+          // Seed initial activity logs
+          const defaultLogs = [
+            { userId: user.id, text: "Mendaftar akun Kuleather", date: user.joined || "10 Mei 2026", time: "10:15" },
+            { userId: user.id, text: "Berhasil masuk ke dashboard akun", date: new Date().toLocaleDateString('id-ID'), time: "16:20" }
+          ];
+          activity = defaultLogs;
+          localStorage.setItem('kuleather_activity', JSON.stringify(activity));
+        }
+
+        let html = '';
+        activity.forEach(act => {
+          html += `
+            <div class="activity-log-item">
+              <span class="text-secondary">${act.text}</span>
+              <span class="text-subtle" style="font-size:10px;">${act.date} · ${act.time || ''}</span>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+      }
+
+      function logUserActivity(message) {
+        const activity = JSON.parse(localStorage.getItem('kuleather_activity')) || [];
+        const now = new Date();
+        activity.unshift({
+          userId: user.id,
+          text: message,
+          date: now.toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }),
+          time: now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+        });
+        localStorage.setItem('kuleather_activity', JSON.stringify(activity));
+      }
+
+      // 7. Update profile settings form
+      function populateSettingsForm() {
+        const settingsForm = document.getElementById('profile-settings-form');
+        if (!settingsForm) return;
+
+        document.getElementById('settings-name').value = user.name;
+        document.getElementById('settings-phone').value = user.phone;
+        document.getElementById('settings-new-password').value = '';
+        document.getElementById('settings-current-password').value = '';
+      }
+
+      const settingsForm = document.getElementById('profile-settings-form');
+      if (settingsForm) {
+        settingsForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById('settings-name').value.trim();
+          const phone = document.getElementById('settings-phone').value.trim();
+          const newPassword = document.getElementById('settings-new-password').value;
+          const currentPassword = document.getElementById('settings-current-password').value;
+
+          // Validate current password
+          if (currentPassword !== user.password) {
+            window.showToast('Password saat ini salah. Perubahan gagal disimpan.', 'error');
+            return;
+          }
+
+          let users = JSON.parse(localStorage.getItem('kuleather_users')) || [];
+          const idx = users.findIndex(u => u.id === user.id);
+
+          if (idx !== -1) {
+            users[idx].name = name;
+            users[idx].phone = phone;
+            if (newPassword.trim() !== '') {
+              if (newPassword.length < 6) {
+                window.showToast('Password baru minimal harus 6 karakter.', 'error');
+                return;
+              }
+              users[idx].password = newPassword;
+              user.password = newPassword;
+            }
+
+            // Save changes
+            user.name = name;
+            user.phone = phone;
+
+            localStorage.setItem('kuleather_users', JSON.stringify(users));
+            localStorage.setItem('kuleather_active_user', JSON.stringify(user));
+
+            window.showToast('Profil akun berhasil diperbarui.', 'success');
+            logUserActivity('Mengubah data pengaturan akun');
+            
+            // Re-populate and render header
+            populateSettingsForm();
+            
+            const initials = name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+            user.initials = initials;
+            localStorage.setItem('kuleather_active_user', JSON.stringify(user));
+            avatarCircles.forEach(circ => {
+              circ.textContent = initials;
+            });
+            nameHeaders.forEach(el => {
+              el.textContent = name;
+            });
+          }
+        });
+      }
+
+      // Initial execution on load
+      renderUserOrders();
+
+      // Check query parameter for active tab
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get('tab');
+      if (tabParam) {
+        const targetBtn = document.querySelector(`.profile-nav-item[data-tab="${tabParam}"]`);
+        if (targetBtn) {
+          targetBtn.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengaturan Situs — Kuleather Admin</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <div class="admin-wrapper">
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <a class="admin-sidebar-logo" href="../index.html">KL<span>ADMIN</span></a>
+        <button class="admin-sidebar-toggle" aria-label="Toggle Sidebar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="admin-sidebar-nav">
+        <a href="dashboard.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="products.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <span>Produk</span>
+        </a>
+        <a href="orders.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span>Transaksi</span>
+        </a>
+        <a href="service-orders.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          <span>Order Jasa</span>
+        </a>
+        <a href="escrow.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Eskrow Platform</span>
+        </a>
+        <a href="disputes.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Dispute Komplain</span>
+        </a>
+        <a href="users.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Pengguna</span>
+        </a>
+        <a href="sellers.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Mitra Seller</span>
+        </a>
+        <a href="articles.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Artikel</span>
+        </a>
+        <a href="reports.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Laporan</span>
+        </a>
+        <a href="notifications.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span>Notifikasi</span>
+          <span class="nav-badge" id="admin-sidebar-notif-badge" style="display: none;">0</span>
+        </a>
+        <a href="settings.html" class="admin-nav-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Pengaturan</span>
+        </a>
+      </nav>
+      <div class="admin-sidebar-footer">
+        <div class="admin-user-avatar" id="admin-user-initials">AD</div>
+        <div class="admin-user-info">
+          <span class="admin-user-name" id="admin-user-name">Admin Utama</span>
+          <span class="admin-user-role">Full Access</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="admin-sidebar-overlay" id="admin-sidebar-overlay"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="admin-main">
+      <!-- TOP BAR -->
+      <header class="admin-topbar">
+        <button class="admin-mobile-menu-btn" id="admin-mobile-menu-btn" aria-label="Buka Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="admin-breadcrumb">
+          <a href="dashboard.html">ADMIN</a>
+          <span class="separator">/</span>
+          <span class="current">Pengaturan</span>
+        </div>
+        <div class="admin-topbar-actions">
+          <div id="admin-theme-toggle"></div>
+          <span class="admin-datetime" id="admin-datetime-display">Kamis, 11 Juni 2026</span>
+          <a href="notifications.html" class="admin-topbar-btn" aria-label="Notifikasi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="btn-badge" id="admin-topbar-bell-badge" style="display: none;"></span>
+          </a>
+          <a href="#" onclick="handleAdminLogout(); return false;" class="admin-topbar-btn" aria-label="Keluar Ke Halaman Utama" title="Keluar ke Halaman Utama">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="admin-content">
+        <!-- PAGE HEADER -->
+        <div class="admin-page-header">
+          <div class="admin-page-title-area">
+            <span class="admin-page-subtitle">SINKRONISASI HOMEPAGE DAN CONFIG</span>
+            <h1 class="admin-page-title">Pengaturan Situs</h1>
+          </div>
+        </div>
+
+        <!-- TABS NAV -->
+        <div class="admin-tabs">
+          <button class="admin-tab-btn active" data-tab="tab-site">Info Situs</button>
+          <button class="admin-tab-btn" data-tab="tab-promo">Kode Promo</button>
+          <button class="admin-tab-btn" data-tab="tab-faq">FAQ</button>
+          <button class="admin-tab-btn" data-tab="tab-testimonials">Testimoni</button>
+          <button class="admin-tab-btn" data-tab="tab-partners">Partner</button>
+          <button class="admin-tab-btn" data-tab="tab-stats">Statistik</button>
+          <button class="admin-tab-btn" data-tab="tab-shipping">Tarif Ongkir</button>
+          <button class="admin-tab-btn" data-tab="tab-newsletter">Newsletter</button>
+        </div>
+
+        <!-- 1. TAB INFO SITE -->
+        <div class="admin-tab-content active" id="tab-site">
+          <div class="admin-card" style="max-width: 600px;">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Informasi Situs Utama</h2>
+            </div>
+            <div class="admin-card-body">
+              <form id="form-setting-site">
+                <div class="admin-form-group row-2">
+                  <div>
+                    <label class="admin-form-label">Nama Situs</label>
+                    <input type="text" id="site-name" class="admin-form-input" required>
+                  </div>
+                  <div>
+                    <label class="admin-form-label">Tagline Hero</label>
+                    <input type="text" id="site-tagline" class="admin-form-input" required>
+                  </div>
+                </div>
+                <div class="admin-form-group row-2">
+                  <div>
+                    <label class="admin-form-label">Email Support</label>
+                    <input type="email" id="site-email" class="admin-form-input" required>
+                  </div>
+                  <div>
+                    <label class="admin-form-label">Telepon Kontak</label>
+                    <input type="text" id="site-phone" class="admin-form-input" required>
+                  </div>
+                </div>
+                <div class="admin-form-group">
+                  <label class="admin-form-label">Alamat Kantor</label>
+                  <input type="text" id="site-address" class="admin-form-input" required>
+                </div>
+                <div class="admin-form-group row-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                  <div>
+                    <label class="admin-form-label">Instagram Link</label>
+                    <input type="text" id="site-social-ig" class="admin-form-input">
+                  </div>
+                  <div>
+                    <label class="admin-form-label">Facebook Link</label>
+                    <input type="text" id="site-social-fb" class="admin-form-input">
+                  </div>
+                  <div>
+                    <label class="admin-form-label">Twitter Link</label>
+                    <input type="text" id="site-social-tw" class="admin-form-input">
+                  </div>
+                </div>
+                <div style="text-align: right; margin-top: var(--space-md);">
+                  <button type="submit" class="btn-admin btn-admin-primary">Simpan Info Situs</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. TAB PROMO CODES -->
+        <div class="admin-tab-content" id="tab-promo">
+          <div class="flex-between mb-md">
+            <h3 class="heading-3">Kode Promo Belanja</h3>
+            <button class="btn-admin btn-admin-primary" style="padding: 0.45rem 0.8rem; font-size: 0.7rem;" onclick="openPromoAddModal()">
+              Tambah Kode Promo
+            </button>
+          </div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Kode Voucher</th>
+                  <th>Nilai Diskon</th>
+                  <th>Tipe Potongan</th>
+                  <th>Min. Belanja</th>
+                  <th>Status</th>
+                  <th style="text-align: center;">Jumlah Pemakaian</th>
+                  <th style="width: 80px; text-align: right;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="promo-table-tbody">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. TAB FAQ -->
+        <div class="admin-tab-content" id="tab-faq">
+          <div class="flex-between mb-md">
+            <h3 class="heading-3">Daftar Tanya Jawab (FAQ)</h3>
+            <button class="btn-admin btn-admin-primary" style="padding: 0.45rem 0.8rem; font-size: 0.7rem;" onclick="openFaqAddModal()">
+              Tambah FAQ
+            </button>
+          </div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th style="width: 60px; text-align: center;">Urutan</th>
+                  <th>Kategori</th>
+                  <th>Pertanyaan</th>
+                  <th>Jawaban</th>
+                  <th style="text-align: center;">Bermanfaat</th>
+                  <th style="width: 80px; text-align: right;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="faq-table-tbody">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 4. TAB TESTIMONIALS -->
+        <div class="admin-tab-content" id="tab-testimonials">
+          <div class="flex-between mb-md">
+            <h3 class="heading-3">Testimoni Klien</h3>
+            <button class="btn-admin btn-admin-primary" style="padding: 0.45rem 0.8rem; font-size: 0.7rem;" onclick="openTestimonialAddModal()">
+              Tambah Testimoni
+            </button>
+          </div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nama Klien</th>
+                  <th>Jabatan / Pekerjaan</th>
+                  <th>Rating</th>
+                  <th>Featured Homepage</th>
+                  <th>Isi Kutipan</th>
+                  <th style="width: 80px; text-align: right;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="testimonial-table-tbody">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 5. TAB PARTNERS -->
+        <div class="admin-tab-content" id="tab-partners">
+          <div class="admin-card" style="max-width: 500px;">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Logo Partner Marquee</h2>
+            </div>
+            <div class="admin-card-body">
+              <div style="display:flex; gap:10px; margin-bottom:var(--space-md);">
+                <input type="text" id="partner-name-input" class="admin-form-input" placeholder="Masukkan nama partner baru..." style="flex:1;">
+                <button class="btn-admin btn-admin-primary" onclick="addPartnerLogo()">Tambah</button>
+              </div>
+              <p class="caption text-muted mb-md">Daftar partner di bawah ini ditampilkan di baris marquee bergulir homepage:</p>
+              <div id="partner-list-container" style="display:flex; flex-direction:column; gap:6px;">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. TAB HOME STATS -->
+        <div class="admin-tab-content" id="tab-stats">
+          <div class="admin-card" style="max-width: 500px;">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Statistik Homepage Counter</h2>
+            </div>
+            <div class="admin-card-body">
+              <form id="form-setting-stats">
+                <div class="admin-form-group row-2">
+                  <div>
+                    <label class="admin-form-label">Pengrajin Aktif</label>
+                    <input type="number" id="stats-craftsmen-val" class="admin-form-input" required>
+                  </div>
+                  <div>
+                    <label class="admin-form-label">Suffix (misal: +)</label>
+                    <input type="text" id="stats-craftsmen-suff" class="admin-form-input">
+                  </div>
+                </div>
+                <div class="admin-form-group row-2">
+                  <div>
+                    <label class="admin-form-label">Pilihan Produk</label>
+                    <input type="number" id="stats-products-val" class="admin-form-input" required>
+                  </div>
+                  <div>
+                    <label class="admin-form-label">Suffix (misal: +)</label>
+                    <input type="text" id="stats-products-suff" class="admin-form-input">
+                  </div>
+                </div>
+                <div class="admin-form-group row-2">
+                  <div>
+                    <label class="admin-form-label">Pesanan Bulanan</label>
+                    <input type="number" id="stats-orders-val" class="admin-form-input" required>
+                  </div>
+                  <div>
+                    <label class="admin-form-label">Suffix</label>
+                    <input type="text" id="stats-orders-suff" class="admin-form-input">
+                  </div>
+                </div>
+                <div class="admin-form-group row-2">
+                  <div>
+                    <label class="admin-form-label">Kota Terjangkau</label>
+                    <input type="number" id="stats-cities-val" class="admin-form-input" required>
+                  </div>
+                  <div>
+                    <label class="admin-form-label">Suffix</label>
+                    <input type="text" id="stats-cities-suff" class="admin-form-input">
+                  </div>
+                </div>
+                <div style="text-align: right; margin-top: var(--space-md);">
+                  <button type="submit" class="btn-admin btn-admin-primary">Simpan Statistik</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. TAB SHIPPING RATES -->
+        <div class="admin-tab-content" id="tab-shipping">
+          <div class="admin-card" style="max-width: 500px;">
+            <div class="admin-card-header">
+              <h2 class="admin-card-title">Tarif Flat Pengiriman</h2>
+            </div>
+            <div class="admin-card-body">
+              <form id="form-setting-shipping">
+                <div class="admin-form-group">
+                  <label class="admin-form-label">JNE Reguler (Rp)</label>
+                  <input type="number" id="shipping-jne-reg" class="admin-form-input" required>
+                </div>
+                <div class="admin-form-group">
+                  <label class="admin-form-label">JNE YES (Yakin Esok Sampai) (Rp)</label>
+                  <input type="number" id="shipping-jne-yes" class="admin-form-input" required>
+                </div>
+                <div class="admin-form-group">
+                  <label class="admin-form-label">SiCepat (Rp)</label>
+                  <input type="number" id="shipping-sicepat" class="admin-form-input" required>
+                </div>
+                <div style="text-align: right; margin-top: var(--space-md);">
+                  <button type="submit" class="btn-admin btn-admin-primary">Simpan Tarif</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. TAB NEWSLETTER -->
+        <div class="admin-tab-content" id="tab-newsletter">
+          <div class="flex-between mb-md">
+            <h3 class="heading-3">Newsletter Subscribers</h3>
+            <button class="btn-admin btn-admin-primary" style="padding: 0.45rem 0.8rem; font-size: 0.7rem;" onclick="exportNewsletterCsv()">
+              Export CSV
+            </button>
+          </div>
+          <p class="caption text-muted mb-md">Daftar alamat email pembeli yang berlangganan newsletter di footer homepage:</p>
+          <div class="admin-table-wrapper" style="max-width: 600px;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Alamat Email</th>
+                  <th>Tanggal Berlangganan</th>
+                  <th style="width: 80px; text-align: right;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="newsletter-table-tbody">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- A. PROMO VOUCHER CRUD MODAL -->
+  <div class="admin-modal-overlay" id="promo-modal-overlay">
+    <div class="admin-modal" style="max-width: 450px;">
+      <div class="admin-modal-header">
+        <h2 class="admin-modal-title" id="promo-modal-title">Tambah Voucher Promo</h2>
+        <button class="admin-modal-close" onclick="closeModal('promo-modal-overlay')">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form id="promo-crud-form">
+        <input type="hidden" id="promo-old-code">
+        <div class="admin-modal-body">
+          <div class="admin-form-group">
+            <label class="admin-form-label">Kode Voucher (Kapital, tanpa spasi)</label>
+            <input type="text" id="promo-code-input" class="admin-form-input" placeholder="Contoh: KULEATHER50" required>
+          </div>
+          <div class="admin-form-group row-2">
+            <div>
+              <label class="admin-form-label">Nilai Potongan</label>
+              <input type="number" id="promo-discount-input" class="admin-form-input" placeholder="Contoh: 10" required>
+            </div>
+            <div>
+              <label class="admin-form-label">Tipe Diskon</label>
+              <select id="promo-type-input" class="admin-form-select" required>
+                <option value="percent">Persentase (%)</option>
+                <option value="free_shipping">Gratis Ongkir</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-form-group row-2">
+            <div>
+              <label class="admin-form-label">Min. Belanja (Rp)</label>
+              <input type="number" id="promo-minorder-input" class="admin-form-input" placeholder="Contoh: 100000" min="0" required>
+            </div>
+            <div>
+              <label class="admin-form-label">Status Voucher</label>
+              <select id="promo-active-input" class="admin-form-select" required>
+                <option value="true">Aktif</option>
+                <option value="false">Nonaktif</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-admin btn-admin-secondary" onclick="closeModal('promo-modal-overlay')">Batal</button>
+          <button type="submit" class="btn-admin btn-admin-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- B. FAQ CRUD MODAL -->
+  <div class="admin-modal-overlay" id="faq-modal-overlay">
+    <div class="admin-modal" style="max-width: 500px;">
+      <div class="admin-modal-header">
+        <h2 class="admin-modal-title" id="faq-modal-title">Kelola FAQ</h2>
+        <button class="admin-modal-close" onclick="closeModal('faq-modal-overlay')">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form id="faq-crud-form">
+        <input type="hidden" id="faq-id-field">
+        <div class="admin-modal-body">
+          <div class="admin-form-group row-2">
+            <div>
+              <label class="admin-form-label">Kategori FAQ</label>
+              <select id="faq-category" class="admin-form-select" required>
+                <option value="Umum">Umum</option>
+                <option value="Pemesanan">Pemesanan</option>
+                <option value="Pembayaran">Pembayaran</option>
+                <option value="Pengiriman">Pengiriman</option>
+                <option value="Pengembalian">Pengembalian</option>
+                <option value="Akun">Akun</option>
+                <option value="Layanan Kustom">Layanan Kustom</option>
+              </select>
+            </div>
+            <div>
+              <label class="admin-form-label">Urutan Tampil (Order)</label>
+              <input type="number" id="faq-order" class="admin-form-input" min="1" required>
+            </div>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-form-label">Pertanyaan (Question)</label>
+            <input type="text" id="faq-question" class="admin-form-input" placeholder="Tulis pertanyaan..." required>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-form-label">Jawaban (Answer)</label>
+            <textarea id="faq-answer" class="admin-form-textarea" placeholder="Tulis penjelasan jawaban..." style="min-height:100px;" required></textarea>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-admin btn-admin-secondary" onclick="closeModal('faq-modal-overlay')">Batal</button>
+          <button type="submit" class="btn-admin btn-admin-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- C. TESTIMONIAL CRUD MODAL -->
+  <div class="admin-modal-overlay" id="testimonial-modal-overlay">
+    <div class="admin-modal" style="max-width: 500px;">
+      <div class="admin-modal-header">
+        <h2 class="admin-modal-title" id="testimonial-modal-title">Kelola Testimoni</h2>
+        <button class="admin-modal-close" onclick="closeModal('testimonial-modal-overlay')">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form id="testimonial-crud-form">
+        <input type="hidden" id="testimonial-id-field">
+        <div class="admin-modal-body">
+          <div class="admin-form-group row-2">
+            <div>
+              <label class="admin-form-label">Nama Lengkap Klien</label>
+              <input type="text" id="testimonial-name" class="admin-form-input" placeholder="Contoh: Dewi Sartika" required>
+            </div>
+            <div>
+              <label class="admin-form-label">Jabatan & Perusahaan</label>
+              <input type="text" id="testimonial-role" class="admin-form-input" placeholder="Contoh: Founder, Linea Shoes" required>
+            </div>
+          </div>
+          <div class="admin-form-group row-2">
+            <div>
+              <label class="admin-form-label">Rating Bintang (1 - 5)</label>
+              <input type="number" id="testimonial-rating" class="admin-form-input" min="1" max="5" value="5" required>
+            </div>
+            <div>
+              <label class="admin-form-label">Featured Homepage</label>
+              <select id="testimonial-featured" class="admin-form-select" required>
+                <option value="true">Featured (Tampil di Homepage)</option>
+                <option value="false">Tidak Tampil</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-form-label">Foto Klien (ID Unsplash / URL)</label>
+            <input type="text" id="testimonial-photo" class="admin-form-input" placeholder="Contoh: photo-1494790108377-be9c29b29330">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-form-label">Isi Kutipan Testimoni</label>
+            <textarea id="testimonial-quote" class="admin-form-textarea" placeholder="Tulis review dari klien..." style="min-height:80px;" required></textarea>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-admin btn-admin-secondary" onclick="closeModal('testimonial-modal-overlay')">Batal</button>
+          <button type="submit" class="btn-admin btn-admin-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CORE SCRIPTS -->
+  <script src="../js/admin-core.js"></script>
+  <script src="../js/admin-settings.js"></script>
+</body>
+</html>

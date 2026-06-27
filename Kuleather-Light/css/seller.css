@@ -1,0 +1,462 @@
+/* ==========================================================================
+   🏪 Kuleather Light — CSS Seller Panel & Storefront Styling
+   ========================================================================== */
+
+@import url("admin.css");
+
+/* Mobile Logo hidden on desktop */
+.admin-topbar-logo-mobile {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+/* 1. Dashboard Custom Elements */
+.seller-shop-banner-preview {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-gold) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+}
+
+.seller-shop-banner-preview::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.15;
+  background-image: radial-gradient(var(--text-primary) 1px, transparent 0), radial-gradient(var(--text-primary) 1px, transparent 0);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+
+.seller-shop-avatar-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--bg-paper);
+  border: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin-top: -40px;
+  margin-left: var(--space-xl);
+  position: relative;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+}
+
+/* 2. Public Storefront Layout (store.html) */
+.storefront-header {
+  background-color: var(--bg-paper);
+  border-bottom: 1px solid var(--muted-light);
+  padding: var(--space-2xl) 0 var(--space-lg) 0;
+  margin-top: var(--navbar-height);
+}
+
+.storefront-profile-grid {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.storefront-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--bg-ivory);
+  border: 1px solid var(--muted-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.storefront-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.storefront-badges-row {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.storefront-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  text-align: center;
+  background-color: var(--bg-ivory);
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid var(--muted-light);
+  border-radius: var(--radius-sm);
+}
+
+.storefront-stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.storefront-stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-taupe);
+  margin-top: 2px;
+}
+
+/* Storefront Tabs */
+.storefront-tabs-section {
+  border-bottom: 1px solid var(--muted-light);
+  background-color: var(--bg-paper);
+}
+
+/* responsive design storefront */
+@media (max-width: 768px) {
+  .storefront-profile-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+    gap: var(--space-md);
+  }
+  
+  .storefront-stats-grid {
+    width: 100%;
+    margin-top: var(--space-sm);
+  }
+}
+
+
+/* Public Storefront Grid Layout */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-lg);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Storefront Utility Row & Sort Select styles */
+.catalog-utility-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-bottom: 1px solid var(--muted-light);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  width: 100%;
+}
+
+.sort-select {
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+  border: 1px solid var(--muted) !important;
+  background-color: var(--surface) !important;
+  color: var(--text-primary) !important;
+  width: 180px !important;
+  height: auto !important;
+}
+
+/* ==========================================================================
+   SELLER PANEL — Mobile Responsive Overhaul
+   ========================================================================== */
+
+/* --- Mobile Sidebar Overlay (shared with admin-core via seller.css @import) --- */
+@media (max-width: 768px) {
+  /* Seller sidebar drawer mode */
+  .admin-sidebar {
+    width: 260px !important;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 99;
+  }
+
+  .admin-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* Fix sidebar overlay blocking clicks on mobile */
+  .admin-sidebar-overlay {
+    display: block !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  }
+
+  .admin-sidebar-overlay.active {
+    visibility: visible !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
+  }
+
+  .admin-main {
+    margin-left: 0 !important;
+  }
+
+  .admin-mobile-menu-btn {
+    display: flex !important;
+  }
+
+  /* Restore label texts in drawer mode */
+  .admin-sidebar .admin-sidebar-logo,
+  .admin-sidebar .admin-nav-item span,
+  .admin-sidebar .admin-user-info {
+    display: flex !important;
+  }
+
+  .admin-sidebar .admin-nav-item span {
+    display: inline !important;
+  }
+
+  .admin-sidebar .admin-nav-item {
+    justify-content: flex-start !important;
+    padding: 0.8rem var(--space-lg) !important;
+  }
+
+  .admin-sidebar .admin-sidebar-footer {
+    justify-content: flex-start !important;
+    padding: var(--space-md) var(--space-lg) !important;
+  }
+
+  .admin-topbar-logo-mobile {
+    display: flex !important;
+    align-items: center !important;
+    order: 1 !important;
+  }
+
+  .admin-topbar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 var(--space-md) !important;
+    box-sizing: border-box !important;
+  }
+
+  .admin-datetime {
+    display: none !important;
+  }
+
+  #seller-topbar-shop-name {
+    display: none !important;
+  }
+
+  .admin-topbar-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-sm) !important;
+    order: 2 !important;
+    margin-left: auto !important;
+  }
+
+  .admin-mobile-menu-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    order: 99 !important;
+  }
+
+  /* Prevent horizontal page overflow and ensure proper sizing */
+  body, html {
+    overflow-x: hidden !important;
+  }
+
+  .admin-wrapper {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .admin-main {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    min-width: 0 !important;
+  }
+
+  .admin-content {
+    padding: var(--space-md) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+
+  .admin-page-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .admin-page-title {
+    font-size: 1.2rem !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .admin-page-subtitle {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  .admin-dashboard-row {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .admin-card {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .admin-table-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .chart-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- Finance page: stack KPI cards --- */
+  .seller-finance-kpis,
+  .finance-kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Finance chart section: single column */
+  .finance-charts-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Finance table: horizontal scroll */
+  .finance-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* --- Store page: store banner, avatar stack --- */
+  .seller-shop-banner-preview {
+    height: 120px;
+  }
+
+  .seller-shop-avatar-large {
+    width: 64px;
+    height: 64px;
+    margin-top: -32px;
+    margin-left: var(--space-md);
+    font-size: 1.8rem;
+  }
+
+  /* Store settings form: grid to single column */
+  .store-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- Seller orders: tab bar scroll --- */
+  .seller-orders-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    scrollbar-width: none;
+    flex-wrap: nowrap !important;
+  }
+
+  .seller-orders-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .seller-orders-tabs .tab-btn,
+  .seller-orders-tabs .filter-pill {
+    flex-shrink: 0;
+  }
+
+  /* Seller products: filter bar stacks */
+  .admin-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+
+  /* --- Admin stats grid and finance KPIs inside seller --- */
+  body .admin-wrapper .admin-stats-grid,
+  body .admin-wrapper .seller-finance-kpis,
+  body .admin-wrapper .finance-kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-sm) !important;
+  }
+
+  /* Admin table */
+  .admin-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-table {
+    min-width: 600px;
+  }
+
+  /* Page header stack */
+  .admin-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Storefront profile grid stacks */
+  .storefront-profile-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    justify-items: center;
+  }
+
+  /* Storefront stats: single row, full width */
+  .storefront-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  /* Collapse to 1 column on extremely small screens */
+  body .admin-wrapper .seller-finance-kpis,
+  body .admin-wrapper .finance-kpi-grid,
+  body .admin-wrapper .admin-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

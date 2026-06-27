@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build output
+dist/
+.output/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vercel
+.vercel/
+
+# Temporary / scratch files
+scratch/
+
+# Design assets & docs (tidak perlu di-deploy)
+Dokumen/
+"Design System and Landing Page"/
+"Design System and Landing Page.zip"
+*.zip
+*.pdf
+
+# WordPress (bukan bagian dari frontend)
+wordpress/
+
+# Big plan / task files
+big_implementation_plan.md
+task.md
+walkthrough.md
+implementation_plan.md

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Syarat & Ketentuan Layanan Kuleather — Aturan penggunaan platform, transaksi pembeli, kewajiban penjual, komisi platform, escrow, dan resolusi sengketa.">
+  <title>Syarat & Ketentuan — KULEATHER</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .terms-section {
+      margin-bottom: var(--space-xl);
+    }
+    .terms-section h3 {
+      font-size: 18px;
+      font-family: var(--font-accent);
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+    }
+    .terms-section p, .terms-section li {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: var(--space-sm);
+    }
+    .terms-section ul {
+      padding-left: 20px;
+      margin-bottom: var(--space-md);
+    }
+  </style>
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">KULEATHER</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Beranda</a>
+        <a class="nav-link" href="produk.html">Produk</a>
+        <a class="nav-link" href="services.html">Jasa</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a>
+        <a class="nav-cart btn-icon" href="cart.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span></a>
+        <a class="btn btn-secondary btn-sm" href="auth.html">MASUK</a>
+      </div>
+      <button class="nav-toggle btn-icon" id="nav-toggle" aria-label="Menu Mobile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <button class="nav-drawer-close btn-icon" id="nav-drawer-close" aria-label="Tutup Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="nav-drawer-links" style="margin-top: 40px;">
+      <a class="nav-drawer-link" href="index.html">Beranda</a>
+      <a class="nav-drawer-link" href="produk.html">Produk</a>
+      <a class="nav-drawer-link" href="services.html">Jasa</a>
+      <a class="nav-drawer-link" href="journal.html">Journal</a>
+      <a class="nav-drawer-link" href="faq.html">Bantuan</a>
+      <a class="nav-drawer-link" href="auth.html" style="margin-top: 20px; color: var(--accent);">Masuk / Daftar</a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header style="background-color: var(--surface); padding: var(--space-4xl) 0 var(--space-3xl) 0; margin-top: var(--navbar-height); border-bottom: 1px solid var(--muted); text-align:center;">
+    <div class="container" style="max-width: 800px;">
+      <span class="eyebrow text-accent mb-sm" style="display:block;">REGULASI PLATFORM</span>
+      <h1 class="display-lg mb-md" style="font-size: 42px; font-weight: 400; line-height: 1.2;">Syarat & Ketentuan Penggunaan</h1>
+      <p class="text-secondary body-md" style="max-width: 600px; margin: 0 auto; line-height: 1.8;">Harap baca regulasi ini dengan saksama sebelum bertransaksi, mendaftar sebagai mitra penjual, atau mengajukan request nego kustom kriya kulit.</p>
+    </div>
+  </header>
+
+  <!-- TERMS MAIN CONTENT -->
+  <main class="section container" style="max-width: 900px;">
+    <div style="background-color: var(--surface); border: 1px solid var(--muted); border-radius: var(--radius-md); padding: var(--space-3xl); box-shadow: var(--shadow-sm);">
+      
+      <div class="terms-section">
+        <h3>1. Ketentuan Umum Penggunaan Layanan</h3>
+        <p>Dengan mengakses situs Kuleather, Anda menyetujui untuk terikat oleh Syarat dan Ketentuan ini, seluruh hukum serta peraturan yang berlaku di Indonesia, dan setuju bertanggung jawab mematuhi hukum lokal yang relevan.</p>
+        <p>Layanan Kuleather ditujukan khusus untuk mempermudah transaksi jual beli produk kulit asli dan pemesanan jasa antara pengrajin lokal (Penjual) dengan pengguna umum (Pembeli).</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>2. Alur Transaksi & Sistem Eskrow (Escrow Platform)</h3>
+        <p>Kuleather menggunakan sistem Saldo Rekening Bersama (Escrow) demi menjaga keamanan transaksi:</p>
+        <ul>
+          <li>Dana yang dibayarkan oleh Pembeli atas pesanan katalog atau kesepakatan custom akan ditahan sementara oleh pihak Kuleather dengan status <strong>"DITAHAN"</strong>.</li>
+          <li>Kuleather akan memotong biaya komisi platform sebesar <strong>5% (lima persen)</strong> dari total subtotal produk sebagai biaya operasional pemeliharaan sistem.</li>
+          <li>Dana bersih (95% sisa subtotal) akan diteruskan ke saldo keuangan Penjual hanya setelah Pembeli mengeklik tombol <strong>"Konfirmasi Terima Barang"</strong> di sistem, atau 3 hari setelah status pengiriman dinyatakan "Diterima" oleh sistem kurir logistik otomatis.</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>3. Kewajiban & Hak Mitra Penjual (Seller Code of Conduct)</h3>
+        <p>Seluruh mitra pengrajin yang terverifikasi dan aktif berjualan di Kuleather wajib mematuhi aturan berikut:</p>
+        <ul>
+          <li>Menjamin seluruh produk yang dipasang di katalog menggunakan <strong>100% kulit asli</strong> sesuai detail material (misal: Sapi Full Grain, Domba Supple, dll.). Penjualan kulit sintetis berlabel kulit asli akan berakibat pemblokiran akun permanen.</li>
+          <li>Memproses pesanan dalam waktu maksimal 2 x 24 jam untuk produk jadi, dan memberikan update Work In Progress (WIP) berkala untuk pesanan jasa kustom.</li>
+          <li>Menerima kebijakan pengembalian barang (retur) apabila terjadi cacat produksi dari pihak toko.</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>4. Kuota Revisi Jasa & Negosiasi</h3>
+        <p>Untuk pemesanan Jasa via workspace kolaboratif:</p>
+        <ul>
+          <li>Penawaran harga awal (quote) yang disepakati mencakup batas kuota revisi gratis yang ditentukan oleh masing-masing pengrajin (default: 3 kali revisi).</li>
+          <li>Jika kuota revisi gratis habis, Pembeli wajib menyetujui biaya tambahan per revisi yang ditagihkan oleh pengrajin untuk melanjutkan proses pengerjaan.</li>
+          <li>Penjual berhak menolak pengerjaan jika spesifikasi revisi menyimpang jauh dari kesepakatan awal (deal).</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>5. Kebijakan Mediasi & Resolusi Dispute</h3>
+        <p>Jika terjadi perselisihan antara Pembeli dan Penjual (misal: barang rusak, ukuran menyimpang, atau pengerjaan tidak selesai):</p>
+        <ul>
+          <li>Salah satu pihak dapat mengajukan status <strong>"DISPUTE"</strong> ke platform untuk ditengahi oleh Administrator Kuleather.</li>
+          <li>Admin Kuleather akan melakukan peninjauan bukti obrolan di workspace, spesifikasi awal, dan bukti foto produk jadi.</li>
+          <li>Keputusan keputusan juri admin bersifat final, dengan opsi pengembalian dana penuh/sebagian ke Pembeli (Refund) atau penerusan dana penuh/sebagian ke Penjual (Payout).</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>6. Garansi Retur 7 Hari</h3>
+        <p>Pembeli berhak mengajukan penukaran produk atau pengembalian barang dalam jangka waktu <strong>7 (tujuh) hari</strong> sejak barang diterima, dengan syarat produk masih dalam kondisi prima, tidak rusak karena kesalahan pemakaian, dan kelengkapan tag kemasan masih utuh.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">
+          <div class="footer-logo-mark">KL</div>
+          <span>KULEATHER</span>
+        </a>
+        <p class="footer-brand-desc">Marketplace kulit premium pertama yang menghubungkan langsung pengrajin lokal dengan pasar nasional dan global.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Navigasi</h4>
+        <div class="footer-menu">
+          <a href="index.html" class="breadcrumb-link">Beranda</a>
+          <a href="produk.html" class="breadcrumb-link">Produk</a>
+          <a href="journal.html" class="footer-link">Journal</a>
+          <a href="faq.html" class="footer-link">FAQ / Bantuan</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Informasi</h4>
+        <div class="footer-menu">
+          <a href="about.html" class="footer-link">Tentang Kami</a>
+          <a href="contact.html" class="footer-link">Hubungi Kami</a>
+          <a href="terms.html" class="footer-link">Syarat & Ketentuan</a>
+          <a href="size-guide.html" class="footer-link">Panduan Ukuran</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Hubungi Kami</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Magetan, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>halo@kuleather.id</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top btn-icon" id="back-to-top" aria-label="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

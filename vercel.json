@@ -1,0 +1,37 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/light", "destination": "/Kuleather-Light/index.html" },
+    { "source": "/dark", "destination": "/Kuleather-Dark/index.html" },
+    { "source": "/Kuleather-Light", "destination": "/Kuleather-Light/index.html" },
+    { "source": "/Kuleather-Dark", "destination": "/Kuleather-Dark/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/Kuleather-Light/css/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/Kuleather-Dark/css/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/Kuleather-Light/js/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/Kuleather-Dark/js/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ]
+}

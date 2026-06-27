@@ -1,0 +1,8 @@
+{
+  "name": "kuleather-dark",
+  "version": "1.0.0",
+  "description": "Kuleather Dark Theme",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}

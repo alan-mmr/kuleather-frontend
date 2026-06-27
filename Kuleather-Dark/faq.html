@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pusat Bantuan Kuleather — Hubungi tim support kami, temukan panduan retur garansi produk, metode pembayaran Virtual Account, dan sewa pengrajin kulit.">
+  <title>Pusat Bantuan & FAQ — KULEATHER</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">KULEATHER</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Beranda</a>
+        <a class="nav-link" href="produk.html">Produk</a>
+        <a class="nav-link" href="services.html">Jasa</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link active" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a>
+        <a class="nav-cart btn-icon" href="cart.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span></a>
+        <a class="btn btn-secondary btn-sm" href="auth.html">MASUK</a>
+      </div>
+      <button class="nav-toggle btn-icon" id="nav-toggle" aria-label="Menu Mobile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <button class="nav-drawer-close btn-icon" id="nav-drawer-close" aria-label="Tutup Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="nav-drawer-links" style="margin-top: 40px;">
+      <a class="nav-drawer-link" href="index.html">Beranda</a>
+      <a class="nav-drawer-link" href="produk.html">Produk</a>
+      <a class="nav-drawer-link" href="services.html">Jasa</a>
+      <a class="nav-drawer-link" href="journal.html">Journal</a>
+      <a class="nav-drawer-link active" href="faq.html">Bantuan</a>
+      <a class="nav-drawer-link" href="auth.html" style="margin-top: 20px; color: var(--accent);">Masuk / Daftar</a>
+    </div>
+  </div>
+
+  <!-- HERO HELP SEARCH -->
+  <header style="background-color: var(--bg-alt); padding: var(--space-3xl) 0 var(--space-2xl) 0; margin-top: var(--navbar-height); border-bottom: 1px solid var(--muted-light); text-align:center;">
+    <div class="container" style="max-width: 650px;">
+      <span class="eyebrow text-accent mb-sm" style="display:block; margin-top: var(--space-xs);">PUSAT BANTUAN KULEATHER</span>
+      <h1 class="display-lg mb-md" style="font-size:36px; font-weight:400;">Ada yang bisa kami bantu?</h1>
+      
+      <!-- Search -->
+      <div class="search-input-wrapper mt-lg" style="box-shadow:var(--shadow-md);">
+        <svg class="search-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="faq-search-input" placeholder="Cari pertanyaan Anda (misal: pengiriman, custom, retur)..." style="padding:14px 16px 14px 44px; background-color:var(--surface);">
+      </div>
+    </div>
+  </header>
+
+  <!-- CATEGORY PILLS BAR -->
+  <nav style="background-color:var(--surface); border-bottom:1px solid var(--muted-light); padding:var(--space-sm) 0;">
+    <div class="container flex-center">
+      <div class="filter-pills" id="faq-category-filters" style="justify-content:center;">
+        <button class="filter-pill active" data-value="Semua">Semua</button>
+        <button class="filter-pill" data-value="Umum">Umum</button>
+        <button class="filter-pill" data-value="Pemesanan">Pemesanan</button>
+        <button class="filter-pill" data-value="Pembayaran">Pembayaran</button>
+        <button class="filter-pill" data-value="Pengiriman">Pengiriman</button>
+        <button class="filter-pill" data-value="Pengembalian">Pengembalian</button>
+        <button class="filter-pill" data-value="Akun">Akun</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ACCORDION CONTENT -->
+  <main class="section container">
+    <div class="grid-2" id="faq-accordion-container" style="align-items:start; gap:var(--space-lg);">
+      <!-- Injected dynamically via script -->
+    </div>
+
+    <!-- CONTACT CTA -->
+    <section class="mt-4xl reveal" style="background-color:var(--surface); border:1px solid var(--muted); padding:var(--space-3xl); text-align:center; max-width:800px; margin-left:auto; margin-right:auto;">
+      <span class="eyebrow text-accent mb-xs" style="display:block;">TIDAK MENEMUKAN JAWABAN?</span>
+      <h2 class="heading-2 mb-sm">Hubungi Tim Layanan Pelanggan</h2>
+      <p class="text-secondary body-sm mb-xl">Tim kami siap membantu Anda menyelesaikan kendala transaksi maupun konsultasi pemesanan kustom kulit 24/7.</p>
+      
+      <div class="grid-3">
+        <div style="border:1px solid var(--muted-light); padding:var(--space-md);">
+          <svg style="color:var(--accent); margin:0 auto var(--space-sm) auto;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <h4 class="body-sm" style="font-weight:700;">Live Chat</h4>
+          <span class="caption text-muted" style="font-size:8px; display:block; margin-top:2px;">Waktu respon &lt; 5 menit</span>
+          <a href="#" class="btn-text caption mt-sm" style="letter-spacing:0.1em; display:block;">MULAI CHAT</a>
+        </div>
+        
+        <div style="border:1px solid var(--muted-light); padding:var(--space-md);">
+          <svg style="color:var(--accent); margin:0 auto var(--space-sm) auto;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <h4 class="body-sm" style="font-weight:700;">Kirim Email</h4>
+          <span class="caption text-muted" style="font-size:8px; display:block; margin-top:2px;">Waktu respon &lt; 1 jam</span>
+          <a href="mailto:bantuan@kuleather.id" class="btn-text caption mt-sm" style="letter-spacing:0.1em; display:block;">KIRIM EMAIL</a>
+        </div>
+        
+        <div style="border:1px solid var(--muted-light); padding:var(--space-md);">
+          <svg style="color:var(--accent); margin:0 auto var(--space-sm) auto;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <h4 class="body-sm" style="font-weight:700;">WhatsApp Support</h4>
+          <span class="caption text-muted" style="font-size:8px; display:block; margin-top:2px;">Respon instan</span>
+          <a href="https://wa.me/6281200008847" class="btn-text caption mt-sm" style="letter-spacing:0.1em; display:block;">HUBUNGI WA</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">
+          <div class="footer-logo-mark">KL</div>
+          <span>KULEATHER</span>
+        </a>
+        <p class="footer-brand-desc">Marketplace kulit premium pertama yang menghubungkan langsung pengrajin lokal dengan pasar nasional dan global.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Navigasi</h4>
+        <div class="footer-menu">
+          <a href="index.html" class="breadcrumb-link">Beranda</a>
+          <a href="produk.html" class="breadcrumb-link">Produk</a>
+          <a href="journal.html" class="footer-link">Journal</a>
+          <a href="faq.html" class="footer-link">FAQ / Bantuan</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Informasi</h4>
+        <div class="footer-menu">
+          <a href="about.html" class="footer-link">Tentang Kami</a>
+          <a href="contact.html" class="footer-link">Hubungi Kami</a>
+          <a href="terms.html" class="footer-link">Syarat & Ketentuan</a>
+          <a href="size-guide.html" class="footer-link">Panduan Ukuran</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Hubungi Kami</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Magetan, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>halo@kuleather.id</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+62 (351) 123-4567</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top btn-icon" id="back-to-top" aria-label="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load FAQ from LocalStorage or seed defaults
+      const DEFAULT_FAQS = [
+        { category: "Umum", question: "Apa itu KULEATHER?", answer: "Kuleather adalah marketplace terpadu pertama di Indonesia yang didedikasikan khusus untuk industri kulit Magetan, menghubungkan pengrajin lokal secara langsung dengan pembeli retail, desainer, dan industri manufaktur." },
+        { category: "Umum", question: "Di mana lokasi sentra produksi Kuleather?", answer: "Seluruh pengrajin mitra Kuleather berbasis di Kabupaten Magetan, Jawa Timur, terutama di Jalan Sawo (Kelurahan Selosari) yang telah dikenal sebagai sentra kerajinan kulit tertua sejak tahun 1920-an." },
+        { category: "Umum", question: "Apakah produk Kuleather menggunakan kulit asli?", answer: "Ya, kami menjamin 100% produk di platform kami menggunakan kulit asli (sapi, domba, kambing) berkualitas premium. Kuleather melarang keras penjualan kulit sintetis kecuali jika ditandai secara jelas." },
+        { category: "Pemesanan", question: "Bagaimana cara melakukan pesanan kustom?", answer: "Untuk memesan produk kustom (monogram nama, emboss logo, ukuran khusus), Anda dapat menavigasi ke kategori 'Jasa Pengrajin' di katalog, memilih pengrajin mitra, dan menekan tombol 'Mulai Kustomisasi' untuk berkonsultasi gratis." },
+        { category: "Pemesanan", question: "Apakah ada minimum jumlah pemesanan (MOQ)?", answer: "Untuk produk retail di katalog tidak ada minimum order (bisa beli 1 unit). Namun untuk pemesanan kustom pabrik atau sewa pengrajin massal, MOQ ditentukan oleh kesepakatan masing-masing bengkel mitra." },
+        { category: "Pemesanan", question: "Bagaimana memantau kemajuan pengerjaan kustom?", answer: "Setelah pengrajin memulai pengerjaan, Anda akan menerima link pelacakan kemajuan pengerjaan yang diupdate secara berkala (foto/video proses) di halaman riwayat pesanan Anda." },
+        { category: "Pembayaran", question: "Metode pembayaran apa saja yang didukung?", answer: "Kami menerima pembayaran melalui Virtual Account (BCA, Mandiri, BNI, BRI), E-Wallet (GoPay, OVO, DANA), pembayaran kartu kredit, serta COD (Bayar di tempat) tergantung kurir yang Anda pilih." },
+        { category: "Pembayaran", question: "Apakah ada biaya transaksi admin?", answer: "Pembayaran menggunakan Virtual Account transfer bank tidak dikenakan biaya transaksi admin (gratis). Pembayaran E-wallet dikenakan biaya layanan flat Rp1.000." },
+        { category: "Pembayaran", question: "Berapa lama batas waktu pembayaran?", answer: "Untuk transaksi Virtual Account, batas waktu penyelesaian transfer adalah 24 jam setelah pesanan dibuat. Jika melebihi batas waktu tersebut, pesanan otomatis batal." },
+        { category: "Pengiriman", question: "Kurir pengiriman apa saja yang tersedia?", answer: "Kuleather bermitra dengan JNE (YES dan Regular) serta SiCepat. Pengiriman peti kayu opsional disediakan untuk menjaga keamanan cairan kimia dan peralatan mesin." },
+        { category: "Pengiriman", question: "Berapa lama estimasi pengiriman paket?", answer: "Estimasi waktu kirim dari Magetan: Jawa Timur (1-2 hari), Jabodetabek dan Jawa Tengah (2-3 hari), luar pulau Jawa (3-5 hari kerja)." },
+        { category: "Pengiriman", question: "Apakah Kuleather melayani pengiriman internasional?", answer: "Ya, untuk pembeli internasional, kami menyediakan kurir khusus ekspor (DHL Express / FedEx). Silakan hubungi Customer Support kami untuk detail tarif ekspor." },
+        { category: "Pengembalian", question: "Bagaimana syarat mengajukan retur garansi?", answer: "Produk dapat ditukar dalam 7 hari sejak diterima jika ditemukan cacat pengerjaan atau ukuran tidak muat. Produk harus dalam kondisi asli, belum digunakan, lengkap dengan tag kemasan." },
+        { category: "Pengembalian", question: "Berapa lama proses dana pengembalian (refund)?", answer: "Proses verifikasi retur membutuhkan waktu 1-2 hari kerja sejak barang retur tiba di gudang pengrajin. Pengembalian dana akan ditransfer ke rekening bank Anda dalam 3 hari kerja." },
+        { category: "Pengembalian", question: "Siapa yang menanggung ongkos kirim retur?", answer: "Jika retur diajukan karena cacat produksi atau kesalahan kirim produk dari pengrajin, seluruh ongkir ditanggung oleh Kuleather. Jika retur karena berubah pikiran, ongkir ditanggung pembeli." },
+        { category: "Akun", question: "Bagaimana cara mengubah profil alamat utama?", answer: "Anda dapat masuk ke akun Anda, menavigasi ke halaman 'Profil', pilih menu 'Alamat Kirim', kemudian klik tombol edit untuk memperbarui detail alamat utama Anda." },
+        { category: "Akun", question: "Apa manfaat mengumpulkan loyalitas poin?", answer: "Poin loyalitas diperoleh dari setiap kelipatan belanja Rp10.000. Poin dapat ditukarkan dengan potongan voucher belanja atau menaikkan level tier akun untuk menikmati benefit gratis ongkir." },
+        { category: "Akun", question: "Apakah data transaksi saya dijamin keamanannya?", answer: "Tentu saja. Seluruh data transaksi, informasi profil, dan data kartu kredit dienkripsi menggunakan sertifikasi keamanan SSL 256-bit standar industri." }
+      ];
+
+      function getFaqs() {
+        const stored = localStorage.getItem('kuleather_faq');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          return parsed.map(f => ({
+            cat: f.category || f.cat,
+            q: f.question || f.q,
+            a: f.answer || f.a
+          }));
+        }
+        localStorage.setItem('kuleather_faq', JSON.stringify(DEFAULT_FAQS));
+        return DEFAULT_FAQS.map(f => ({ cat: f.category, q: f.question, a: f.answer }));
+      }
+
+      const faqs = getFaqs();
+
+      const accordionContainer = document.getElementById('faq-accordion-container');
+      const searchInput = document.getElementById('faq-search-input');
+      const catPills = document.querySelectorAll('#faq-category-filters .filter-pill');
+
+      let activeCategory = 'Semua';
+      let searchQuery = '';
+
+      function renderFaqs() {
+        // Filter faqs
+        const filtered = faqs.filter(f => {
+          const matchCat = activeCategory === 'Semua' || f.cat === activeCategory;
+          const matchQuery = searchQuery === '' || f.q.toLowerCase().includes(searchQuery.toLowerCase()) || f.a.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchCat && matchQuery;
+        });
+
+        if (filtered.length === 0) {
+          accordionContainer.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: var(--space-3xl) 0;">
+              <svg style="margin: 0 auto var(--space-md) auto; color: var(--text-muted);" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <h4 class="heading-3 mb-sm">Pertanyaan Tidak Ditemukan</h4>
+              <p class="text-secondary body-sm">Silakan ubah kategori filter atau gunakan kata kunci lain.</p>
+            </div>
+          `;
+          return;
+        }
+
+        let html = '';
+        filtered.forEach((f, idx) => {
+          html += `
+            <div class="accordion-item" data-category="${f.cat}">
+              <div class="accordion-header">
+                <h3 class="accordion-title">${f.q}</h3>
+                <span class="accordion-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </div>
+              <div class="accordion-body">
+                <p class="body-sm text-secondary" style="margin-top: 10px; line-height:1.6;">${f.a}</p>
+                <div style="display:flex; align-items:center; gap:var(--space-md); margin-top:14px; border-top:1px solid var(--muted-light); padding-top:10px;" class="caption text-muted">
+                  <span>Apakah membantu?</span>
+                  <button class="btn-text help-yes-btn" style="font-size:10px; letter-spacing:0.05em; color:var(--success);">YA</button>
+                  <button class="btn-text help-no-btn" style="font-size:10px; letter-spacing:0.05em; color:var(--error);">TIDAK</button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        accordionContainer.innerHTML = html;
+        attachAccordionEvents();
+      }
+
+      function attachAccordionEvents() {
+        const items = accordionContainer.querySelectorAll('.accordion-item');
+        items.forEach(item => {
+          const header = item.querySelector('.accordion-header');
+          const body = item.querySelector('.accordion-body');
+          const p = body.querySelector('p');
+          const footer = body.querySelector('div');
+
+          header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            items.forEach(i => {
+              i.classList.remove('active');
+              i.querySelector('.accordion-body').style.maxHeight = '0px';
+            });
+
+            if (!isActive) {
+              item.classList.add('active');
+              // Dynamically compute max height including padding
+              const contentHeight = p.offsetHeight + footer.offsetHeight + 60; // safe padding addition
+              body.style.maxHeight = `${contentHeight}px`;
+            }
+          });
+          
+          // Helpful buttons clicks
+          body.querySelectorAll('.help-yes-btn, .help-no-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              window.showToast('Terima kasih atas tanggapan Anda!', 'success');
+              btn.closest('div').innerHTML = '<span class="text-success" style="font-weight:600;">✓ Tanggapan direkam</span>';
+            });
+          });
+        });
+      }
+
+      // Bind category filters
+      catPills.forEach(pill => {
+        pill.addEventListener('click', (e) => {
+          catPills.forEach(p => p.classList.remove('active'));
+          e.target.classList.add('active');
+          activeCategory = e.target.getAttribute('data-value');
+          renderFaqs();
+        });
+      });
+
+      // Bind search
+      let searchTimeout;
+      searchInput.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          searchQuery = e.target.value.trim();
+          renderFaqs();
+        }, 300);
+      });
+
+      // Initial render
+      renderFaqs();
+    });
+  </script>
+</body>
+</html>

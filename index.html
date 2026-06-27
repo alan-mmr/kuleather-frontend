@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KULEATHER — Marketplace Kulit Premium Magetan</title>
+  <meta name="description" content="KULEATHER — Marketplace kulit premium pertama dari Magetan. Temukan tas, sepatu, dompet, bahan baku, dan jasa pengrajin kulit berkualitas.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1410;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Outfit', sans-serif;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(196, 152, 80, 0.2);
+      border-top-color: #C49850;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="spinner"></div>
+  <script>
+    // Redirect to Light theme by default
+    // Preserve any sub-path for deep linking if needed
+    window.location.replace('./Kuleather-Light/index.html');
+  </script>
+</body>
+</html>

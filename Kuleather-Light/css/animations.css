@@ -1,0 +1,164 @@
+/* ==========================================================================
+   1. KEYFRAMES
+   ========================================================================== */
+
+/* Staggered entrance animation for content elements */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Base fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Nav drawer entry */
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+/* Nav drawer exit */
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+
+/* Infinite marquee scroll for partner logos */
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Hero scroll indicator bounce */
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  50% {
+    transform: translateY(6px) translateX(-50%);
+  }
+}
+
+/* Shimmer placeholder loading state */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Reading progress bar expanding */
+@keyframes progressGrow {
+  from { width: 0%; }
+}
+
+/* Toast entrance */
+@keyframes toastIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Toast exit */
+@keyframes toastOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   2. ANIMATION UTILITIES
+   ========================================================================== */
+
+/* Scroll Reveal Elements */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), 
+              transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+  will-change: transform, opacity;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide Reveal Left and Right */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), 
+              transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), 
+              transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Transition Delays for Staggered Animations */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Skeleton Shimmer Loading Class */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-alt) 25%, var(--muted-light) 50%, var(--bg-alt) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Infinite Horizontal Scroll Setup */
+.partners-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+}
+
+.partners-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollLeft 35s linear infinite;
+  gap: var(--space-3xl);
+  padding: 0 var(--space-xl);
+}
+
+.partners-track-wrapper:hover .partners-track {
+  animation-play-state: paused;
+}

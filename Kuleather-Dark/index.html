@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KULEATHER — Marketplace kulit premium pertama dari Magetan. Temukan tas, sepatu, dompet, bahan baku, dan jasa pengrajin kulit berkualitas.">
+  <title>KULEATHER — Marketplace Kulit Premium Magetan</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- 1. PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">KULEATHER</div>
+  </div>
+
+  <!-- 2. NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link active" href="index.html">Beranda</a>
+        <a class="nav-link" href="produk.html">Produk</a>
+        <a class="nav-link" href="services.html">Jasa</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html" aria-label="Cari Produk">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a class="nav-cart btn-icon" href="cart.html" aria-label="Keranjang Belanja">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span>
+        </a>
+        <a class="btn btn-secondary btn-sm" href="auth.html">MASUK</a>
+      </div>
+      <button class="nav-toggle btn-icon" id="nav-toggle" aria-label="Menu Mobile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <button class="nav-drawer-close btn-icon" id="nav-drawer-close" aria-label="Tutup Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="nav-drawer-links" style="margin-top: 40px;">
+      <a class="nav-drawer-link active" href="index.html">Beranda</a>
+      <a class="nav-drawer-link" href="produk.html">Produk</a>
+      <a class="nav-drawer-link" href="services.html">Jasa</a>
+      <a class="nav-drawer-link" href="journal.html">Journal</a>
+      <a class="nav-drawer-link" href="faq.html">Bantuan</a>
+      <a class="nav-drawer-link" href="auth.html" style="margin-top: 20px; color: var(--accent);">Masuk / Daftar</a>
+    </div>
+  </div>
+
+  <!-- 3. HERO SECTION -->
+  <section class="section" id="hero" style="min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: calc(var(--navbar-height) + var(--space-xl)); background-image: linear-gradient(rgba(18, 16, 11, 0.85), rgba(18, 16, 11, 0.92)), url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1600&h=900&fit=crop&auto=format'); background-size: cover; background-position: center;">
+    <div class="container">
+      <div class="grid-2" style="align-items: center;">
+        <div class="hero-content reveal-left">
+          <span class="eyebrow text-accent mb-sm" style="display: block;">§ KULEATHER INDONESIA</span>
+          <h1 class="display-xl mb-md hero-title">Dari Desa<br>untuk Dunia.</h1>
+          <p class="serif-italic body-lg text-muted mb-xl hero-tagline" style="font-size: 18px;">Marketplace kulit premium pertama dari jantung industri kulit Indonesia.</p>
+          <div class="flex-x gap-md hero-ctas">
+            <a href="produk.html" class="btn btn-primary">JELAJAHI PRODUK</a>
+            <a href="services.html" class="btn btn-secondary">SEWA PENGRAJIN</a>
+          </div>
+        </div>
+        <div class="reveal-right hidden-tablet" style="position: relative; height: 500px; display: flex; justify-content: center; align-items: center;">
+          <!-- Decorative premium leather showcase image -->
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&h=700&fit=crop&auto=format" alt="Tas Kulit Premium Kuleather" style="width: 80%; height: 90%; object-fit: cover; border: 1px solid var(--muted); box-shadow: var(--shadow-xl);">
+          <div style="position: absolute; bottom: 0; left: 0; background-color: var(--surface); padding: var(--space-md); border: 1px solid var(--muted); box-shadow: var(--shadow-lg); max-width: 200px;">
+            <p class="caption text-accent" style="margin-bottom: 4px;">MATERIAL UNGGULAN</p>
+            <h4 class="body-sm" style="font-weight: 600; font-family: var(--font-display);">Full Grain Veg-Tanned</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); animation: bounceDown 2s infinite;" class="hidden-tablet">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+    </div>
+  </section>
+
+  <!-- 4. PARTNERS STRIP -->
+  <section style="background-color: var(--surface); border-top: 1px solid var(--muted-light); border-bottom: 1px solid var(--muted-light); padding: var(--space-md) 0; overflow: hidden;">
+    <div class="partners-track-wrapper">
+      <div class="partners-track">
+        <span class="label text-muted" style="padding: 0 var(--space-lg);">APKI</span>
+        <span class="label text-muted" style="padding: 0 var(--space-lg);">Kemenperin</span>
+        <span class="label text-muted" style="padding: 0 var(--space-lg);">Bank BNI</span>
+        <span class="label text-muted" style="padding: 0 var(--space-lg);">Dekranas</span>
+        <span class="label text-muted" style="padding: 0 var(--space-lg);">Kemendag</span>
+        <span class="label text-muted" style="padding: 0 var(--space-lg);">ITPC</span>
+        <span class="label text-muted" style="padding: 0 var(--space-lg);">Icraft ID</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CATEGORIES SECTION -->
+  <section class="section container reveal">
+    <div class="section-header text-center">
+      <span class="section-eyebrow">§ 01</span>
+      <h2 class="section-title heading-1">Kategori Produk</h2>
+      <p class="section-description">Telusuri seluruh kebutuhan industri dan barang kerajinan kulit terlengkap langsung dari produsen terpercaya.</p>
+    </div>
+    
+    <div class="grid-5 mt-xl">
+      <!-- 01. Barang Jadi -->
+      <a href="produk.html?cat=Barang+Jadi" class="category-card">
+        <img class="category-card-bg" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=300&h=400&fit=crop&auto=format" alt="Barang Jadi">
+        <span class="category-num">01</span>
+        <h3 class="category-title">Barang Jadi</h3>
+        <p class="category-desc">Tas, sepatu, dompet & aksesori kulit jadi</p>
+        <span class="category-count">8.240+ produk</span>
+      </a>
+
+      <!-- 02. Bahan Baku -->
+      <a href="produk.html?cat=Bahan+Baku" class="category-card">
+        <img class="category-card-bg" src="https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=300&h=400&fit=crop&auto=format" alt="Bahan Baku">
+        <span class="category-num">02</span>
+        <h3 class="category-title">Bahan Baku</h3>
+        <p class="category-desc">Lembaran kulit sapi, domba, dan kambing</p>
+        <span class="category-count">2.150+ produk</span>
+      </a>
+
+      <!-- 03. Kimia Kulit -->
+      <a href="produk.html?cat=Kimia+Kulit" class="category-card">
+        <img class="category-card-bg" src="https://images.unsplash.com/photo-1603400521630-9f2de124b33b?w=300&h=400&fit=crop&auto=format" alt="Kimia Kulit">
+        <span class="category-num">03</span>
+        <h3 class="category-title">Kimia Kulit</h3>
+        <p class="category-desc">Cat pewarna, pelunak, & kimia penyamakan</p>
+        <span class="category-count">1.830+ produk</span>
+      </a>
+
+      <!-- 04. Mesin & Alat -->
+      <a href="produk.html?cat=Mesin+%26+Alat" class="category-card">
+        <img class="category-card-bg" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=300&h=400&fit=crop&auto=format" alt="Mesin & Alat">
+        <span class="category-num">04</span>
+        <h3 class="category-title">Mesin & Alat</h3>
+        <p class="category-desc">Peralatan jahit, plong, skiving & bengkel kulit</p>
+        <span class="category-count">940+ produk</span>
+      </a>
+
+      <!-- 05. Jasa Pengrajin -->
+      <a href="services.html" class="category-card">
+        <img class="category-card-bg" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=400&fit=crop&auto=format" alt="Jasa Pengrajin">
+        <span class="category-num">05</span>
+        <h3 class="category-title">Jasa Pengrajin</h3>
+        <p class="category-desc">Sewa pengrajin ahli kustom & jahit massal</p>
+        <span class="category-count">2.500+ pengrajin</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 6. FEATURED PRODUCTS SECTION -->
+  <section class="section section-alt container reveal">
+    <div class="flex-between mb-xl">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="section-eyebrow">§ 02</span>
+        <h2 class="section-title heading-1">Koleksi Unggulan</h2>
+        <p class="section-description">Karya seni kulit terbaik buatan tangan pengrajin dengan kualitas ketahanan seumur hidup.</p>
+      </div>
+      <a href="produk.html" class="btn btn-ghost">LIHAT SEMUA</a>
+    </div>
+
+    <div class="grid-4" id="featured-products-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-card-img-wrapper">
+          <a href="product.html?id=tote-full-grain">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop&auto=format" alt="Tas Tote Kulit Full Grain" class="product-card-img">
+          </a>
+          <div class="product-card-badge-overlay">
+            <span class="badge badge-bestseller">Best Seller</span>
+          </div>
+          <button class="wishlist-btn" data-id="tote-full-grain" aria-label="Tambah ke wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <button class="quick-add-btn" data-id="tote-full-grain">Quick Add</button>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="eyebrow">Barang Jadi</span>
+            <div class="product-card-rating">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" class="text-accent"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>4.9</span>
+            </div>
+          </div>
+          <h3 class="product-card-title"><a href="product.html?id=tote-full-grain">Tas Tote Kulit Full Grain Magetan</a></h3>
+          <span class="product-card-origin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg> Magetan</span>
+          <div class="product-card-footer">
+            <span class="price">Rp 1.250.000</span>
+            <span class="caption text-muted">412 terjual</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-card-img-wrapper">
+          <a href="product.html?id=dompet-bifold">
+            <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=400&fit=crop&auto=format" alt="Dompet Bifold Kulit" class="product-card-img">
+          </a>
+          <div class="product-card-badge-overlay">
+            <span class="badge badge-new">New</span>
+          </div>
+          <button class="wishlist-btn" data-id="dompet-bifold" aria-label="Tambah ke wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <button class="quick-add-btn" data-id="dompet-bifold">Quick Add</button>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="eyebrow">Barang Jadi</span>
+            <div class="product-card-rating">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" class="text-accent"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>4.8</span>
+            </div>
+          </div>
+          <h3 class="product-card-title"><a href="product.html?id=dompet-bifold">Dompet Bifold Kulit Sapi Premium</a></h3>
+          <span class="product-card-origin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg> Magetan</span>
+          <div class="product-card-footer">
+            <span class="price">Rp 350.000</span>
+            <span class="caption text-muted">891 terjual</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-card-img-wrapper">
+          <a href="product.html?id=jaket-domba">
+            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&auto=format" alt="Jaket Kulit Domba" class="product-card-img">
+          </a>
+          <div class="product-card-badge-overlay">
+            <span class="badge badge-bestseller">Best Seller</span>
+          </div>
+          <button class="wishlist-btn" data-id="jaket-domba" aria-label="Tambah ke wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <button class="quick-add-btn" data-id="jaket-domba">Quick Add</button>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="eyebrow">Barang Jadi</span>
+            <div class="product-card-rating">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" class="text-accent"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>4.9</span>
+            </div>
+          </div>
+          <h3 class="product-card-title"><a href="product.html?id=jaket-domba">Jaket Kulit Domba Classic Rider</a></h3>
+          <span class="product-card-origin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg> Magetan</span>
+          <div class="product-card-footer">
+            <span class="price">Rp 2.800.000</span>
+            <span class="caption text-muted">134 terjual</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-card-img-wrapper">
+          <a href="product.html?id=sabuk-pullup">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&auto=format" alt="Sabuk Kulit" class="product-card-img">
+          </a>
+          <button class="wishlist-btn" data-id="sabuk-pullup" aria-label="Tambah ke wishlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <button class="quick-add-btn" data-id="sabuk-pullup">Quick Add</button>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="eyebrow">Aksesori</span>
+            <div class="product-card-rating">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" class="text-accent"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>4.7</span>
+            </div>
+          </div>
+          <h3 class="product-card-title"><a href="product.html?id=sabuk-pullup">Sabuk Pull-Up Leather Artisan</a></h3>
+          <span class="product-card-origin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg> Magetan</span>
+          <div class="product-card-footer">
+            <span class="price">Rp 275.000</span>
+            <span class="caption text-muted">537 terjual</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. HOW IT WORKS SECTION -->
+  <section class="section container reveal">
+    <div class="section-header text-center">
+      <span class="section-eyebrow">§ 03</span>
+      <h2 class="section-title heading-1">Cara Kerja Ekosistem</h2>
+      <p class="section-description">Bagaimana Kuleather mendukung transaksi produk kulit berkualitas tinggi Anda dengan mudah dan aman.</p>
+    </div>
+
+    <div class="grid-3 mt-xl" style="position: relative;">
+      <!-- Step 1 -->
+      <div class="testimonial-card" style="border: 1px solid var(--muted-light); background-color: var(--surface);">
+        <span class="display-lg text-accent" style="opacity: 0.15; font-size: 56px; line-height: 1; display: block; font-family: var(--font-mono);">01</span>
+        <h3 class="heading-3 mb-sm">Telusuri Produk</h3>
+        <p class="text-secondary body-sm">Jelajahi ribuan produk barang jadi, bahan baku kulit mentah, pewarna, hingga alat jahit kulit berkualitas premium langsung dari pengrajin Magetan terverifikasi.</p>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="testimonial-card" style="border: 1px solid var(--muted-light); background-color: var(--surface);">
+        <span class="display-lg text-accent" style="opacity: 0.15; font-size: 56px; line-height: 1; display: block; font-family: var(--font-mono);">02</span>
+        <h3 class="heading-3 mb-sm">Kustomisasi Pesanan</h3>
+        <p class="text-secondary body-sm">Punya desain tas sendiri? Hubungi pengrajin lokal untuk memulai pesanan kustom, atau sewa jasa pengrajin berpengalaman untuk mengerjakan pesanan produk kulit Anda.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="testimonial-card" style="border: 1px solid var(--muted-light); background-color: var(--surface);">
+        <span class="display-lg text-accent" style="opacity: 0.15; font-size: 56px; line-height: 1; display: block; font-family: var(--font-mono);">03</span>
+        <h3 class="heading-3 mb-sm">Terima Paket</h3>
+        <p class="text-secondary body-sm">Pantau kemajuan pengerjaan produk kustom Anda secara transparan. Produk Anda akan dikemas secara eksklusif dan dikirim langsung dari bengkel kerajinan ke rumah Anda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. SERVICES SECTION (Split Showcase) -->
+  <section class="section section-alt container reveal">
+    <div class="section-header text-center">
+      <span class="section-eyebrow">§ 04</span>
+      <h2 class="section-title heading-1">Layanan Spesialis</h2>
+      <p class="section-description">Wujudkan ide produk kustom Anda atau sewa tenaga ahli pengrajin penyamakan kulit terkemuka.</p>
+    </div>
+
+    <div class="flex-y gap-xl mt-xl services-split">
+      <!-- Service Panel 1 -->
+      <div class="grid-2" style="align-items: center; background-color: var(--surface); border: 1px solid var(--muted-light);">
+        <div style="aspect-ratio: 4 / 3; overflow: hidden; height: 100%;">
+          <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&h=450&fit=crop&auto=format" alt="Pesanan Kustom" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="padding: var(--space-2xl);">
+          <span class="eyebrow text-accent mb-sm" style="display: block;">KUSTOMISASI BEBAS</span>
+          <h3 class="heading-2 mb-md">Pesanan Kustom Kulit</h3>
+          <p class="text-secondary body mb-lg">Buat produk impian Anda dari bahan kulit berkualitas tinggi. Mulai dari tas kerja, dompet monogram, sarung senjata, hingga aksesoris kantor yang dirancang sesuai kebutuhan Anda.</p>
+          <ul class="mb-xl body-sm text-secondary" style="display:flex; flex-direction:column; gap:8px;">
+            <li style="display:flex; align-items:center; gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Konsultasi gratis 30 menit</li>
+            <li style="display:flex; align-items:center; gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Prototipe 3D sebelum produksi massal</li>
+            <li style="display:flex; align-items:center; gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Pilihan cetak nama & inisial (emboss)</li>
+          </ul>
+          <a href="services.html" class="btn btn-primary">MULAI KUSTOMISASI</a>
+        </div>
+      </div>
+
+      <!-- Service Panel 2 -->
+      <div class="grid-2" style="align-items: center; background-color: var(--surface); border: 1px solid var(--muted-light);">
+        <div style="padding: var(--space-2xl); order: 2; order: initial;">
+          <span class="eyebrow text-accent mb-sm" style="display: block;">KONTRAK AHLI</span>
+          <h3 class="heading-2 mb-md">Sewa Pengrajin Kulit</h3>
+          <p class="text-secondary body mb-lg">Butuh pengrajin profesional untuk jangka panjang? Hubungi bengkel mitra Kuleather untuk menyewa tim pengrajin kulit ahli penyamakan, pemotongan pola, jahit tangan, hingga pengerjaan mesin skiving.</p>
+          <ul class="mb-xl body-sm text-secondary" style="display:flex; flex-direction:column; gap:8px;">
+            <li style="display:flex; align-items:center; gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Pengrajin terverifikasi sertifikasi lokal</li>
+            <li style="display:flex; align-items:center; gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Kontrak legal, aman, & berasuransi</li>
+            <li style="display:flex; align-items:center; gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Kapasitas pengerjaan industri s.d 10.000 unit</li>
+          </ul>
+          <a href="services.html" class="btn btn-secondary">HUBUNGI MITRA</a>
+        </div>
+        <div style="aspect-ratio: 4 / 3; overflow: hidden; height: 100%;">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=450&fit=crop&auto=format" alt="Sewa Pengrajin" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. STATISTICS SECTION -->
+  <section class="section container reveal" style="background-color: var(--bg-alt); border:1px solid var(--muted);">
+    <div class="grid-4">
+      <div class="stat-card">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span class="stat-number counter" data-target="2500" data-suffix="+">0</span>
+        <span class="stat-label">Pengrajin Aktif</span>
+      </div>
+      <div class="stat-card">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><polygon points="12 22.08 12 12 3 6.8 3 17.2 12 22.08"></polygon><polygon points="12 22.08 21 17.2 21 6.8 12 12 12 22.08"></polygon><polygon points="12 12 21 6.8 12 1.92 3 6.8 12 12"></polygon></svg>
+        <span class="stat-number counter" data-target="15000" data-suffix="+">0</span>
+        <span class="stat-label">Pilihan Produk</span>
+      </div>
+      <div class="stat-card">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        <span class="stat-number counter" data-target="850" data-suffix="+">0</span>
+        <span class="stat-label">Pesanan Bulanan</span>
+      </div>
+      <div class="stat-card">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span class="stat-number counter" data-target="34" data-suffix="">0</span>
+        <span class="stat-label">Kota Terjangkau</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. TESTIMONIALS SECTION -->
+  <section class="section container reveal">
+    <div class="section-header text-center">
+      <span class="section-eyebrow">§ 05</span>
+      <h2 class="section-title heading-1">Testimoni Klien</h2>
+      <p class="section-description">Dengarkan kisah kepuasan para pembeli retail, desainer mode, dan pelaku industri besar setelah bermitra dengan Kuleather.</p>
+    </div>
+
+    <div class="grid-3 mt-xl">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-quote">"Kuleather telah mengubah cara saya memesan bahan baku untuk butik sepatu saya. Transparansi pengerjaan kulit penyamakan alami dari Magetan sangat tinggi, dan kualitas kulit sapi full grain yang dikirimkan sungguh di luar ekspektasi saya. Sungguh luar biasa."</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format" alt="Dewi Sartika" class="testimonial-avatar">
+          <div>
+            <h4 class="testimonial-name">Dewi Sartika</h4>
+            <p class="testimonial-role">Founder, Linea Shoes Jakarta</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-quote">"Sebagai pehobi kerajinan kulit pemula, sangat sulit menemukan lembaran kulit domba yang halus dalam kuantitas kecil di marketplace biasa. Di Kuleather, saya bisa membeli potongan kecil, lengkap dengan cat penyamak dan alat skiving yang pas. Sangat membantu!"</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format" alt="Budi Santoso" class="testimonial-avatar">
+          <div>
+            <h4 class="testimonial-name">Budi Santoso</h4>
+            <p class="testimonial-role">Hobbyist, Bandung Leather Craft</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-quote">"Kerjasama bisnis korporat B2B dengan bengkel jahit mitra Kuleather berjalan dengan lancar. Kami memesan 1.500 unit souvenir tas kulit seminar berlogo emboss untuk acara instansi. Jahitan presisi, rapi, dan selesai 5 hari lebih cepat dari deadline."</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format" alt="Ahmad Subarjo" class="testimonial-avatar">
+          <div>
+            <h4 class="testimonial-name">Ahmad Subarjo</h4>
+            <p class="testimonial-role">Kepala Humas, PT Prima Semesta</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. ARTICLES SECTION -->
+  <section class="section section-alt container reveal">
+    <div class="flex-between mb-xl">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="section-eyebrow">§ 06</span>
+        <h2 class="section-title heading-1">Koleksi Jurnal</h2>
+        <p class="section-description">Temukan wawasan mendalam seputar panduan memilih bahan baku kulit, perawatan produk, dan kisah inspiratif para pengrajin.</p>
+      </div>
+      <a href="journal.html" class="btn btn-ghost">BACA SELURUH JURNAL</a>
+    </div>
+
+    <div class="grid-3" id="homepage-articles-grid">
+      <!-- Article 1 -->
+      <article class="article-card">
+        <div class="article-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&h=400&fit=crop&auto=format" alt="Seni Penyamakan Vegetable" class="article-card-img">
+          <span class="badge badge-premium article-card-badge">Teknik</span>
+        </div>
+        <div class="article-card-body">
+          <span class="article-card-date">22 Mei 2026</span>
+          <h3 class="article-card-title mb-sm mt-xs"><a href="article.html?id=vegetable-tanning">Seni Penyamakan Vegetable: Tradisi yang Bertahan Satu Abad</a></h3>
+          <p class="article-card-excerpt body-sm">Di sudut tenang Magetan, teknik penyamakan vegetable masih dipraktikkan dengan penuh dedikasi. Mengapa metode yang membutuhkan 60 hari ini justru diminati pasar global?</p>
+          <div class="article-card-footer">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&auto=format" alt="Ahmad Rifai" class="article-card-author-img">
+            <div class="article-card-author-info">
+              <span style="font-weight:600; display:block;">Ahmad Rifai</span>
+              <span class="caption text-muted" style="font-size:8px;">Editor Senior</span>
+            </div>
+            <div style="margin-left:auto; display:flex; align-items:center; gap:4px;" class="caption text-muted">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>8 menit</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="article-card">
+        <div class="article-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=600&h=400&fit=crop&auto=format" alt="Panduan Full Grain" class="article-card-img">
+          <span class="badge badge-premium article-card-badge">Panduan Kulit</span>
+        </div>
+        <div class="article-card-body">
+          <span class="article-card-date">18 Mei 2026</span>
+          <h3 class="article-card-title mb-sm mt-xs"><a href="article.html?id=panduan-full-grain">Panduan Memilih Kulit Full Grain untuk Pemula</a></h3>
+          <p class="article-card-excerpt body-sm">Full grain, top grain, genuine leather — istilah-istilah ini sering membingungkan banyak pembeli. Panduan lengkap ini membantu Anda memilih bahan kulit berkualitas.</p>
+          <div class="article-card-footer">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop&auto=format" alt="Dewi Kartika" class="article-card-author-img">
+            <div class="article-card-author-info">
+              <span style="font-weight:600; display:block;">Dewi Kartika</span>
+              <span class="caption text-muted" style="font-size:8px;">Jurnalis Mode</span>
+            </div>
+            <div style="margin-left:auto; display:flex; align-items:center; gap:4px;" class="caption text-muted">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>6 menit</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="article-card">
+        <div class="article-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format" alt="Pak Slamet" class="article-card-img">
+          <span class="badge badge-premium article-card-badge">Profil Pengrajin</span>
+        </div>
+        <div class="article-card-body">
+          <span class="article-card-date">15 Mei 2026</span>
+          <h3 class="article-card-title mb-sm mt-xs"><a href="article.html?id=pak-slamet">Pak Slamet: 40 Tahun Mengukir Keindahan dari Kulit</a></h3>
+          <p class="article-card-excerpt body-sm">Empat dekade di balik meja kerja, ribuan produk yang telah menemani perjalanan hidup pemakainya. Kisah inspiratif maestro kerajinan kulit dari pedesaan Magetan.</p>
+          <div class="article-card-footer">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&auto=format" alt="Baskoro Aji" class="article-card-author-img">
+            <div class="article-card-author-info">
+              <span style="font-weight:600; display:block;">Baskoro Aji</span>
+              <span class="caption text-muted" style="font-size:8px;">Penulis & Fotografer</span>
+            </div>
+            <div style="margin-left:auto; display:flex; align-items:center; gap:4px;" class="caption text-muted">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>10 menit</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 12. NEWSLETTER CTA SECTION -->
+  <section class="section container reveal text-center" style="background-color: var(--surface); border:1px solid var(--muted); padding: var(--space-3xl) var(--space-xl); margin-bottom: var(--space-3xl);">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <span class="eyebrow text-accent mb-sm" style="display: block;">NEWSLETTER</span>
+      <h2 class="heading-1 mb-md">Tetap Terhubung dengan Dunia Kulit Premium</h2>
+      <p class="text-secondary body-sm mb-2xl">Dapatkan katalog mingguan produk baru, diskon eksklusif, serta tips perawatan dan tren kulit terupdate langsung ke email Anda.</p>
+      
+      <form class="form-inline newsletter-form" style="margin: 0 auto;">
+        <input type="email" placeholder="Alamat email Anda..." style="border-radius:0;" required>
+        <button type="submit" class="btn btn-primary" style="white-space: nowrap; border-radius:0;">BERLANGGANAN</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 13. FOOTER -->
+  <footer class="footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">
+          <div class="footer-logo-mark">KL</div>
+          <span>KULEATHER</span>
+        </a>
+        <p class="footer-brand-desc">Marketplace kulit premium pertama yang menghubungkan langsung pengrajin lokal dengan pasar nasional dan global.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Navigasi</h4>
+        <div class="footer-menu">
+          <a href="index.html" class="breadcrumb-link">Beranda</a>
+          <a href="produk.html" class="breadcrumb-link">Produk</a>
+          <a href="journal.html" class="footer-link">Journal</a>
+          <a href="faq.html" class="footer-link">FAQ / Bantuan</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Informasi</h4>
+        <div class="footer-menu">
+          <a href="about.html" class="footer-link">Tentang Kami</a>
+          <a href="contact.html" class="footer-link">Hubungi Kami</a>
+          <a href="terms.html" class="footer-link">Syarat & Ketentuan</a>
+          <a href="size-guide.html" class="footer-link">Panduan Ukuran</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Hubungi Kami</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Magetan, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>halo@kuleather.id</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+62 (351) 123-4567</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top btn-icon" id="back-to-top" aria-label="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Dynamic Stats Counter from localStorage
+      const stats = JSON.parse(localStorage.getItem('kuleather_homepage_stats'));
+      if (stats) {
+        const statCards = document.querySelectorAll('section style + .grid-4 .stat-card, section:has(.counter) .stat-card');
+        if (statCards.length >= 4) {
+          const keys = ['craftsmen', 'products', 'orders', 'cities'];
+          statCards.forEach((card, index) => {
+            const key = keys[index];
+            const data = stats[key];
+            if (data) {
+              const numEl = card.querySelector('.counter');
+              const labelEl = card.querySelector('.stat-label');
+              if (numEl) {
+                numEl.setAttribute('data-target', data.value);
+                numEl.setAttribute('data-suffix', data.suffix);
+                numEl.textContent = data.value + data.suffix;
+              }
+              if (labelEl) {
+                labelEl.textContent = data.label;
+              }
+            }
+          });
+        }
+      }
+
+      // 2. Dynamic Testimonials from localStorage
+      const testimonials = JSON.parse(localStorage.getItem('kuleather_testimonials'));
+      if (testimonials && testimonials.length > 0) {
+        const testimonialGrid = document.querySelector('section:has(.testimonial-card) .grid-3');
+        if (testimonialGrid) {
+          let testHtml = '';
+          testimonials.forEach(t => {
+            if (t.featured) {
+              let stars = '';
+              for (let i = 0; i < (t.rating || 5); i++) {
+                stars += `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+              }
+              const imgUrl = t.photo.startsWith('http') || t.photo.startsWith('photo-') ? (t.photo.startsWith('photo-') ? `https://images.unsplash.com/${t.photo}?w=100&h=100&fit=crop&auto=format` : t.photo) : `https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format`;
+              testHtml += `
+                <div class="testimonial-card">
+                  <div class="testimonial-stars">${stars}</div>
+                  <p class="testimonial-quote">"${t.quote}"</p>
+                  <div class="testimonial-author">
+                    <img src="${imgUrl}" alt="${t.name}" class="testimonial-avatar">
+                    <div>
+                      <h4 class="testimonial-name">${t.name}</h4>
+                      <p class="testimonial-role">${t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }
+          });
+          if (testHtml) {
+            testimonialGrid.innerHTML = testHtml;
+          }
+        }
+      }
+
+      // 3. Dynamic Partners Marquee from localStorage
+      const partners = JSON.parse(localStorage.getItem('kuleather_partners'));
+      if (partners && partners.length > 0) {
+        const partnersTrack = document.querySelector('.partners-track');
+        if (partnersTrack) {
+          let partnersHtml = '';
+          // Duplicate list for infinite loop effect
+          for (let loop = 0; loop < 3; loop++) {
+            partners.forEach(p => {
+              partnersHtml += `<span class="label text-muted" style="padding: 0 var(--space-lg);">${p.name}</span>`;
+            });
+          }
+          partnersTrack.innerHTML = partnersHtml;
+        }
+      }
+
+      // 4. Newsletter Subscriber Capture
+      const newsletterForm = document.querySelector('.newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const emailInput = newsletterForm.querySelector('input[type="email"]');
+          if (emailInput) {
+            const email = emailInput.value.trim();
+            if (email) {
+              const subs = JSON.parse(localStorage.getItem('kuleather_newsletter_subs')) || [];
+              if (subs.some(s => s.email.toLowerCase() === email.toLowerCase())) {
+                if (typeof window.showToast === 'function') {
+                  window.showToast('Email ini sudah terdaftar!', 'info');
+                } else {
+                  alert('Email ini sudah terdaftar!');
+                }
+              } else {
+                subs.push({
+                  email: email,
+                  date: new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' })
+                });
+                localStorage.setItem('kuleather_newsletter_subs', JSON.stringify(subs));
+                emailInput.value = '';
+                if (typeof window.showToast === 'function') {
+                  window.showToast('Berhasil berlangganan newsletter!', 'success');
+                } else {
+                  alert('Berhasil berlangganan newsletter!');
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // 5. Dynamic Featured Products from localStorage
+      const productsData = JSON.parse(localStorage.getItem('kuleather_products'));
+      if (productsData && productsData.length > 0) {
+        const featuredGrid = document.getElementById('featured-products-grid');
+        if (featuredGrid) {
+          // Take first 4 active products
+          const featured = productsData.filter(p => !p.status || p.status === 'active').slice(0, 4);
+          
+          let productsHtml = '';
+          featured.forEach(p => {
+            const imgUrl = p.photo.startsWith('http') || p.photo.startsWith('photo-') ? (p.photo.startsWith('photo-') ? `https://images.unsplash.com/${p.photo}?w=400&h=400&fit=crop&auto=format` : p.photo) : `https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop&auto=format`;
+            const badgeHtml = p.badges.map(b => {
+              let displayBadge = b;
+              let badgeClass = 'badge-bestseller';
+              if (b === 'New') {
+                badgeClass = 'badge-new';
+              } else {
+                displayBadge = 'Best Seller';
+              }
+              return `<span class="badge ${badgeClass}">${displayBadge}</span>`;
+            }).join('');
+            
+            productsHtml += `
+              <div class="product-card">
+                <div class="product-card-img-wrapper">
+                  <a href="product.html?id=${p.id}">
+                    <img src="${imgUrl}" alt="${p.name}" class="product-card-img">
+                  </a>
+                  <div class="product-card-badge-overlay">${badgeHtml}</div>
+                  <button class="wishlist-btn" data-id="${p.id}" aria-label="Tambah ke wishlist">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  </button>
+                  <button class="quick-add-btn" data-id="${p.id}">Quick Add</button>
+                </div>
+                <div class="product-card-body">
+                  <div class="product-card-meta">
+                    <span class="eyebrow">${p.cat}</span>
+                    <div class="product-card-rating">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" class="text-accent"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      <span>${p.rating}</span>
+                    </div>
+                  </div>
+                  <h3 class="product-card-title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+                  <span class="product-card-origin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg> ${p.origin}</span>
+                  <div class="product-card-footer">
+                    <span class="price">${idr(p.price)}</span>
+                    <span class="caption text-muted">${p.sold} terjual</span>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+          featuredGrid.innerHTML = productsHtml;
+
+          // Re-bind click event on quick-add and wishlist buttons for home page
+          featuredGrid.querySelectorAll('.quick-add-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.preventDefault();
+              const pid = e.target.getAttribute('data-id');
+              const prod = featured.find(p => p.id === pid);
+              if (prod && typeof addToCart === 'function') {
+                addToCart({
+                  id: prod.id,
+                  name: prod.name,
+                  price: prod.price,
+                  photo: prod.photo,
+                  variant: 'Cokelat Tua',
+                  qty: 1
+                });
+              }
+            });
+          });
+
+          featuredGrid.querySelectorAll('.wishlist-btn').forEach(btn => {
+            // Read current wishlist state and apply fill color
+            const pid = btn.getAttribute('data-id');
+            const wishlist = JSON.parse(localStorage.getItem('kuleather_wishlist')) || [];
+            const activeUser = JSON.parse(localStorage.getItem('kuleather_active_user'));
+            if (activeUser && wishlist.some(item => item.userId === activeUser.id && item.productId === pid)) {
+              btn.classList.add('wishlisted');
+              btn.querySelector('svg').style.fill = 'var(--error)';
+            }
+
+            btn.addEventListener('click', (e) => {
+              e.preventDefault();
+              const btnElem = e.target.closest('.wishlist-btn');
+              const activeUser = JSON.parse(localStorage.getItem('kuleather_active_user'));
+              if (!activeUser) {
+                window.showToast('Silakan login terlebih dahulu untuk menambah wishlist.', 'error');
+                setTimeout(() => { window.location.href = 'auth.html'; }, 1000);
+                return;
+              }
+
+              const productId = btnElem.getAttribute('data-id');
+              const prod = featured.find(p => p.id === productId);
+              let wishlist = JSON.parse(localStorage.getItem('kuleather_wishlist')) || [];
+              const idx = wishlist.findIndex(item => item.userId === activeUser.id && item.productId === productId);
+
+              btnElem.classList.toggle('wishlisted');
+              if (btnElem.classList.contains('wishlisted')) {
+                btnElem.querySelector('svg').style.fill = 'var(--error)';
+                if (idx === -1) {
+                  wishlist.push({
+                    userId: activeUser.id,
+                    productId: prod.id,
+                    name: prod.name,
+                    price: prod.price,
+                    photo: prod.photo
+                  });
+                  localStorage.setItem('kuleather_wishlist', JSON.stringify(wishlist));
+                }
+                window.showToast(`Ditambahkan ke wishlist: ${prod.name}`, 'success');
+              } else {
+                btnElem.querySelector('svg').style.fill = 'none';
+                wishlist = wishlist.filter(item => !(item.userId === activeUser.id && item.productId === productId));
+                localStorage.setItem('kuleather_wishlist', JSON.stringify(wishlist));
+                window.showToast(`Dihapus dari wishlist: ${prod.name}`, 'info');
+              }
+            });
+          });
+        }
+      }
+
+      // 6. Dynamic Latest Articles from localStorage
+      const articlesData = JSON.parse(localStorage.getItem('kuleather_articles'));
+      if (articlesData && articlesData.length > 0) {
+        const articlesGrid = document.getElementById('homepage-articles-grid');
+        if (articlesGrid) {
+          // Take first 3 published articles
+          const latestArticles = articlesData.filter(a => a.status === 'published').slice(0, 3);
+          
+          let articlesHtml = '';
+          latestArticles.forEach(a => {
+            const imgUrl = a.photo.startsWith('http') || a.photo.startsWith('photo-') ? (a.photo.startsWith('photo-') ? `https://images.unsplash.com/${a.photo}?w=600&h=400&fit=crop&auto=format` : a.photo) : `https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&h=400&fit=crop&auto=format`;
+            const authImgUrl = a.author.photo.startsWith('http') || a.author.photo.startsWith('photo-') ? (a.author.photo.startsWith('photo-') ? `https://images.unsplash.com/${a.author.photo}?w=50&h=50&fit=crop&auto=format` : a.author.photo) : `https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&auto=format`;
+            
+            articlesHtml += `
+              <article class="article-card">
+                <div class="article-card-img-wrapper">
+                  <img src="${imgUrl}" alt="${a.title}" class="article-card-img">
+                  <span class="badge badge-premium article-card-badge">${a.cat}</span>
+                </div>
+                <div class="article-card-body">
+                  <span class="article-card-date">${a.date}</span>
+                  <h3 class="article-card-title mb-sm mt-xs"><a href="article.html?id=${a.id}">${a.title}</a></h3>
+                  <p class="article-card-excerpt body-sm">${a.excerpt}</p>
+                  <div class="article-card-footer">
+                    <img src="${authImgUrl}" alt="${a.author.name}" class="article-card-author-img">
+                    <div class="article-card-author-info">
+                      <span style="font-weight:600; display:block;">${a.author.name}</span>
+                      <span class="caption text-muted" style="font-size:8px;">${a.author.role}</span>
+                    </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; gap:4px;" class="caption text-muted">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      <span>${a.readTime || '5 menit'}</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            `;
+          });
+          articlesGrid.innerHTML = articlesHtml;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detail Layanan Jasa Kuleather — Dapatkan informasi spesifikasi pengerjaan, portofolio hasil kerja, syarat ketentuan, dan rincian kuota revisi.">
+  <title>Detail Jasa — KULEATHER</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">KULEATHER</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Beranda</a>
+        <a class="nav-link" href="produk.html">Produk</a>
+        <a class="nav-link active" href="services.html">Jasa</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html" aria-label="Cari Produk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a>
+        <a class="nav-cart btn-icon" href="cart.html" aria-label="Keranjang Belanja"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span></a>
+        <a class="btn btn-secondary btn-sm" href="auth.html" id="nav-login-btn">MASUK</a>
+      </div>
+      <button class="nav-toggle btn-icon" id="nav-toggle" aria-label="Menu Mobile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <button class="nav-drawer-close btn-icon" id="nav-drawer-close" aria-label="Tutup Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="nav-drawer-links" style="margin-top: 40px;">
+      <a class="nav-drawer-link" href="index.html">Beranda</a>
+      <a class="nav-drawer-link" href="produk.html">Produk</a>
+      <a class="nav-drawer-link active" href="services.html">Jasa</a>
+      <a class="nav-drawer-link" href="journal.html">Journal</a>
+      <a class="nav-drawer-link" href="faq.html">Bantuan</a>
+      <a class="nav-drawer-link" href="auth.html" style="margin-top: 20px; color: var(--accent);">Masuk / Daftar</a>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB HEADER -->
+  <main class="section container" style="margin-top: var(--navbar-height); padding-top: var(--space-xl);">
+    <nav class="caption text-secondary mb-xl" style="display:flex; align-items:center; gap:8px;">
+      <a href="index.html" class="breadcrumb-link">BERANDA</a>
+      <span>/</span>
+      <a href="services.html" class="breadcrumb-link">JASA</a>
+      <span>/</span>
+      <span class="text-accent" id="breadcrumb-service-name">-</span>
+    </nav>
+
+    <!-- Service Detail Grid -->
+    <div class="service-detail-grid mb-4xl">
+      <!-- LEFT PANEL: Portfolios, details, and reviews -->
+      <div>
+        <div class="product-gallery mb-xl">
+          <div class="product-gallery-main" style="aspect-ratio:16/9; height:auto;">
+            <img id="detail-main-img" src="" alt="Portfolio Jasa" style="object-fit:cover;">
+          </div>
+        </div>
+
+        <span class="badge badge-premium mb-xs" id="detail-category" style="border-color:var(--accent); color:var(--accent);">Jasa</span>
+        <h1 class="heading-1 mb-xs" id="detail-title">-</h1>
+
+        <!-- Rating and orders -->
+        <div style="display:flex; align-items:center; gap:var(--space-md); margin-bottom:var(--space-lg);" class="body-sm text-secondary">
+          <div style="display:flex; align-items:center; gap:4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span id="detail-rating" style="font-weight:700; color:var(--text-primary);">5.0</span>
+          </div>
+          <span>·</span>
+          <span id="detail-orders-count">0 order selesai</span>
+        </div>
+
+        <!-- Tab Description & Rules -->
+        <section class="mb-2xl">
+          <div class="tabs-header">
+            <button class="tab-btn active" data-tab="tab-desc">Penjelasan Jasa</button>
+            <button class="tab-btn" data-tab="tab-rules">Aturan Revisi</button>
+            <button class="tab-btn" data-tab="tab-terms">Syarat & Ketentuan</button>
+          </div>
+
+          <div class="tabs-content">
+            <!-- 1. Description -->
+            <div class="tab-pane active" id="tab-desc">
+              <p class="body text-secondary" id="detail-desc" style="line-height:1.6;"></p>
+            </div>
+
+            <!-- 2. Revision rules -->
+            <div class="tab-pane" id="tab-rules">
+              <div class="revision-highlight-box">
+                <h4 class="body-sm text-accent" style="font-weight:700; margin-bottom:var(--space-sm);">KEBIJAKAN KONTROL REVISI KULEATHER</h4>
+                <p class="body-xs text-secondary" style="font-size:12px;">Untuk memastikan perlindungan hak cipta pengrajin dan kejelasan pengerjaan bagi pembeli, kami menerapkan batas cakupan revisi yang ketat:</p>
+                
+                <div class="grid-2 mt-md">
+                  <div>
+                    <h5 class="caption text-primary" style="font-weight:700; font-size:10px;">✓ YANG TERMASUK REVISI</h5>
+                    <div class="revision-rule-list" id="detail-revision-includes"></div>
+                  </div>
+                  <div>
+                    <h5 class="caption text-error" style="font-weight:700; font-size:10px;">✕ YANG BUKAN REVISI</h5>
+                    <div class="revision-rule-list" id="detail-revision-excludes"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Terms -->
+            <div class="tab-pane" id="tab-terms">
+              <p class="body text-secondary" id="detail-terms" style="line-height:1.6;"></p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT PANEL: Pricing and submission box -->
+      <aside style="position:sticky; top:calc(var(--navbar-height) + var(--space-lg)); background-color:var(--surface); border:1px solid var(--muted-light); padding:var(--space-lg); display:flex; flex-direction:column; gap:var(--space-md);">
+        <h3 class="label text-accent" style="font-size:10px; font-weight:700; letter-spacing:0.15em;">PENAWARAN AWAL</h3>
+        
+        <div>
+          <span class="service-price-label">Harga Mulai Dari</span>
+          <strong class="price-lg text-primary" id="aside-price" style="font-size:24px; font-weight:700; display:block;">Rp 0</strong>
+        </div>
+
+        <div style="border-top:1px solid var(--muted-light); border-bottom:1px solid var(--muted-light); padding:var(--space-md) 0; display:flex; flex-direction:column; gap:8px;" class="body-sm text-secondary">
+          <div class="flex-between">
+            <span>Estimasi Waktu:</span>
+            <strong id="aside-time" class="text-primary">-</strong>
+          </div>
+          <div class="flex-between">
+            <span>Revisi Gratis:</span>
+            <strong id="aside-revisions" class="text-primary">- kali</strong>
+          </div>
+          <div class="flex-between">
+            <span>Biaya Revisi Tambahan:</span>
+            <strong id="aside-extra-cost" class="text-primary">Rp - /revisi</strong>
+          </div>
+          <div class="flex-between" style="margin-top:4px; border-top:1px dashed var(--muted-light); padding-top:8px;">
+            <span>Nama Pengrajin/Toko:</span>
+            <strong id="aside-seller" class="text-accent">-</strong>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-full btn-lg" id="btn-request-service">KIRIM REQUEST JASA</button>
+        <span class="caption text-muted" style="text-align:center; font-size:9px; line-height:1.4;">Negosiasi harga final, revisi gratis, dan spesifikasi detail akan diselesaikan di Ruang Negosiasi setelah Anda mengirim request.</span>
+      </aside>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">
+          <div class="footer-logo-mark">KL</div>
+          <span>KULEATHER</span>
+        </a>
+        <p class="footer-brand-desc">Marketplace kulit premium pertama yang menghubungkan langsung pengrajin lokal dengan pasar nasional dan global.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Navigasi</h4>
+        <div class="footer-menu">
+          <a href="index.html" class="breadcrumb-link">Beranda</a>
+          <a href="produk.html" class="breadcrumb-link">Produk</a>
+          <a href="journal.html" class="footer-link">Journal</a>
+          <a href="faq.html" class="footer-link">FAQ / Bantuan</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Informasi</h4>
+        <div class="footer-menu">
+          <a href="about.html" class="footer-link">Tentang Kami</a>
+          <a href="contact.html" class="footer-link">Hubungi Kami</a>
+          <a href="terms.html" class="footer-link">Syarat & Ketentuan</a>
+          <a href="size-guide.html" class="footer-link">Panduan Ukuran</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Hubungi Kami</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Magetan, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>halo@kuleather.id</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. URL Parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceId = urlParams.get('id') || 'SVC-001';
+
+      // 2. Fetch service details
+      const services = JSON.parse(localStorage.getItem('kuleather_services')) || [];
+      const s = services.find(item => item.id === serviceId);
+
+      if (!s) {
+        alert('Layanan jasa tidak ditemukan.');
+        window.location.href = 'services.html';
+        return;
+      }
+
+      // 3. Populate details dynamically
+      document.getElementById('breadcrumb-service-name').textContent = s.name.toUpperCase();
+      document.getElementById('detail-title').textContent = s.name;
+      document.getElementById('detail-category').textContent = s.category;
+      document.getElementById('detail-rating').textContent = s.rating.toFixed(1);
+      document.getElementById('detail-orders-count').textContent = `${s.totalOrders} order selesai`;
+      document.getElementById('detail-desc').textContent = s.description;
+      document.getElementById('detail-terms').textContent = s.termsConditions || 'Tidak ada ketentuan khusus yang dicantumkan.';
+      
+      const img = document.getElementById('detail-main-img');
+      img.src = s.portfolio ? s.portfolio : `https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&h=600&fit=crop&auto=format`;
+      img.alt = s.name;
+
+      // Aside Panel
+      document.getElementById('aside-price').textContent = idr(s.startingPrice);
+      document.getElementById('aside-time').textContent = s.estimatedTime;
+      document.getElementById('aside-revisions').textContent = `${s.freeRevisions} kali`;
+      document.getElementById('aside-extra-cost').textContent = `${idr(s.extraRevisionCost)} /revisi`;
+      document.getElementById('aside-seller').textContent = s.sellerName;
+
+      // Revision limits rules
+      const incContainer = document.getElementById('detail-revision-includes');
+      const excContainer = document.getElementById('detail-revision-excludes');
+
+      const incs = (s.revisionIncludes || 'Perbaikan jahitan, penyesuaian detail aksesoris kecil').split(',');
+      const excs = (s.revisionExcludes || 'Perubahan total model desain barang, pergantian warna kulit yang sudah dipotong').split(',');
+
+      incContainer.innerHTML = incs.map(rule => `
+        <div class="revision-rule-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:12px; height:12px; color:var(--success); margin-top:2px; flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>${rule.trim()}</span>
+        </div>
+      `).join('');
+
+      excContainer.innerHTML = excs.map(rule => `
+        <div class="revision-rule-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:12px; height:12px; color:var(--error); margin-top:2px; flex-shrink:0;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <span>${rule.trim()}</span>
+        </div>
+      `).join('');
+
+      // 4. Tab switching
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabPanes = document.querySelectorAll('.tab-pane');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanes.forEach(p => p.classList.remove('active'));
+
+          btn.classList.add('active');
+          const tabId = btn.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
+      // 5. Submit Request Action
+      const reqBtn = document.getElementById('btn-request-service');
+      if (reqBtn) {
+        reqBtn.addEventListener('click', () => {
+          // Guard Login
+          const user = getActiveUser();
+          if (!user) {
+            window.showToast('Silakan login terlebih dahulu untuk mengajukan request jasa.', 'error');
+            setTimeout(() => {
+              window.location.href = 'auth.html';
+            }, 1500);
+            return;
+          }
+          
+          // Redirect to Negotiation Room
+          window.location.href = `service-request.html?id=${s.id}`;
+        });
+      }
+    });
+  </script>
+</body>
+</html>

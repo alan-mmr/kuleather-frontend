@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detail Produk Kuleather — Dapatkan informasi lengkap mengenai spesifikasi material, ukuran, warna, ulasan pembeli, dan garansi pengerjaan.">
+  <title>Detail Produk — KULEATHER</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">KULEATHER</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Beranda</a>
+        <a class="nav-link active" href="produk.html">Produk</a>
+        <a class="nav-link" href="services.html">Jasa</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html" aria-label="Cari Produk">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a class="nav-cart btn-icon" href="cart.html" aria-label="Keranjang Belanja">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span>
+        </a>
+        <a class="btn btn-secondary btn-sm" href="auth.html">MASUK</a>
+      </div>
+      <button class="nav-toggle btn-icon" id="nav-toggle" aria-label="Menu Mobile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <button class="nav-drawer-close btn-icon" id="nav-drawer-close" aria-label="Tutup Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="nav-drawer-links" style="margin-top: 40px;">
+      <a class="nav-drawer-link" href="index.html">Beranda</a>
+      <a class="nav-drawer-link active" href="produk.html">Produk</a>
+      <a class="nav-drawer-link" href="services.html">Jasa</a>
+      <a class="nav-drawer-link" href="journal.html">Journal</a>
+      <a class="nav-drawer-link" href="faq.html">Bantuan</a>
+      <a class="nav-drawer-link" href="auth.html" style="margin-top: 20px; color: var(--accent);">Masuk / Daftar</a>
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL SECTION -->
+  <main class="section container" style="margin-top: var(--navbar-height); padding-top: var(--space-2xl);">
+    <!-- Breadcrumb -->
+    <nav class="caption text-secondary mb-xl" style="display:flex; align-items:center; gap:8px;">
+      <a href="index.html" class="breadcrumb-link">BERANDA</a>
+      <span>/</span>
+      <a href="produk.html" class="breadcrumb-link">PRODUK</a>
+      <span>/</span>
+      <span class="text-accent" id="breadcrumb-product-name">Tas Tote Kulit Full Grain Magetan</span>
+    </nav>
+
+    <!-- Main Detail Grid -->
+    <div class="product-detail-grid mb-4xl">
+      <!-- 1. GALLERY (Left Panel) -->
+      <div class="product-gallery">
+        <div class="product-gallery-main">
+          <img id="detail-main-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&h=600&fit=crop&auto=format" alt="Tas Tote Kulit">
+        </div>
+        <div class="product-gallery-thumbs" id="detail-thumbs">
+          <!-- Thumbnails loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- 2. INFO (Right Panel) -->
+      <div class="product-info">
+        <div class="mb-sm">
+          <span class="badge badge-bestseller" id="detail-badge">Best Seller</span>
+        </div>
+        <h1 class="heading-1 mb-xs" id="detail-title">Tas Tote Kulit Full Grain Magetan</h1>
+        
+        <!-- Ratings & Sold counts -->
+        <div style="display:flex; align-items:center; gap:var(--space-md); margin-bottom:var(--space-md);" class="body-sm text-secondary">
+          <div style="display:flex; align-items:center; gap:4px;">
+            <div style="display:inline-flex; gap:2px; color:var(--accent);">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <span id="detail-rating-text" style="font-weight:600; color:var(--text-primary);">4.9</span>
+            <span id="detail-reviews-count">(187 ulasan)</span>
+          </div>
+          <span>·</span>
+          <span id="detail-sold-count">412 terjual</span>
+        </div>
+
+        <!-- Vendor Info -->
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:var(--space-md); font-family:var(--font-mono); font-size:10px; text-transform:uppercase; letter-spacing:0.05em;" class="text-secondary">
+          <span>Toko / Penjual:</span>
+          <a id="detail-seller-link" href="#" class="text-accent" style="font-weight:700; text-decoration:none; border-bottom:1px dashed var(--accent);"><span id="detail-seller">-</span></a>
+        </div>
+
+        <div style="border-top:1px solid var(--muted-light); border-bottom:1px solid var(--muted-light); padding:var(--space-md) 0; margin-bottom:var(--space-lg);">
+          <span class="price-lg" id="detail-price">Rp 1.250.000</span>
+          <span class="text-subtle" id="detail-orig-price" style="text-decoration:line-through; font-size:14px; margin-left:12px; display:none;"></span>
+        </div>
+
+        <p class="text-secondary body-sm mb-lg" id="detail-short-desc">
+          Tas jinjing (tote bag) eksklusif buatan tangan pengrajin Magetan, menggunakan material kulit sapi tipe Full Grain pilihan yang disamak alami secara berkelanjutan. Sangat luas, awet, dan bergaya klasik untuk aktivitas harian Anda.
+        </p>
+
+        <!-- Color Options -->
+        <div class="mb-md">
+          <label class="form-label mb-xs" style="display:block;">Warna: <span id="selected-color-label" style="text-transform:none; font-family:var(--font-body); font-weight:600; color:var(--text-primary);">Cokelat Tua</span></label>
+          <div class="color-swatches" id="color-swatches-container">
+            <!-- Colors injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Size Options -->
+        <div class="mb-lg">
+          <label class="form-label mb-xs" style="display:block;">Ukuran: <span id="selected-size-label" style="text-transform:none; font-family:var(--font-body); font-weight:600; color:var(--text-primary);">M</span></label>
+          <div class="size-selector" id="size-selector-container">
+            <div class="size-option" data-size="S">S</div>
+            <div class="size-option active" data-size="M">M</div>
+            <div class="size-option" data-size="L">L</div>
+          </div>
+        </div>
+
+        <!-- Quantity & CTAs -->
+        <div class="mb-2xl" style="display:flex; flex-direction:column; gap:var(--space-md);">
+          <div style="display:flex; align-items:center; gap:var(--space-md);">
+            <label class="form-label" style="margin-bottom:0;">Jumlah:</label>
+            <div class="qty-control">
+              <button class="qty-btn" id="qty-dec">-</button>
+              <input type="text" class="qty-input" id="qty-val" value="1" readonly>
+              <button class="qty-btn" id="qty-inc">+</button>
+            </div>
+            <span class="body-sm text-success" id="detail-stock-status" style="font-weight:500;">Stok Tersedia</span>
+          </div>
+
+          <div class="flex-x gap-md mt-sm" style="width:100%;">
+            <button class="btn btn-primary btn-lg" id="btn-add-to-cart" style="flex-grow:1;">TAMBAH KE KERANJANG</button>
+            <button class="btn btn-secondary btn-lg" id="btn-buy-now" style="flex-grow:1;">BELI SEKARANG</button>
+          </div>
+        </div>
+
+        <!-- Small Trust factors -->
+        <div class="grid-3" style="border-top:1px solid var(--muted-light); padding-top:var(--space-lg);">
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px;">
+            <svg style="color:var(--accent);" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span class="caption text-primary" style="font-weight:600; margin-top:2px;">100% Aman</span>
+            <span class="caption text-muted" style="font-size:8px;">Pembayaran Terjamin</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px;">
+            <svg style="color:var(--accent);" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span class="caption text-primary" style="font-weight:600; margin-top:2px;">Kirim Cepat</span>
+            <span class="caption text-muted" style="font-size:8px;">Kurir Terpercaya</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px;">
+            <svg style="color:var(--accent);" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+            <span class="caption text-primary" style="font-weight:600; margin-top:2px;">Garansi Retur</span>
+            <span class="caption text-muted" style="font-size:8px;">7 Hari Penukaran</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS SECTION -->
+    <section class="mb-4xl">
+      <div class="tabs-header">
+        <button class="tab-btn active" data-tab="tab-desc">Deskripsi</button>
+        <button class="tab-btn" data-tab="tab-specs">Spesifikasi</button>
+        <button class="tab-btn" data-tab="tab-reviews">Ulasan (3)</button>
+        <button class="tab-btn" data-tab="tab-shipping">Pengiriman</button>
+      </div>
+
+      <!-- Tab Content Panes -->
+      <div class="tabs-content">
+        <!-- 1. Description Tab -->
+        <div class="tab-pane active" id="tab-desc">
+          <p class="body text-secondary">
+            Tas Tote Kulit Full Grain Magetan merupakan representasi terbaik dari keahlian tangan lokal. Menggunakan bahan kulit sapi Full Grain pilihan, struktur serat alami dipertahankan sepenuhnya untuk menghasilkan durabilitas maksimal dan karakter patina yang semakin indah seiring penggunaan Anda.
+          </p>
+          <p class="body text-secondary mt-md">
+            Desain kompartemen utama yang luas dilengkapi dengan saku laptop berlapis microfiber lembut, saku zipper internal untuk keamanan dompet, serta penutup ritsleting YKK logam yang halus. Cocok untuk menampung laptop hingga ukuran 14 inci serta kebutuhan berkas kantor Anda sehari-hari.
+          </p>
+        </div>
+
+        <!-- 2. Specs Tab -->
+        <div class="tab-pane" id="tab-specs">
+          <table style="width:100%; border-collapse:collapse; font-size:14px; text-align:left;" id="detail-specs-table">
+            <!-- Table specs loaded dynamically -->
+          </table>
+        </div>
+
+        <!-- 3. Reviews Tab -->
+        <div class="tab-pane" id="tab-reviews">
+          <div class="grid-3 mb-xl" style="align-items: center; border-bottom: 1px solid var(--muted-light); padding-bottom: var(--space-lg);">
+            <div style="text-align:center;">
+              <span class="display-lg text-accent" style="font-size:56px; font-weight:700; line-height:1; display:block;">4.9</span>
+              <div style="display:inline-flex; gap:2px; color:var(--accent); margin: 6px 0;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <span class="body-sm text-secondary style=display:block;">Berdasarkan 187 Ulasan</span>
+            </div>
+            
+            <div style="grid-column: span 2; display:flex; flex-direction:column; gap:6px;">
+              <div style="display:flex; align-items:center; gap:8px;" class="caption text-secondary">
+                <span style="width:30px;">5 ★</span>
+                <div style="flex-grow:1; height:6px; background-color:var(--bg-alt); position:relative;"><div style="position:absolute; top:0; left:0; bottom:0; width:68%; background-color:var(--accent);"></div></div>
+                <span style="width:30px; text-align:right;">68%</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;" class="caption text-secondary">
+                <span style="width:30px;">4 ★</span>
+                <div style="flex-grow:1; height:6px; background-color:var(--bg-alt); position:relative;"><div style="position:absolute; top:0; left:0; bottom:0; width:22%; background-color:var(--accent);"></div></div>
+                <span style="width:30px; text-align:right;">22%</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;" class="caption text-secondary">
+                <span style="width:30px;">3 ★</span>
+                <div style="flex-grow:1; height:6px; background-color:var(--bg-alt); position:relative;"><div style="position:absolute; top:0; left:0; bottom:0; width:7%; background-color:var(--accent);"></div></div>
+                <span style="width:30px; text-align:right;">7%</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;" class="caption text-secondary">
+                <span style="width:30px;">2 ★</span>
+                <div style="flex-grow:1; height:6px; background-color:var(--bg-alt); position:relative;"><div style="position:absolute; top:0; left:0; bottom:0; width:2%; background-color:var(--accent);"></div></div>
+                <span style="width:30px; text-align:right;">2%</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;" class="caption text-secondary">
+                <span style="width:30px;">1 ★</span>
+                <div style="flex-grow:1; height:6px; background-color:var(--bg-alt); position:relative;"><div style="position:absolute; top:0; left:0; bottom:0; width:1%; background-color:var(--accent);"></div></div>
+                <span style="width:30px; text-align:right;">1%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review List container -->
+          <div class="flex-y gap-lg" id="detail-reviews-list">
+            <!-- Reviews loaded dynamically -->
+          </div>
+
+          <!-- Review Form Container -->
+          <div id="reviews-form-wrapper" style="margin-top: var(--space-2xl); border-top: 1px dashed var(--muted-light); padding-top: var(--space-xl);">
+            <!-- Dynamic form or warning injected here -->
+          </div>
+        </div>
+
+        <!-- 4. Shipping Tab -->
+        <div class="tab-pane" id="tab-shipping">
+          <h4 class="body mb-sm" style="font-weight:600;">Metode Pengiriman</h4>
+          <p class="body-sm text-secondary mb-md">Kami mengirimkan seluruh paket kerajinan kulit kami langsung dari bengkel pengrajin Magetan ke alamat Anda. Kami menyediakan kurir berikut:</p>
+          <ul class="body-sm text-secondary mb-lg" style="list-style:disc; padding-left:20px; display:flex; flex-direction:column; gap:6px;">
+            <li><strong>JNE YES (Yakin Esok Sampai):</strong> 1-2 hari kerja (Rp 42.000)</li>
+            <li><strong>JNE Regular:</strong> 2-4 hari kerja (Rp 18.000)</li>
+            <li><strong>SiCepat Reg:</strong> 2-3 hari kerja (Rp 15.000)</li>
+          </ul>
+          
+          <h4 class="body mb-sm" style="font-weight:600;">Kemasan Premium & Pengamanan</h4>
+          <p class="body-sm text-secondary">Setiap produk Kuleather akan dibungkus kantong debu (dust bag) eksklusif berbahan katun lembut, dimasukkan ke dalam boks karton tebal berpita rami, dan dibalut bubble wrap ganda. Pengiriman bahan kimia dan mesin diproteksi menggunakan peti kayu standar ekspedisi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED PRODUCTS -->
+    <section>
+      <h2 class="heading-2 mb-xl">Mungkin Kamu Suka</h2>
+      <div class="grid-4" id="related-products-grid">
+        <!-- Load related products dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">
+          <div class="footer-logo-mark">KL</div>
+          <span>KULEATHER</span>
+        </a>
+        <p class="footer-brand-desc">Marketplace kulit premium pertama yang menghubungkan langsung pengrajin lokal dengan pasar nasional dan global.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Navigasi</h4>
+        <div class="footer-menu">
+          <a href="index.html" class="breadcrumb-link">Beranda</a>
+          <a href="produk.html" class="breadcrumb-link">Produk</a>
+          <a href="journal.html" class="footer-link">Journal</a>
+          <a href="faq.html" class="footer-link">FAQ / Bantuan</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Informasi</h4>
+        <div class="footer-menu">
+          <a href="about.html" class="footer-link">Tentang Kami</a>
+          <a href="contact.html" class="footer-link">Hubungi Kami</a>
+          <a href="terms.html" class="footer-link">Syarat & Ketentuan</a>
+          <a href="size-guide.html" class="footer-link">Panduan Ukuran</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Hubungi Kami</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Magetan, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>halo@kuleather.id</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+62 (351) 123-4567</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top btn-icon" id="back-to-top" aria-label="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <!-- Load catalog array locally for details use -->
+  <script src="js/produk.js"></script>
+  <script>
+    // Product Detail Page Script
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Get Product ID from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      let productId = urlParams.get('id') || 'tote-full-grain';
+      
+      // Fallback if not found in catalog
+      let product = PRODUCTS.find(p => p.id === productId);
+      if (!product) {
+        product = PRODUCTS[0];
+        productId = product.id;
+      }
+
+      // 2. Populate Product Data
+      document.title = `${product.name} — KULEATHER`;
+      document.getElementById('breadcrumb-product-name').textContent = product.name;
+      document.getElementById('detail-title').textContent = product.name;
+      document.getElementById('detail-rating-text').textContent = product.rating;
+      document.getElementById('detail-reviews-count').textContent = `(${product.reviewCount} ulasan)`;
+      document.getElementById('detail-sold-count').textContent = `${product.sold} terjual`;
+      document.getElementById('detail-price').textContent = formatCurrency(product.price);
+      const sellerName = product.seller || 'Mitra Pengrajin Kuleather';
+      const sellerId = product.sellerId || 'u02';
+      document.getElementById('detail-seller').textContent = sellerName;
+      const sellerLinkEl = document.getElementById('detail-seller-link');
+      if (sellerLinkEl) {
+        sellerLinkEl.href = `store.html?seller=${sellerId}`;
+      }
+      
+      const origPriceEl = document.getElementById('detail-orig-price');
+      if (product.origPrice) {
+        origPriceEl.textContent = formatCurrency(product.origPrice);
+        origPriceEl.style.display = 'inline-block';
+      } else {
+        origPriceEl.style.display = 'none';
+      }
+      
+      // Set Badge
+      const badgeEl = document.getElementById('detail-badge');
+      if (product.badges.length > 0) {
+        let displayBadge = product.badges[0];
+        let badgeClass = 'badge-bestseller';
+        if (displayBadge === 'New') {
+          badgeClass = 'badge-new';
+        } else {
+          displayBadge = 'Best Seller';
+        }
+        badgeEl.textContent = displayBadge;
+        badgeEl.className = 'badge';
+        badgeEl.classList.add(badgeClass);
+        badgeEl.style.display = 'inline-block';
+      } else {
+        badgeEl.style.display = 'none';
+      }
+
+      // Set Stock status
+      const stockEl = document.getElementById('detail-stock-status');
+      if (product.inStock) {
+        stockEl.textContent = 'Stok Tersedia';
+        stockEl.className = 'body-sm text-success';
+      } else {
+        stockEl.textContent = 'Stok Habis';
+        stockEl.className = 'body-sm text-error';
+        document.getElementById('btn-add-to-cart').disabled = true;
+        document.getElementById('btn-buy-now').disabled = true;
+      }
+
+      // 3. Populate Gallery
+      const mainImg = document.getElementById('detail-main-img');
+      const thumbsContainer = document.getElementById('detail-thumbs');
+      
+      mainImg.src = product.photo.startsWith('photo-') ? `https://images.unsplash.com/${product.photo}?w=800&h=600&fit=crop&auto=format` : product.photo;
+      
+      // We will load the predefined detail gallery images
+      const galleryPhotos = [
+        product.photo,
+        "photo-1464699908537-0954e50791ee",
+        "photo-1614252369475-531eba835eb1",
+        "photo-1565193566173-7a0ee3dbe261",
+        "photo-1553062407-98eeb64c6a62"
+      ];
+
+      let thumbsHtml = '';
+      galleryPhotos.forEach((photoId, idx) => {
+        const thumbUrl = photoId.startsWith('photo-') ? `https://images.unsplash.com/${photoId}?w=100&h=100&fit=crop&auto=format` : photoId;
+        thumbsHtml += `
+          <div class="product-gallery-thumb ${idx === 0 ? 'active' : ''}" data-photo="${photoId}">
+            <img src="${thumbUrl}" alt="Thumbnail ${idx + 1}">
+          </div>
+        `;
+      });
+      thumbsContainer.innerHTML = thumbsHtml;
+
+      // Bind Gallery Thumbnails click
+      const thumbs = thumbsContainer.querySelectorAll('.product-gallery-thumb');
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('click', (e) => {
+          thumbs.forEach(t => t.classList.remove('active'));
+          const targetThumb = e.target.closest('.product-gallery-thumb');
+          targetThumb.classList.add('active');
+          const photoId = targetThumb.getAttribute('data-photo');
+          mainImg.src = photoId.startsWith('photo-') ? `https://images.unsplash.com/${photoId}?w=800&h=600&fit=crop&auto=format` : photoId;
+        });
+      });
+
+      // 4. Color Swatches Setup
+      const swatchesContainer = document.getElementById('color-swatches-container');
+      const colorLabel = document.getElementById('selected-color-label');
+      
+      const colors = [
+        { name: "Cokelat Tua",  hex: "#5C3A1E" },
+        { name: "Hitam Matte",  hex: "#1C1C1C" },
+        { name: "Tan Natural",  hex: "#C8975A" },
+        { name: "Cognac",       hex: "#9B4F2E" }
+      ];
+
+      let swatchesHtml = '';
+      colors.forEach((c, idx) => {
+        swatchesHtml += `
+          <div class="color-swatch ${idx === 0 ? 'active' : ''}" style="background-color: ${c.hex};" data-color-name="${c.name}"></div>
+        `;
+      });
+      swatchesContainer.innerHTML = swatchesHtml;
+
+      let selectedColor = colors[0].name;
+      const swatches = swatchesContainer.querySelectorAll('.color-swatch');
+      swatches.forEach(sw => {
+        sw.addEventListener('click', (e) => {
+          swatches.forEach(s => s.classList.remove('active'));
+          e.target.classList.add('active');
+          selectedColor = e.target.getAttribute('data-color-name');
+          colorLabel.textContent = selectedColor;
+        });
+      });
+
+      // 5. Size Selection
+      const sizeOptions = document.querySelectorAll('.size-option');
+      const sizeLabel = document.getElementById('selected-size-label');
+      let selectedSize = 'M';
+
+      sizeOptions.forEach(opt => {
+        opt.addEventListener('click', (e) => {
+          sizeOptions.forEach(o => o.classList.remove('active'));
+          e.target.classList.add('active');
+          selectedSize = e.target.getAttribute('data-size');
+          sizeLabel.textContent = selectedSize;
+        });
+      });
+
+      // 6. Quantity Picker
+      const qtyVal = document.getElementById('qty-val');
+      const qtyDec = document.getElementById('qty-dec');
+      const qtyInc = document.getElementById('qty-inc');
+
+      qtyDec.addEventListener('click', () => {
+        let val = parseInt(qtyVal.value, 10);
+        if (val > 1) {
+          qtyVal.value = val - 1;
+        }
+      });
+
+      qtyInc.addEventListener('click', () => {
+        let val = parseInt(qtyVal.value, 10);
+        qtyVal.value = val + 1;
+      });
+
+      // 7. Tab Switching
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabPanes = document.querySelectorAll('.tab-pane');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanes.forEach(p => p.classList.remove('active'));
+
+          btn.classList.add('active');
+          const paneId = btn.getAttribute('data-tab');
+          document.getElementById(paneId).classList.add('active');
+        });
+      });
+
+      // 8. Populate Specs Table
+      const specsTable = document.getElementById('detail-specs-table');
+      const specs = [
+        { l: "Material",        v: `${product.material} Full Grain Vegetable Tanned` },
+        { l: "Penyamakan",      v: "Vegetable Tanning (60 hari)" },
+        { l: "Dimensi",         v: "36 × 14 × 32 cm (Medium)" },
+        { l: "Berat",           v: "680 gram" },
+        { l: "Hardware",        v: "Brass kuning keemasan" },
+        { l: "Lining",          v: "Suede microfiber premium" },
+        { l: "Ritsleting",      v: "YKK #5 Metal" },
+        { l: "Handle",          v: "Kulit doubled-stitched" },
+        { l: "SKU",             v: `KL-${product.cat === 'Barang Jadi' ? 'BJ' : 'AK'}-${product.id.slice(0, 4).toUpperCase()}` },
+        { l: "Garansi",         v: "12 bulan pengerjaan" }
+      ];
+
+      let specsHtml = '';
+      specs.forEach(s => {
+        specsHtml += `
+          <tr style="border-bottom: 1px solid var(--muted-light);">
+            <th style="padding: 10px 0; font-family:var(--font-mono); font-size:10px; font-weight:500; letter-spacing:0.1em; color:var(--text-secondary); width:35%;">${s.l.toUpperCase()}</th>
+            <td style="padding: 10px 0; color:var(--text-primary); font-family:var(--font-body);">${s.v}</td>
+          </tr>
+        `;
+      });
+      specsTable.innerHTML = specsHtml;
+
+      // 9. Populate Reviews List
+      const reviewsContainer = document.getElementById('detail-reviews-list');
+      
+      const seedReviews = [
+        {
+          id: "rev-1",
+          productId: product.id,
+          userId: "u01",
+          name: "Dewi Rahayu",
+          origin: "Jakarta Selatan",
+          photo: "photo-1494790108377-be9c29b29330",
+          rating: 5,
+          date: "14 Mei 2026",
+          verified: true,
+          text: "Kualitas kulit benar-benar premium — terasa berat dan padat di tangan, bukan tipis seperti produk mass-market. Jahitan rapi dan simetris, hardware terasa solid. Sudah pakai 3 bulan dan sudah mulai terbentuk patina yang cantik. Worth every rupiah!"
+        },
+        {
+          id: "rev-2",
+          productId: product.id,
+          userId: "u04",
+          name: "Farhan Kusuma",
+          origin: "Surabaya",
+          photo: "photo-1472099645785-5658abf4ff4e",
+          rating: 5,
+          date: "28 Apr 2026",
+          verified: true,
+          text: "Detail craftsmanship luar biasa. Saddle stitch di seluruh tas benar-benar dikerjakan tangan — bisa dilihat dari pola jahitannya yang sedikit imperfect tapi justru itu yang membuat benda ini terasa autentik. Pengiriman dari Magetan cepat dan packing sangat aman."
+        },
+        {
+          id: "rev-3",
+          productId: product.id,
+          userId: "u05",
+          name: "Linda Permata",
+          origin: "Bandung",
+          photo: "photo-1494790108377-be9c29b29330",
+          rating: 4,
+          date: "10 Apr 2026",
+          verified: true,
+          text: "Sangat puas dengan produknya. Kulit berbau harum tanin alami saat pertama kali dibuka — bukan bau kimia seperti kulit murah. Satu bintang dikurangi karena warna sedikit berbeda dari foto (lebih gelap), tapi setelah beberapa hari terkena cahaya sudah lebih cerah."
+        }
+      ];
+
+      if (!localStorage.getItem('kuleather_reviews')) {
+        localStorage.setItem('kuleather_reviews', JSON.stringify(seedReviews));
+      }
+
+      function getReviewStars(r) {
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+          if (i <= r) {
+            stars += `<svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+          } else {
+            stars += `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--muted);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+          }
+        }
+        return stars;
+      }
+
+      function renderReviews() {
+        const allReviews = JSON.parse(localStorage.getItem('kuleather_reviews')) || [];
+        const productReviews = allReviews.filter(r => r.productId === product.id);
+        
+        // Update review tab header text and rating stats
+        const reviewTabBtn = document.querySelector('[data-tab="tab-reviews"]');
+        if (reviewTabBtn) {
+          reviewTabBtn.textContent = `Ulasan (${productReviews.length})`;
+        }
+        
+        const countDisplay = document.getElementById('detail-reviews-count');
+        if (countDisplay) {
+          countDisplay.textContent = `(${productReviews.length} ulasan)`;
+        }
+
+        if (productReviews.length === 0) {
+          reviewsContainer.innerHTML = `<p class="text-secondary body-sm" style="text-align:center; padding: 20px 0;">Belum ada ulasan untuk produk ini.</p>`;
+          return;
+        }
+
+        let reviewsHtml = '';
+        productReviews.forEach(r => {
+          const photoSeed = r.photo || 'photo-1494790108377-be9c29b29330';
+          const rImgUrl = (photoSeed.startsWith('http') || photoSeed.includes('/')) ? photoSeed : `https://images.unsplash.com/${photoSeed}?w=50&h=50&fit=crop&auto=format`;
+          reviewsHtml += `
+            <div style="background-color: var(--surface); border: 1px solid var(--muted-light); padding: var(--space-md); display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div style="width:32px; height:32px; border-radius:50%; background-color:var(--accent); color:var(--white); display:flex; justify-content:center; align-items:center; font-family:var(--font-mono); font-size:11px; font-weight:700;">
+                    ${(r.name || 'US').split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase()}
+                  </div>
+                  <div>
+                    <span style="font-weight:600; font-size:13px; display:block;">${r.name}</span>
+                    <span class="caption text-secondary" style="font-size:8px;">${r.origin || 'Indonesia'}</span>
+                  </div>
+                </div>
+                <div class="caption text-muted">${r.date}</div>
+              </div>
+              
+              <div style="display:flex; align-items:center; gap:var(--space-md);">
+                <div style="display:flex; gap:2px;">
+                  ${getReviewStars(r.rating)}
+                </div>
+                ${r.verified ? `<span class="badge badge-premium" style="padding:2px 6px; font-size:8px; border-color:#6B8C42; color:#6B8C42; background-color:rgba(107,140,66,0.05);"><span style="display:inline-block; width:4px; height:4px; border-radius:50%; background-color:#6B8C42; margin-right:4px;"></span>PEMBELI TERVERIFIKASI</span>` : ''}
+              </div>
+              
+              <p class="body-sm text-secondary" style="margin-top:4px;">${r.text}</p>
+            </div>
+          `;
+        });
+        reviewsContainer.innerHTML = reviewsHtml;
+      }
+
+      renderReviews();
+
+      // 9b. Render Review Form or Warning (Verified Purchases Only)
+      const formWrapper = document.getElementById('reviews-form-wrapper');
+      
+      function checkAndRenderReviewForm() {
+        if (!formWrapper) return;
+
+        const activeUser = typeof getActiveUser === 'function' ? getActiveUser() : null;
+        if (!activeUser) {
+          formWrapper.innerHTML = `
+            <div style="background-color: var(--bg-alt); border: 1px solid var(--muted-light); padding: var(--space-md); text-align: center;">
+              <p class="body-sm text-secondary">Silakan <a href="auth.html" class="text-accent" style="font-weight:700;">masuk (login)</a> terlebih dahulu untuk memberikan ulasan produk.</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Get completed orders for this user
+        const orders = JSON.parse(localStorage.getItem('kuleather_profile_orders')) || [];
+        const hasCompletedOrder = orders.some(o => 
+          o.userId === activeUser.id && 
+          o.status === 'Selesai' && 
+          o.items.some(item => item.id === product.id)
+        );
+
+        if (!hasCompletedOrder) {
+          formWrapper.innerHTML = `
+            <div style="background-color: rgba(193, 127, 59, 0.02); border: 1px solid var(--muted-light); padding: var(--space-md); text-align: center;">
+              <p class="body-sm text-secondary"><strong>Hanya Pembeli Terverifikasi</strong> yang dapat menulis ulasan. Anda harus membeli produk ini terlebih dahulu dan menyelesaikan pesanan Anda sebelum dapat menulis ulasan.</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Check if already reviewed
+        const allReviews = JSON.parse(localStorage.getItem('kuleather_reviews')) || [];
+        const alreadyReviewed = allReviews.some(r => r.userId === activeUser.id && r.productId === product.id);
+        
+        if (alreadyReviewed) {
+          formWrapper.innerHTML = `
+            <div style="background-color: rgba(94, 186, 130, 0.02); border: 1px solid var(--success); padding: var(--space-md); text-align: center; color: var(--success);">
+              <p class="body-sm">✓ Anda telah memberikan ulasan untuk produk ini. Terima kasih atas umpan balik Anda!</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Render Form
+        formWrapper.innerHTML = `
+          <h4 class="heading-3 mb-md" style="font-size:16px; font-weight:700;">Tulis Ulasan Produk</h4>
+          <form id="add-review-form" class="flex-y gap-md">
+            <div class="form-group">
+              <label class="form-label" style="display:block;">Rating Ulasan</label>
+              <div style="display:flex; gap:6px; color:var(--muted); font-size:24px; cursor:pointer;" id="form-stars-picker">
+                <span class="form-star active" data-value="1" style="color:var(--accent);">★</span>
+                <span class="form-star active" data-value="2" style="color:var(--accent);">★</span>
+                <span class="form-star active" data-value="3" style="color:var(--accent);">★</span>
+                <span class="form-star active" data-value="4" style="color:var(--accent);">★</span>
+                <span class="form-star active" data-value="5" style="color:var(--accent);">★</span>
+              </div>
+              <input type="hidden" id="form-rating-value" value="5">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="form-review-text">Isi Ulasan</label>
+              <textarea id="form-review-text" rows="3" placeholder="Bagikan tanggapan Anda tentang kualitas produk, pengiriman, dan layanan pengrajin..." required style="width: 100%; padding: 10px; border: 1px solid var(--muted); background: var(--surface); color: var(--text-primary); font-family: var(--font-body); font-size: 13px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="align-self: flex-start;">KIRIM ULASAN</button>
+          </form>
+        `;
+
+        // Stars picker logic
+        const stars = formWrapper.querySelectorAll('.form-star');
+        const ratingValInput = document.getElementById('form-rating-value');
+        
+        stars.forEach(star => {
+          star.addEventListener('click', (e) => {
+            const val = parseInt(e.target.getAttribute('data-value'), 10);
+            ratingValInput.value = val;
+            
+            stars.forEach(s => {
+              const sVal = parseInt(s.getAttribute('data-value'), 10);
+              if (sVal <= val) {
+                s.style.color = 'var(--accent)';
+              } else {
+                s.style.color = 'var(--muted)';
+              }
+            });
+          });
+        });
+
+        // Form Submit
+        const reviewForm = document.getElementById('add-review-form');
+        if (reviewForm) {
+          reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const rating = parseInt(ratingValInput.value, 10);
+            const text = document.getElementById('form-review-text').value.trim();
+            
+            const reviewsList = JSON.parse(localStorage.getItem('kuleather_reviews')) || [];
+            
+            const newReview = {
+              id: 'rev-' + Date.now(),
+              productId: product.id,
+              userId: activeUser.id,
+              name: activeUser.name,
+              origin: activeUser.address ? activeUser.address.split(',')[1] || 'Magetan' : 'Magetan',
+              rating: rating,
+              date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }),
+              verified: true,
+              text: text
+            };
+
+            reviewsList.unshift(newReview);
+            localStorage.setItem('kuleather_reviews', JSON.stringify(reviewsList));
+
+            // Log activity
+            const activity = JSON.parse(localStorage.getItem('kuleather_activity')) || [];
+            activity.unshift({
+              userId: activeUser.id,
+              text: `Menulis ulasan bintang ${rating} untuk produk ${product.name}`,
+              date: new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }),
+              time: new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+            });
+            localStorage.setItem('kuleather_activity', JSON.stringify(activity));
+
+            window.showToast('Ulasan Anda berhasil dikirim sebagai Pembeli Terverifikasi!', 'success');
+            
+            // Re-render
+            renderReviews();
+            checkAndRenderReviewForm();
+          });
+        }
+      }
+
+      checkAndRenderReviewForm();
+
+      // 10. Populate Related Products
+      const relatedGrid = document.getElementById('related-products-grid');
+      // Take first 4 products that are not the current one
+      const relatedProducts = PRODUCTS.filter(p => p.id !== productId).slice(0, 4);
+      
+      let relatedHtml = '';
+      relatedProducts.forEach(rp => {
+        const rpImgUrl = rp.photo.startsWith('photo-') ? `https://images.unsplash.com/${rp.photo}?w=400&h=400&fit=crop&auto=format` : rp.photo;
+        const rpBadge = rp.badges.map(b => `<span class="badge badge-bestseller">${b}</span>`).join('');
+        
+        relatedHtml += `
+          <div class="product-card">
+            <div class="product-card-img-wrapper">
+              <a href="product.html?id=${rp.id}">
+                <img src="${rpImgUrl}" alt="${rp.name}" class="product-card-img">
+              </a>
+              <div class="product-card-badge-overlay">${rpBadge}</div>
+              <button class="quick-add-btn" data-id="${rp.id}">Quick Add</button>
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-meta">
+                <span class="eyebrow">${rp.cat}</span>
+                <div class="product-card-rating">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span>${rp.rating}</span>
+                </div>
+              </div>
+              <h3 class="product-card-title"><a href="product.html?id=${rp.id}">${rp.name}</a></h3>
+              <div class="product-card-origin" style="display:flex; justify-content:space-between; align-items:center; width:100%; margin-top:2px; margin-bottom:8px; font-size:10px;">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px; height:12px; display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>${rp.origin}</span>
+                <span class="text-accent" style="font-family:var(--font-mono); font-weight:600; text-transform:uppercase;">${rp.seller || 'Mitra Kuleather'}</span>
+              </div>
+              <div class="product-card-footer">
+                <span class="price">${formatCurrency(rp.price)}</span>
+                <span class="caption text-muted">${rp.sold} sold</span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      relatedGrid.innerHTML = relatedHtml;
+      
+      // Bind quick add buttons on related cards
+      const quickAddBtns = relatedGrid.querySelectorAll('.quick-add-btn');
+      quickAddBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const pid = e.target.getAttribute('data-id');
+          const rpProd = PRODUCTS.find(p => p.id === pid);
+          if (rpProd && typeof addToCart === 'function') {
+            addToCart({
+              id: rpProd.id,
+              name: rpProd.name,
+              price: rpProd.price,
+              photo: rpProd.photo,
+              variant: 'Cokelat Tua',
+              qty: 1
+            });
+          }
+        });
+      });
+
+      // 11. Add to Cart Triggers
+      const btnAdd = document.getElementById('btn-add-to-cart');
+      const btnBuy = document.getElementById('btn-buy-now');
+
+      if (btnAdd) {
+        btnAdd.addEventListener('click', () => {
+          const qty = parseInt(qtyVal.value, 10);
+          addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            photo: product.photo,
+            variant: `${selectedColor} (${selectedSize})`,
+            qty: qty
+          });
+        });
+      }
+
+      if (btnBuy) {
+        btnBuy.addEventListener('click', () => {
+          const qty = parseInt(qtyVal.value, 10);
+          // Add to cart silently (without showToast popup duplication)
+          const cart = getCart();
+          const variantName = `${selectedColor} (${selectedSize})`;
+          const existingItem = cart.find(item => item.id === product.id && item.variant === variantName);
+          
+          if (existingItem) {
+            existingItem.qty += qty;
+          } else {
+            cart.push({
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              photo: product.photo,
+              variant: variantName,
+              qty: qty
+            });
+          }
+          saveCart(cart);
+          
+          // Redirect immediately
+          window.location.href = 'cart.html';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

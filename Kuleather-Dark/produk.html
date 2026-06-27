@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Produk KULEATHER — Temukan produk kerajinan kulit jadi, lembaran kulit bahan baku, zat kimia penyamakan, hingga jasa pengrajin kulit terpercaya.">
+  <title>Produk — KULEATHER</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">KULEATHER</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Beranda</a>
+        <a class="nav-link active" href="produk.html">Produk</a>
+        <a class="nav-link" href="services.html">Jasa</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html" aria-label="Cari Produk">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a class="nav-cart btn-icon" href="cart.html" aria-label="Keranjang Belanja">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span>
+        </a>
+        <a class="btn btn-secondary btn-sm" href="auth.html">MASUK</a>
+      </div>
+      <button class="nav-toggle btn-icon" id="nav-toggle" aria-label="Menu Mobile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <button class="nav-drawer-close btn-icon" id="nav-drawer-close" aria-label="Tutup Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="nav-drawer-links" style="margin-top: 40px;">
+      <a class="nav-drawer-link" href="index.html">Beranda</a>
+      <a class="nav-drawer-link active" href="produk.html">Produk</a>
+      <a class="nav-drawer-link" href="services.html">Jasa</a>
+      <a class="nav-drawer-link" href="journal.html">Journal</a>
+      <a class="nav-drawer-link" href="faq.html">Bantuan</a>
+      <a class="nav-drawer-link" href="auth.html" style="margin-top: 20px; color: var(--accent);">Masuk / Daftar</a>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB HEADER -->
+  <header style="background-color: var(--bg-alt); padding: var(--space-2xl) 0 var(--space-xl) 0; margin-top: var(--navbar-height); border-bottom: 1px solid var(--muted-light);">
+    <div class="container">
+      <nav class="caption text-secondary mb-sm" style="display:flex; align-items:center; gap:8px;">
+        <a href="index.html" class="breadcrumb-link">BERANDA</a>
+        <span>/</span>
+        <span class="text-accent">PRODUK</span>
+      </nav>
+      <h1 class="heading-1">Produk</h1>
+      <p class="text-secondary body-sm mt-xs">Mulai telusuri bahan mentah hingga kerajinan kulit dari pengrajin lokal terpercaya.</p>
+    </div>
+  </header>
+
+  <!-- CATALOG CONTENT -->
+  <main class="section container">
+    <!-- Mobile Filter Toggle Button -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--space-md);">
+      <button class="filter-toggle-btn" id="filter-toggle-btn" aria-label="Tampilkan Filter">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="8" y1="12" x2="16" y2="12"></line><line x1="11" y1="18" x2="13" y2="18"></line></svg>
+        Filter Produk
+      </button>
+    </div>
+
+    <!-- Mobile Filter Overlay Backdrop -->
+    <div class="filter-overlay" id="filter-overlay"></div>
+
+    <div class="produk-layout">
+      <!-- 1. FILTER SIDEBAR -->
+      <aside class="produk-sidebar" id="produk-sidebar">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--space-md);">
+          <span class="filter-title">Filter</span>
+          <button id="filter-sidebar-close" style="background:none;border:none;cursor:pointer;color:var(--text-muted);padding:4px;display:none;" aria-label="Tutup Filter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <!-- Search -->
+        <div class="filter-section">
+          <label class="filter-title mb-xs">Cari</label>
+          <div class="search-input-wrapper">
+            <svg class="search-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="produk-search-input" placeholder="Ketik nama produk...">
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="filter-section" id="filter-category">
+          <label class="filter-title mb-sm">Kategori</label>
+          <div class="filter-pills">
+            <button class="filter-pill active" data-value="Semua">Semua</button>
+            <button class="filter-pill" data-value="Barang Jadi">Barang Jadi</button>
+            <button class="filter-pill" data-value="Bahan Baku">Bahan Baku</button>
+            <button class="filter-pill" data-value="Aksesori">Aksesori</button>
+            <button class="filter-pill" data-value="Kimia Kulit">Kimia Kulit</button>
+            <button class="filter-pill" data-value="Mesin & Alat">Mesin & Alat</button>
+            <button class="filter-pill" data-value="Jasa">Jasa</button>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-section" id="filter-price">
+          <label class="filter-title mb-sm">Rentang Harga</label>
+          <div class="filter-pills">
+            <button class="filter-pill active" data-value="Semua">Semua</button>
+            <button class="filter-pill" data-value="< Rp 300K">&lt; Rp 300K</button>
+            <button class="filter-pill" data-value="Rp 300K – 1JT">Rp 300K – 1JT</button>
+            <button class="filter-pill" data-value="Rp 1JT – 2JT">Rp 1JT – 2JT</button>
+            <button class="filter-pill" data-value="> Rp 2JT">&gt; Rp 2JT</button>
+          </div>
+        </div>
+
+        <!-- Minimum Rating -->
+        <div class="filter-section">
+          <label class="filter-title mb-sm">Rating Minimum</label>
+          <div class="flex-y gap-sm">
+            <label class="checkbox-label">
+              <input type="checkbox" class="rating-filter-checkbox" value="4">
+              <span>★ 4.0 ke atas</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" class="rating-filter-checkbox" value="4.5">
+              <span>★ 4.5 ke atas</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Material Type -->
+        <div class="filter-section" id="filter-material">
+          <label class="filter-title mb-sm">Tipe Material</label>
+          <div class="filter-pills">
+            <button class="filter-pill active" data-value="Semua">Semua</button>
+            <button class="filter-pill" data-value="Kulit Sapi">Kulit Sapi</button>
+            <button class="filter-pill" data-value="Kulit Domba">Kulit Domba</button>
+            <button class="filter-pill" data-value="Kulit Kambing">Kulit Kambing</button>
+            <button class="filter-pill" data-value="Exotic Leather">Exotic</button>
+          </div>
+        </div>
+
+        <!-- Origin City -->
+        <div class="filter-section" id="filter-origin">
+          <label class="filter-title mb-sm">Kota Asal</label>
+          <div class="filter-pills">
+            <button class="filter-pill active" data-value="Semua">Semua</button>
+            <button class="filter-pill" data-value="Magetan">Magetan</button>
+            <button class="filter-pill" data-value="Sidoarjo">Sidoarjo</button>
+            <button class="filter-pill" data-value="Yogyakarta">Yogyakarta</button>
+            <button class="filter-pill" data-value="Garut">Garut</button>
+          </div>
+        </div>
+
+        <!-- Stock Switch -->
+        <div class="filter-section">
+          <label class="checkbox-label">
+            <input type="checkbox" id="filter-stock-toggle">
+            <span>Hanya Stok Tersedia</span>
+          </label>
+        </div>
+
+        <button class="btn btn-ghost btn-sm mt-md btn-full" id="reset-filters-btn">BERSIHKAN FILTER</button>
+      </aside>
+
+      <!-- 2. PRODUCTS PANEL -->
+      <section style="display:flex; flex-direction:column; gap:var(--space-lg);">
+        <!-- Catalog Controls header -->
+        <div class="flex-between" style="border-bottom:1px solid var(--muted-light); padding-bottom:var(--space-sm);">
+          <span class="body-sm text-secondary" id="produk-count-display">Menampilkan 0–0 dari 0 produk</span>
+          
+          <div style="display:flex; align-items:center; gap:var(--space-md);">
+            <!-- Sort dropdown -->
+            <div style="display:flex; align-items:center; gap:var(--space-sm);">
+              <span class="caption text-secondary">URUTKAN:</span>
+              <select id="sort-products-select" style="padding: 4px 10px; font-size:12px; border:1px solid var(--muted); border-radius:0; width:160px; background-color:var(--surface);">
+                <option value="newest">Terbaru</option>
+                <option value="popular">Terpopuler</option>
+                <option value="rating">Rating Tertinggi</option>
+                <option value="price-asc">Harga: Terendah</option>
+                <option value="price-desc">Harga: Tertinggi</option>
+              </select>
+            </div>
+            
+            <!-- View toggler grid/list -->
+            <div style="display:flex; gap:2px; border:1px solid var(--muted-light);">
+              <button class="btn-icon active" id="view-grid-btn" style="width:30px; height:30px; border-radius:0;" aria-label="Tampilan Grid">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </button>
+              <button class="btn-icon" id="view-list-btn" style="width:30px; height:30px; border-radius:0; border-left:1px solid var(--muted-light);" aria-label="Tampilan List">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid Injector -->
+        <div id="produk-grid" class="grid-auto">
+          <!-- Inject via produk.js -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <div id="catalog-pagination" class="flex-center gap-xs" style="margin-top:var(--space-xl);">
+          <!-- Inject via produk.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">
+          <div class="footer-logo-mark">KL</div>
+          <span>KULEATHER</span>
+        </a>
+        <p class="footer-brand-desc">Marketplace kulit premium pertama yang menghubungkan langsung pengrajin lokal dengan pasar nasional dan global.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="footer-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Navigasi</h4>
+        <div class="footer-menu">
+          <a href="index.html" class="breadcrumb-link">Beranda</a>
+          <a href="produk.html" class="breadcrumb-link">Produk</a>
+          <a href="journal.html" class="footer-link">Journal</a>
+          <a href="faq.html" class="footer-link">FAQ / Bantuan</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Informasi</h4>
+        <div class="footer-menu">
+          <a href="about.html" class="footer-link">Tentang Kami</a>
+          <a href="contact.html" class="footer-link">Hubungi Kami</a>
+          <a href="terms.html" class="footer-link">Syarat & Ketentuan</a>
+          <a href="size-guide.html" class="footer-link">Panduan Ukuran</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4 class="footer-column-title">Hubungi Kami</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Magetan, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>halo@kuleather.id</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+62 (351) 123-4567</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top btn-icon" id="back-to-top" aria-label="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/produk.js"></script>
+</body>
+</html>

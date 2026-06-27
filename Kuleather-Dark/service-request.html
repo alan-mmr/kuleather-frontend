@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ruang Negosiasi Jasa Kuleather — Negosiasi harga final, revisi gratis, dan pantau progres pengerjaan custom kulit Anda secara transparan.">
+  <title>Workspace Negosiasi Jasa — KULEATHER</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Simulation bar at the top */
+    .sim-bar {
+      background-color: var(--text-primary);
+      color: var(--bg);
+      padding: 8px var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1001;
+      position: sticky;
+      top: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .sim-btn {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 3px 8px;
+      font-size: 9px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color var(--transition-fast);
+      margin-left: 8px;
+    }
+    .sim-btn:hover {
+      background-color: var(--accent-hover);
+    }
+    .sim-btn.active {
+      background-color: var(--success);
+      box-shadow: 0 0 8px var(--success);
+    }
+
+    /* Negotiation room customization */
+    .nego-wrapper {
+      margin-top: 20px;
+      margin-bottom: var(--space-3xl);
+    }
+    .nego-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      background-color: var(--surface);
+      border: 1px solid var(--muted-light);
+      box-shadow: var(--shadow-md);
+      min-height: 600px;
+    }
+    .nego-sidebar-info {
+      border-right: 1px solid var(--muted-light);
+      background-color: var(--bg-alt);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .sidebar-block {
+      border-bottom: 1px dashed var(--muted);
+      padding-bottom: var(--space-md);
+    }
+    .sidebar-block:last-child {
+      border-bottom: none;
+    }
+    .sidebar-block-title {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+    .revision-progress-container {
+      background-color: rgba(44, 31, 18, 0.05);
+      height: 8px;
+      width: 100%;
+      margin-top: 6px;
+      position: relative;
+    }
+    .revision-progress-bar {
+      background-color: var(--accent);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Request Form Styles */
+    .req-form-card {
+      background-color: var(--surface);
+      border: 1px solid var(--muted-light);
+      padding: var(--space-2xl);
+      max-width: 750px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-md);
+    }
+    .image-picker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+      margin-top: var(--space-xs);
+    }
+    .image-picker-item {
+      border: 2px solid var(--muted-light);
+      aspect-ratio: 1;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-fast);
+    }
+    .image-picker-item:hover {
+      border-color: var(--accent-light);
+    }
+    .image-picker-item.selected {
+      border-color: var(--accent);
+    }
+    .image-picker-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .image-picker-checkbox {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      accent-color: var(--accent);
+    }
+
+    /* Chat Messages styling overrides */
+    .chat-event-message {
+      align-self: center;
+      background-color: var(--bg-alt);
+      border: 1px solid var(--muted-light);
+      color: var(--text-secondary);
+      padding: 6px 16px;
+      font-size: 11px;
+      border-radius: var(--radius-full);
+      margin: var(--space-sm) 0;
+      font-family: var(--font-mono);
+      text-align: center;
+      max-width: 85%;
+    }
+    .chat-wip-card, .chat-result-card {
+      background-color: var(--surface);
+      border: 1px solid var(--muted-light);
+      padding: var(--space-md);
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .chat-wip-card img, .chat-result-card img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border: 1px solid var(--muted-light);
+    }
+
+    /* Actions area styles */
+    .action-box-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      background-color: var(--bg-alt);
+      padding: var(--space-md);
+      border: 1px solid var(--muted-light);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Checkout-style payment modal styles */
+    .payment-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--space-sm);
+    }
+    .payment-card {
+      background-color: var(--surface);
+      border: 1px solid var(--muted-light);
+      padding: var(--space-md);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      transition: all var(--transition-base);
+      position: relative;
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+    }
+    .payment-card:hover {
+      border-color: var(--accent);
+      background-color: var(--bg-alt);
+    }
+    .payment-card.selected {
+      border-color: var(--accent);
+      background-color: var(--accent-bg);
+    }
+    .payment-card input[type="radio"] {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      accent-color: var(--accent);
+    }
+    .modal-overlay {
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .modal-overlay.hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container container">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-mark">KL</div>
+        <span>KULEATHER</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Beranda</a>
+        <a class="nav-link" href="produk.html">Produk</a>
+        <a class="nav-link active" href="services.html">Jasa</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link" href="faq.html">Bantuan</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-search btn-icon" href="produk.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a>
+        <a class="nav-cart btn-icon" href="cart.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span class="nav-cart-badge" id="cart-badge" style="display: none;">0</span></a>
+        <a class="btn btn-secondary btn-sm" href="auth.html" id="nav-login-btn">MASUK</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN WRAPPER -->
+  <main class="container" style="margin-top: calc(var(--navbar-height) + 20px);">
+    
+    <!-- 1. SCREEN: REQUEST FORM (Show if making new request) -->
+    <div id="screen-request-form" class="hidden" style="padding: var(--space-xl) 0;">
+      <div class="req-form-card">
+        <h2 class="heading-2 mb-xs">Form Pengajuan Jasa</h2>
+        <p class="text-secondary body-sm mb-xl">Lengkapi deskripsi detail kustomisasi, ukuran spesifikasi, serta ajukan budget awal Anda ke pengrajin.</p>
+        
+        <form id="new-service-request-form" class="flex-y gap-md">
+          <div class="form-group">
+            <label class="form-label" style="font-size: 9px; font-weight:700;">LAYANAN JASA YANG DIAJUKAN</label>
+            <input type="text" id="req-service-name" readonly style="width:100%; background-color: var(--bg-alt); font-weight:700;">
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label" style="font-size: 9px; font-weight:700;">NAMA PENGRAJIN / TOKO</label>
+              <input type="text" id="req-seller-name" readonly style="width:100%; background-color: var(--bg-alt);">
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-size: 9px; font-weight:700;">BUDGET AWAL YANG DIAJUKAN (RP)</label>
+              <input type="number" id="req-budget" required style="width:100%;" min="10000">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-size: 9px; font-weight:700;">DESKRIPSI MODEL & DESAIN CUSTOM YANG DIINGINKAN</label>
+            <textarea id="req-desc" rows="4" required style="width:100%;" placeholder="Contoh: Saya mau jaket kulit model rider dengan kerah tegak, warna cokelat tan seperti foto referensi, menggunakan resleting YKK kuningan tebal..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-size: 9px; font-weight:700;">SPESIFIKASI DETAIL / UKURAN FISIK (BILA ADA)</label>
+            <textarea id="req-specs" rows="3" style="width:100%;" placeholder="Contoh: Lingkar dada 104cm, panjang lengan 62cm, lebar bahu 46cm, panjang jaket 68cm..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-size: 9px; font-weight:700;">PILIH GAMBAR REFERENSI DESAIN (MAKSIMAL 2)</label>
+            <div class="image-picker-grid" id="req-ref-picker">
+              <div class="image-picker-item" data-url="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=120&h=120&fit=crop&auto=format" alt="Ref 1">
+                <input type="checkbox" class="image-picker-checkbox">
+              </div>
+              <div class="image-picker-item" data-url="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=500&q=80">
+                <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=120&h=120&fit=crop&auto=format" alt="Ref 2">
+                <input type="checkbox" class="image-picker-checkbox">
+              </div>
+              <div class="image-picker-item" data-url="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80">
+                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=120&h=120&fit=crop&auto=format" alt="Ref 3">
+                <input type="checkbox" class="image-picker-checkbox">
+              </div>
+              <div class="image-picker-item" data-url="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120&h=120&fit=crop&auto=format" alt="Ref 4">
+                <input type="checkbox" class="image-picker-checkbox">
+              </div>
+            </div>
+            <span class="caption text-muted mt-xs" style="display:block;">Klik pada foto di atas untuk memilih sebagai gambar referensi pengerjaan.</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-size: 9px; font-weight:700;">CATATAN KHUSUS UNTUK PENGRAJIN</label>
+            <input type="text" id="req-notes" style="width:100%;" placeholder="Contoh: Tolong kerjakan dalam waktu 14 hari bila memungkinkan, terima kasih.">
+          </div>
+
+          <div class="flex-x gap-md mt-md">
+            <a href="services.html" class="btn btn-secondary" style="width: 40%; text-align: center;">KEMBALI</a>
+            <button type="submit" class="btn btn-primary" style="width: 60%;">KIRIM REQUEST JASA</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 2. SCREEN: NEGOTIATION ROOM WORKSPACE (Show if viewing existing orderId) -->
+    <div id="screen-negotiation-workspace" class="nego-wrapper hidden">
+      <div class="nego-grid">
+        <!-- SIDEBAR INFO -->
+        <aside class="nego-sidebar-info">
+          
+          <!-- Block: Timeline progress -->
+          <div class="sidebar-block">
+            <h4 class="sidebar-block-title">Tahapan Pengerjaan</h4>
+            <div class="timeline-flow" id="workspace-timeline">
+              <div class="timeline-flow-item" id="tl-REQUEST_SENT">
+                <div class="timeline-flow-dot"></div>
+                <div class="timeline-flow-content">
+                  <span class="timeline-flow-title">Request Diajukan</span>
+                  <span class="timeline-flow-date" id="tld-REQUEST_SENT">-</span>
+                </div>
+              </div>
+              <div class="timeline-flow-item" id="tl-PENAWARAN_DIKIRIM">
+                <div class="timeline-flow-dot"></div>
+                <div class="timeline-flow-content">
+                  <span class="timeline-flow-title">Penawaran Harga</span>
+                  <span class="timeline-flow-date" id="tld-PENAWARAN_DIKIRIM">-</span>
+                </div>
+              </div>
+              <div class="timeline-flow-item" id="tl-DIBAYAR_ESCROW">
+                <div class="timeline-flow-dot"></div>
+                <div class="timeline-flow-content">
+                  <span class="timeline-flow-title">Escrow Terbayar</span>
+                  <span class="timeline-flow-date" id="tld-DIBAYAR_ESCROW">-</span>
+                </div>
+              </div>
+              <div class="timeline-flow-item" id="tl-DIKERJAKAN">
+                <div class="timeline-flow-dot"></div>
+                <div class="timeline-flow-content">
+                  <span class="timeline-flow-title">Sedang Dikerjakan</span>
+                  <span class="timeline-flow-date" id="tld-DIKERJAKAN">-</span>
+                </div>
+              </div>
+              <div class="timeline-flow-item" id="tl-HASIL_DIKIRIM">
+                <div class="timeline-flow-dot"></div>
+                <div class="timeline-flow-content">
+                  <span class="timeline-flow-title">Hasil Dikirim</span>
+                  <span class="timeline-flow-date" id="tld-HASIL_DIKIRIM">-</span>
+                </div>
+              </div>
+              <div class="timeline-flow-item" id="tl-SELESAI">
+                <div class="timeline-flow-dot"></div>
+                <div class="timeline-flow-content">
+                  <span class="timeline-flow-title">Transaksi Selesai</span>
+                  <span class="timeline-flow-date" id="tld-SELESAI">-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Block: Service Info -->
+          <div class="sidebar-block">
+            <h4 class="sidebar-block-title">Informasi Layanan</h4>
+            <div class="flex-y gap-xs">
+              <strong class="body-sm text-primary" id="side-service-name">-</strong>
+              <span class="caption text-secondary">Pengrajin: <strong id="side-seller-name">-</strong></span>
+              <span class="caption text-secondary">Pembeli: <strong id="side-buyer-name">-</strong></span>
+            </div>
+          </div>
+
+          <!-- Block: Revision Tracker -->
+          <div class="sidebar-block">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h4 class="sidebar-block-title" style="margin-bottom:0;">Batas Revisi Kerja</h4>
+              <span class="caption font-weight-bold text-accent" id="side-revision-ratio">0 / 3</span>
+            </div>
+            <div class="revision-progress-container">
+              <div class="revision-progress-bar" id="side-revision-bar"></div>
+            </div>
+            <div style="margin-top: 8px;" class="caption text-muted">
+              Biaya revisi ekstra: <strong class="text-primary" id="side-extra-cost">Rp - /revisi</strong>
+            </div>
+          </div>
+
+          <!-- Block: Financial Escrow Info -->
+          <div class="sidebar-block">
+            <h4 class="sidebar-block-title">Keuangan Escrow</h4>
+            <div style="background-color:rgba(44, 31, 18, 0.03); border: 1px solid var(--muted-light); padding:10px; display:flex; flex-direction:column; gap:4px;">
+              <div class="flex-between caption">
+                <span>Budget Awal:</span>
+                <span class="mono" id="side-budget-val">Rp 0</span>
+              </div>
+              <div class="flex-between caption" style="font-weight:700; color:var(--text-primary); border-top:1px dashed var(--muted-light); padding-top:4px; margin-top:4px;">
+                <span>Harga Deal Final:</span>
+                <span class="mono text-accent" id="side-deal-val">Belum Deal</span>
+              </div>
+              <div class="flex-between caption" style="font-size:9px;">
+                <span>Status Escrow:</span>
+                <strong id="side-escrow-status" style="color:var(--error);">BELUM DIBAYAR</strong>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- CHAT AREA -->
+        <div class="nego-chat-area">
+          <!-- Chat Header -->
+          <div class="nego-chat-header">
+            <div>
+              <span class="caption text-muted" style="font-family: var(--font-mono);" id="chat-header-order-id">ORDER ID: -</span>
+              <h3 class="body" style="font-weight:700;" id="chat-header-service-title">-</h3>
+            </div>
+            <div>
+              <span class="badge" id="chat-header-status-badge" style="border-color: var(--accent); color: var(--accent); font-size: 9px; padding: 4px 10px;">-</span>
+            </div>
+          </div>
+
+          <!-- Message Log List -->
+          <div class="nego-messages-list" id="chat-messages-container">
+            <!-- Dynamically injected messages & logs -->
+          </div>
+
+          <!-- Dynamic Action Area -->
+          <div class="nego-chat-footer" id="chat-footer-actions-container">
+            <!-- Dynamically injected action forms based on active simulation user & order status -->
+          </div>
+
+          <!-- Standard Chat Input Panel (Always visible for typing regular comments) -->
+          <div style="border-top:1px solid var(--muted-light); padding:12px var(--space-md); display:flex; gap:12px; align-items:center; background-color: var(--surface);">
+            <input type="text" id="chat-text-input" placeholder="Tulis pesan komentar Anda di sini..." style="flex:1; border:1px solid var(--muted-light); padding:8px 12px; font-size:13px; border-radius:var(--radius-md);">
+            <button class="btn btn-primary" id="btn-chat-send" style="padding:8px 18px; font-size:11px;">KIRIM</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PAYMENT MODAL OVERLAY -->
+  <div id="escrow-payment-modal" class="modal-overlay hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+    <div class="modal-content" style="background: var(--surface); border: 1px solid var(--muted-light); padding: var(--space-xl); border-radius: var(--radius-lg); width: 90%; max-width: 600px; box-shadow: var(--shadow-lg); position: relative;">
+      <button id="btn-close-payment-modal" style="position: absolute; top: var(--space-md); right: var(--space-md); background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted);">&times;</button>
+      
+      <!-- STEP 1: PAYMENT METHOD SELECTION -->
+      <div id="escrow-payment-step-selection">
+        <h3 class="heading-md mb-md" style="font-family: var(--font-display); border-bottom: 1px solid var(--muted-light); padding-bottom: var(--space-sm); font-size: 18px; font-weight: 700; color: var(--text-primary);">Metode Pembayaran Escrow</h3>
+        <p class="body-sm text-secondary mb-md" style="font-size: 13px; margin-bottom: 16px;">Pilih metode pembayaran aman untuk menyetor dana escrow sebesar <strong id="escrow-modal-amount" class="text-accent" style="color: var(--accent);">Rp 0</strong>:</p>
+        
+        <div class="payment-card-grid mb-lg" style="margin-bottom: 24px;">
+          <label class="payment-card selected">
+            <input type="radio" name="escrow-pay-method" value="QRIS" checked>
+            <span style="font-weight: 700; font-size: 13px;">QRIS (GPN)</span>
+            <span style="font-size: 10px; color: var(--text-muted);">Bayar Instant & Otomatis</span>
+          </label>
+          <label class="payment-card">
+            <input type="radio" name="escrow-pay-method" value="BCA Virtual Account">
+            <span style="font-weight: 700; font-size: 13px;">BCA Virtual Account</span>
+            <span style="font-size: 10px; color: var(--text-muted);">Verifikasi Otomatis</span>
+          </label>
+          <label class="payment-card">
+            <input type="radio" name="escrow-pay-method" value="Mandiri Virtual Account">
+            <span style="font-weight: 700; font-size: 13px;">Mandiri Virtual Account</span>
+            <span style="font-size: 10px; color: var(--text-muted);">Verifikasi Otomatis</span>
+          </label>
+          <label class="payment-card">
+            <input type="radio" name="escrow-pay-method" value="BNI Virtual Account">
+            <span style="font-weight: 700; font-size: 13px;">BNI Virtual Account</span>
+            <span style="font-size: 10px; color: var(--text-muted);">Verifikasi Otomatis</span>
+          </label>
+          <label class="payment-card">
+            <input type="radio" name="escrow-pay-method" value="GoPay">
+            <span style="font-weight: 700; font-size: 13px;">GoPay</span>
+            <span style="font-size: 10px; color: var(--text-muted);">Konfirmasi Instan</span>
+          </label>
+          <label class="payment-card">
+            <input type="radio" name="escrow-pay-method" value="OVO">
+            <span style="font-weight: 700; font-size: 13px;">OVO</span>
+            <span style="font-size: 10px; color: var(--text-muted);">Konfirmasi Instan</span>
+          </label>
+        </div>
+        
+        <div class="flex-x gap-sm justify-end" style="display: flex; gap: var(--space-sm); justify-content: flex-end;">
+          <button id="btn-cancel-escrow-pay" class="btn btn-secondary btn-sm" style="padding: 8px 16px; font-size: 11px;">Batal</button>
+          <button id="btn-next-escrow-pay" class="btn btn-primary btn-sm" style="padding: 8px 24px; font-size: 11px;">Lanjutkan Pembayaran</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: PAYMENT INSTRUCTION / DETAILS -->
+      <div id="escrow-payment-step-details" class="hidden">
+        <h3 class="heading-md mb-md" style="font-family: var(--font-display); border-bottom: 1px solid var(--muted-light); padding-bottom: var(--space-sm); font-size: 18px; font-weight: 700; color: var(--text-primary);" id="escrow-details-title">Detail Transfer</h3>
+        
+        <div id="escrow-details-content" style="margin-bottom: 24px;">
+          <!-- Dynamically populated details (QR Code / VA number) -->
+        </div>
+
+        <div class="flex-x gap-sm justify-between" style="display: flex; gap: var(--space-sm); justify-content: space-between; align-items: center;">
+          <button id="btn-back-escrow-pay" class="btn btn-ghost btn-sm" style="padding: 8px 16px; font-size: 11px; color: var(--text-secondary);">Kembali ke Pilihan</button>
+          <button id="btn-confirm-escrow-pay" class="btn btn-primary btn-sm" style="padding: 8px 24px; font-size: 11px;">Konfirmasi & Selesaikan Pembayaran</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RATING & REVIEW MODAL OVERLAY -->
+  <div id="review-rating-modal" class="modal-overlay hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+    <div class="modal-content" style="background: var(--surface); border: 1px solid var(--muted-light); padding: var(--space-xl); border-radius: var(--radius-lg); width: 90%; max-width: 500px; box-shadow: var(--shadow-lg); position: relative;">
+      <button id="btn-close-review-modal" style="position: absolute; top: var(--space-md); right: var(--space-md); background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted);">&times;</button>
+      
+      <h3 class="heading-md mb-md" style="font-family: var(--font-display); border-bottom: 1px solid var(--muted-light); padding-bottom: var(--space-sm); font-size: 18px; font-weight: 700; color: var(--text-primary);">Berikan Ulasan Layanan</h3>
+      
+      <p class="body-sm text-secondary mb-md" style="font-size: 13px; margin-bottom: 16px;">Tingkat kepuasan Anda membantu meningkatkan kualitas pengrajin Kuleather.</p>
+      
+      <!-- Rating Selector (Stars) -->
+      <div class="form-group mb-md" style="margin-bottom: 16px; text-align: center;">
+        <label class="form-label" style="font-size: 10px; font-weight:700; display: block; margin-bottom: 8px;">RATING BINTANG</label>
+        <div class="star-rating-selector" style="display: inline-flex; gap: 8px; justify-content: center; font-size: 28px; cursor: pointer; color: var(--muted-light);">
+          <span class="star-item" data-rating="1">★</span>
+          <span class="star-item" data-rating="2">★</span>
+          <span class="star-item" data-rating="3">★</span>
+          <span class="star-item" data-rating="4">★</span>
+          <span class="star-item" data-rating="5" style="color: var(--accent);">★</span>
+        </div>
+        <input type="hidden" id="selected-rating-value" value="5">
+      </div>
+      
+      <!-- Review Text Input -->
+      <div class="form-group mb-lg" style="margin-bottom: 24px;">
+        <label class="form-label" style="font-size: 10px; font-weight:700; display: block; margin-bottom: 6px;">ULASAN KELAYAKAN</label>
+        <textarea id="review-comment-text" class="form-textarea" rows="3" style="width: 100%; padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--muted-light);" placeholder="Tuliskan pengalaman Anda menggunakan jasa kustom ini..."></textarea>
+      </div>
+      
+      <div class="flex-x gap-sm justify-end" style="display: flex; gap: var(--space-sm); justify-content: flex-end;">
+        <button id="btn-cancel-review" class="btn btn-secondary btn-sm" style="padding: 8px 16px; font-size: 11px;">Batal</button>
+        <button id="btn-submit-review-modal" class="btn btn-primary btn-sm" style="padding: 8px 24px; font-size: 11px;">Kirim Ulasan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KULEATHER. All Rights Reserved.</span>
+      <span>MADE WITH ♡ IN MAGETAN</span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/service-request.js"></script>
+</body>
+</html>
