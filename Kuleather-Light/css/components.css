@@ -498,7 +498,9 @@
 }
 
 /* Article Card */
+
 .article-card {
+  position: relative;
   background-color: var(--surface);
   border: 1px solid var(--muted-light);
   display: flex;
@@ -591,13 +593,25 @@
   color: var(--text-primary);
 }
 
-/* Featured Article Card */
 .featured-article-card {
+  position: relative;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   border: 1px solid var(--muted-light);
   background-color: var(--surface);
   transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.article-card-title a::after,
+.featured-article-card h2 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .featured-article-card:hover {
