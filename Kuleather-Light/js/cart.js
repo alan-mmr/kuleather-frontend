@@ -174,8 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="auth.html" class="btn btn-primary">Masuk / Daftar</a>
       </div>
     `;
-    const summaryCard = document.getElementById('cart-summary-card');
-    if (summaryCard) summaryCard.style.display = 'none';
+    const asidePanel = document.getElementById('cart-aside-panel');
+    if (asidePanel) asidePanel.style.display = 'none';
+
+    const layoutContainer = document.getElementById('cart-layout-container');
+    if (layoutContainer) layoutContainer.style.gridTemplateColumns = '1fr';
     
     return;
   }
