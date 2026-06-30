@@ -174,14 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="auth.html" class="btn btn-primary">Masuk / Daftar</a>
       </div>
     `;
-    const checkoutBtn = document.getElementById('checkout-btn');
-    if (checkoutBtn) checkoutBtn.style.display = 'none';
-    
-    const promoSection = document.querySelector('.promo-code-section');
-    if (promoSection) promoSection.style.display = 'none';
-    
-    const shippingSection = document.querySelector('.shipping-section');
-    if (shippingSection) shippingSection.style.display = 'none';
+    const summaryCard = document.getElementById('cart-summary-card');
+    if (summaryCard) summaryCard.style.display = 'none';
     
     return;
   }
